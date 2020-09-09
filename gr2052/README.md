@@ -18,3 +18,5 @@ Eventuelle ekstrafunksjoner: rate frisør, klippekort/lojalitetsprogram, kunne l
 ### Registrere bruker (us-1)
 Brukerhistorie #1:
 Brukeren har behov for å dele sin kontaktinformasjon med frisørsalongen, og det er praktisk at dette lagres. Dette gjøres ved at det er mulig å registrere en bruker. Når en ny bruker skal registrere seg må hen oppgi navn, epost-adresse og telefonnummer.
+Issues:
+Milestone: Innlevering 1
