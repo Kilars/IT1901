@@ -9,4 +9,4 @@ Appen skal vise en oversikt over tilgjengelige behandlinger hvor brukeren kan kr
 ### Brukerhistorie:
 Frisørsalongen “Kort og godt” ønsker et nytt bookingssystem på nett for å gjøre det lettere for kunden å bestille time og å spare frisørene for telefonsamtaler. De ønsker en applikasjon som skal være ferdig i slutten av november. 
 
-Marie ønsker å bestille en frisørtime hos “Kort og Godt” for å klippe seg. 
+Marie ønsker å bestille en frisørtime hos “Kort og Godt” for å klippe seg.  ok
