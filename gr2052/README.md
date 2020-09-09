@@ -6,7 +6,12 @@ Eventuelle ekstrafunksjoner: rate frisør, klippekort/lojalitetsprogram, kunne l
 Appen skal vise en oversikt over tilgjengelige behandlinger hvor brukeren kan krysse av for hva som ønskes. Deretter vises en oversikt over frisørene som tilbyr denne behandlingen (evt. disse behandlingene). Når frisør er valgt får man opp en oversikt over tilgjengelige datoer og klokkeslett. Brukeren må deretter bekrefte timen. Brukerhistorikken tar vare på tidigere og kommende avtaler hvor det også er mulig å avbestille. 
 
 
-### Brukerhistorie:
-Frisørsalongen “Kort og godt” ønsker et nytt bookingssystem på nett for å gjøre det lettere for kunden å bestille time og å spare frisørene for telefonsamtaler. De ønsker en applikasjon som skal være ferdig i slutten av november. 
-
-Marie ønsker å bestille en frisørtime hos “Kort og Godt” for å klippe seg.  ok
+### Brukerhistorier:
+-1. Som en bruker ønsker man å registrere seg/logge inn slik at data blir lagret.
+-2. Som en bruker ønsker man å kunne velge den behandlingen man ønsker.
+-3. Som en bruker ønsker man å se mine kommende og tidligere avtaler.
+-4. Som en bruker ønsker man å kunne avbestille timen sin.
+-5. Som en bruker ønsker man å velge mellom de frisørene som er tilgjengelige.
+-6. Som en bruker ønsker man å se tilgjengelige datoer og klokkeslett, og velge mellom disse. 
+-7. Som en bruker ønsker man å kunne se prisen på behandlingen(e) man velger.
+-8. Som en bruker ønsker man et intuitivt og funskjonelt brukergrensesnitt.
