@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Slider?>
+<?import fxmapcontrol.MapBase?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import fxmapcontrol.MapTileLayer?>
+<?import fxmapcontrol.TileSource?>
+<?import javafx.scene.control.MenuBar?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="simpleex.ui.FxAppController"
+            prefHeight="750" prefWidth="1000">
+    <top>
+		<VBox>
+			<MenuBar >
+				<menus>
+					<Menu text="File">
+						<items>
+							<MenuItem text="Open..." accelerator="Meta+O" onAction="#handleOpenAction"/>
+							<MenuItem text="Save"	 accelerator="Meta+S" onAction="#handleSaveAction"/>
+						</items>
+					</Menu>
+				</menus>
+			</MenuBar>
+		</VBox>
+    </top>
+    <left>
+		<VBox fillWidth="true">
+			<ListView fx:id="locationListView"/>
+			<Button text="Add location" onAction="#handleAddLocation"/>
+		</VBox>
+	</left>
+	<center>
+		<VBox>
+			<MapBase fx:id="mapView">
+				<MapTileLayer name="OpenStreetMap" minZoomLevel="0" maxZoomLevel="17">
+					<tileSource>
+						<TileSource urlFormat="http://a.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"/>
+					<!--
+						<TileSource urlFormat="https://{c}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
+						<TileSource urlFormat="http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=topo2&amp;zoom={z}&amp;x={x}&amp;y={y}"/>
+						<TileSource urlFormat="http://mt1.google.com/vt/lyrs=m@129&amp;hl=en&amp;s=Galileo&amp;z={z}&amp;x={x}&amp;y={y}"/>
+					-->
+					</tileSource>
+				</MapTileLayer>
+			</MapBase>
+			<Slider fx:id="zoomSlider" min="1" max="20" value="9"/>
+		</VBox>
+	</center>
+</BorderPane>
