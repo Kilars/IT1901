@@ -31,7 +31,7 @@ public class FilesHandle {
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
                 System.out.println(line);
-                // Do something 
+                // Do something
             }
             sc.close();
 
@@ -56,6 +56,7 @@ public class FilesHandle {
                 }
             }
             sc.close();
+            fr.close();
 
         } catch (IOException e) {
             System.err.println("Couldn't read from file");
