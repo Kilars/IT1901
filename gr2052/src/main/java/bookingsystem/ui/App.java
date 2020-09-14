@@ -15,7 +15,7 @@ public class App extends Application{
     public void start(final Stage stage) throws Exception {
         final FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FxApp.fxml"));
         final Parent root = fxmlLoader.load();
-        final AppController controller = fxmlLoader.getController();
+        //final AppController controller = fxmlLoader.getController();
         
         final Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -25,7 +25,6 @@ public class App extends Application{
     
     
     public static void main( String[] args ){
-        System.out.println( "Test");
         launch(args);
     }
 }
