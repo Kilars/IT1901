@@ -57,7 +57,23 @@ public class User {
     }
 
 
-public static void main(String[] args) {
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public static void main(String[] args) {
     
     User user = new User();
 
@@ -65,10 +81,6 @@ public static void main(String[] args) {
     user.setSurname("Hagen");
     user.setEmail("ingrid-hagen99@hotmail.com");
 System.out.println("hIe");
-
- 
-
-    
 }
 
 }
