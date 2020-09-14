@@ -25,7 +25,7 @@ public class User {
             this.firstName = firstName;
         }
         else {
-            System.err.println("Please enter a valid name starting with a capital letter");
+            System.err.println("Please enter a valid  first name starting with a capital letter");
         }
     }
 
@@ -34,7 +34,7 @@ public class User {
             this.surname = surname;
         }
         else {
-            System.err.println("Please enter a valid name starting with a capital letter");
+            System.err.println("Please enter a valid  surname starting with a capital letter");
         }
     }
 
@@ -56,15 +56,28 @@ public class User {
         }
     }
 
+     @java.lang.Override
+    public java.lang.String toString() {
+        return "User{" +
+                "firstName='" + firstName + '\'' +
+                ", surname='" + surname + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
+    }
+
 
 public static void main(String[] args) {
     
     User user = new User();
 
-    user.setFirstName("Ingrid");
-    user.setSurname("Hagen");
+    user.setFirstName("Ingrid"); 
+    user.setSurname("Hagen"); 
     user.setEmail("ingrid-hagen99@hotmail.com");
-System.out.println("hIe");
+    user.setPhone("97103994");
+    System.out.println(user.toString());
+
+    
 
  
 
