@@ -10,11 +10,11 @@ public class Users {
     private FilesHandle fileHandler = new FilesHandle();
     private String fileName = "users.txt";
     public Users() {
-        
+        loadUsersFromFile(this.fileName);
     }
 
     public void loadUsersFromFile(String fileName) {
-        this.usersList = fileHandler.readFromFile(fileName).stream().map(user -> new User(user)).collect(Collectors.toList());
+        this.usersList = (fileHandler.readFromFile(fileName) == null) ? new ArrayList<>() : fileHandler.readFromFile(fileName).stream().map(user -> new User(user)).collect(Collectors.toList());
     }
 
     public void saveUsersToFile(String fileName) {
