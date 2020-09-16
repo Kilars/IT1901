@@ -2,27 +2,19 @@ package bookingsystem.ui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class RegisterUser{
 
     @FXML
-    TextField nameField;
+    TextField nameField, emailField, phoneNumberField;
 
      @FXML
-    TextField emailField;
-
-     @FXML
-    TextField phoneNumberField;
-
-     @FXML
-    TextField passwordField;
-
-     @FXML
-    TextField confirmPasswordField;
+    PasswordField passwordField, confirmPasswordField;
 
     @FXML
-    Button registerUserButton;
+    Button registerUserButton, saveUserButton;
 
     
 

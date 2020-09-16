@@ -11,14 +11,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+
 public class AppController {
 	
 	@FXML
-    Button registerButton;
-    
-
-    @FXML
-    Button logInButton;
+    Button registerButton, logInButton;
 
     public void registerButtonPushed(ActionEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("RegisterUser.fxml"));
@@ -29,6 +26,8 @@ public class AppController {
 
         window.setScene(registerUserScene);
         window.show();
+
+
 
     }
 	
