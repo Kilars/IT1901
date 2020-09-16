@@ -14,6 +14,7 @@ public class User {
     }
     
     public User(String string) {
+
         String[] userInfo = string.split(";");
         setFirstName(userInfo[0]);
         setSurname(userInfo[1]);
@@ -60,12 +61,14 @@ public class User {
     }
 
     private boolean checkName(String name) {
-        if (Pattern.matches("[A-Z]{1}[a-z]{2,}",name)) {
-            return true;
+        boolean res = false;
+        String[] nameLst = name.split(" ");
+        for (String nam : nameLst) {     
+            if (Pattern.matches("[A-Z]{1}[a-z]{2,}",nam)) {
+                res = true;
+            }
         }
-        else {
-            return false;
-        }
+        return res;
     }
 
     public void setEmail(String email) {
@@ -79,7 +82,7 @@ public class User {
 
      @java.lang.Override
     public java.lang.String toString() {
-        return (firstName + ';' + surname + ';' + email + ';' + phone);
+        return (firstName + ';' + surname + ';' + email + ';' + phone + ';' + password);
     }
 
     public String getFirstName() {
@@ -98,14 +101,19 @@ public class User {
         return phone;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public static void main(String[] args) {
     
         //TEST
-   //User user = new User();
+   User user = new User();
     //user.setFirstName("Ingrid"); 
     //user.setSurname("Hagen"); 
     //user.setEmail("ingrid-hagen99@hotmail.com");
     //user.setPhone("97103994");
-    //System.out.println(user.toString());
+    //user.setPassword("H");
+    System.out.println(user.toString());
     }
 }
