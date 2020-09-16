@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class FilesHandle {
 
-    private String path = "/gr2052/src/main/resources/bookingsystem/fillagring/";
+    private String path = "gr2052/src/main/resources/bookingsystem/fillagring/";
     public FilesHandle() {
 
     }
@@ -83,16 +83,5 @@ public class FilesHandle {
         } else {
             System.out.println("File wasn't deleted");
         }
-    }
-    public static void main(String[] args) {
-        FilesHandle file = new FilesHandle();
-    //    file.writeToFile("testfile.txt");
-    //    file.readFromFile("testfile.txt");
-        List<String> users = new ArrayList<>(Arrays.asList("Magnus;Holta;12345678","Lars Skifjeld;Skien;hallo.du@tulla.bare"));
-        
-        file.writeToFile("test.txt", users, false);
-        file.readFromFile("test.txt").forEach(user -> System.out.println(user));
-        System.out.println("Orig:\t" + users +"\n"+file.readFromFile("test.txt"));
-        System.out.println("Res:\t" + users.equals(file.readFromFile("test.txt")));
     }
 }
