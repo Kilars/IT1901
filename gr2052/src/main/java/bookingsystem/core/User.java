@@ -12,6 +12,7 @@ public class User {
     }
     
     public User(String string) {
+
         String[] userInfo = string.split(";");
         setFirstName(userInfo[0]);
         setSurname(userInfo[1]);
@@ -25,7 +26,7 @@ public class User {
             this.password = password;
         }
         else {
-            throw new IllegalArgumentException("Please enter a valid password containing 8 or more characters");
+            throw new IllegalArgumentException("Vennligst skriv inn et gyldig passord");
         }
     }
 
@@ -34,7 +35,7 @@ public class User {
             this.phone = phone;
         }
         else {
-            throw new IllegalArgumentException("Please enter a valid phone number");
+            throw new IllegalArgumentException("Vennligst skriv inn et gyldig telefonnummer");
         }
     }
 
@@ -44,7 +45,7 @@ public class User {
             this.firstName = firstName;
         }
         else {
-            throw new IllegalArgumentException("Please enter a valid  first name starting with a capital letter");
+            throw new IllegalArgumentException("Vennligst skriv inn et gydlig fornavn");
         }
     }
 
@@ -53,17 +54,19 @@ public class User {
             this.surname = surname;
         }
         else {
-            throw new IllegalArgumentException("Please enter a valid  surname starting with a capital letter");
+            throw new IllegalArgumentException("Vennligst skriv inn et gyldig etternavn");
         }
     }
 
     private boolean checkName(String name) {
-        if (Pattern.matches("[A-Z]{1}[a-z]{2,}",name)) {
-            return true;
+        boolean res = false;
+        String[] nameLst = name.split(" ");
+        for (String nam : nameLst) {     
+            if (Pattern.matches("[A-Z]{1}[a-z]{3,}",nam)) {
+                res = true;
+            }
         }
-        else {
-            return false;
-        }
+        return res;
     }
 
     public void setEmail(String email) {
@@ -71,13 +74,13 @@ public class User {
             this.email = email;
         }
         else {
-            throw new IllegalArgumentException("Please enter a valid email.");
+            throw new IllegalArgumentException("Vennligst skriv inn en gyldig email-adresse");
         }
     }
 
      @java.lang.Override
     public java.lang.String toString() {
-        return (firstName + ';' + surname + ';' + email + ';' + phone);
+        return (firstName + ';' + surname + ';' + email + ';' + phone + ';' + password);
     }
 
     public String getFirstName() {
@@ -96,14 +99,19 @@ public class User {
         return phone;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public static void main(String[] args) {
     
         //TEST
-   //User user = new User();
+   User user = new User();
     //user.setFirstName("Ingrid"); 
     //user.setSurname("Hagen"); 
     //user.setEmail("ingrid-hagen99@hotmail.com");
     //user.setPhone("97103994");
-    //System.out.println(user.toString());
+    //user.setPassword("H");
+    System.out.println(user.toString());
     }
 }
