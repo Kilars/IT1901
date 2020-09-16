@@ -88,13 +88,13 @@ public class User {
     public static void main(String[] args) {
     
         //TEST
-   User user = new User();
-    user.setFirstName("Ingrid"); 
-    user.setSurname("Hagen"); 
-    user.setEmail("ingrid-hagen99@hotmail.com");
-    user.setPhone("97103994");
-    System.out.println(user.toString());
-    }
+   //User user = new User();
+    //user.setFirstName("Ingrid"); 
+    //user.setSurname("Hagen"); 
+    //user.setEmail("ingrid-hagen99@hotmail.com");
+    //user.setPhone("97103994");
+    //System.out.println(user.toString());
+    //}
     
 
 
