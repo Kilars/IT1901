@@ -14,7 +14,7 @@ public class Users {
     }
 
     public void loadUsersFromFile(String fileName) {
-        this.usersList = fileHandler.readFromFile(fileName).stream().map(user -> new User(user)).collect(Collectors.toList());
+        this.usersList = (fileHandler.readFromFile(fileName) == null) ? new ArrayList<>() : fileHandler.readFromFile(fileName).stream().map(user -> new User(user)).collect(Collectors.toList());
     }
 
     public void saveUsersToFile(String fileName) {
@@ -22,12 +22,24 @@ public class Users {
     }
 
     public void addUser(User user) {
+        if (checkIfUserExists(user.getEmail()))
+            throw new IllegalArgumentException("Emailen er allerede registrert"); // TODO: Implement
         this.usersList.add(user);
         saveUsersToFile(this.fileName);
     }
-
+    private User getUser(String email) {
+        for (User user : this.usersList) {
+            if (user.getEmail() == email) {
+                return user;
+            }
+        }
+        return null;
+    }
+    private boolean checkIfUserExists(String email) {
+        return (getUser(email) == null) ? false : true;
+    }
     public void removeUser(User user) {
-        this.usersList.remove(user);   
+        this.usersList.remove(user);  
     }
 
     public static void main(String[] args) {

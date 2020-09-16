@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class FilesHandle {
 
-    private String path = "./gr2052/src/main/resources/bookingsystem/fillagring/";
+    private String path = ""; // TODO: Create path, e.g. ./gr2052/src/main/resources/bookingsystem/fillagring/
     public FilesHandle() {
 
     }
@@ -92,5 +92,16 @@ public class FilesHandle {
         file.readFromFile("test.txt").forEach(user -> System.out.println(user));
         System.out.println("Orig:\t" + users +"\n"+file.readFromFile("test.txt"));
         System.out.println("Res:\t" + users.equals(file.readFromFile("test.txt")));
+        final String path2 = "./gr2052/src/test/resources/bookingsystem/fillagring/";
+        file.setPath(path2);
+        file.writeToFile("test.txt", users, false);
+        System.out.println(file.readFromFile("test.txt"));
+    }
+
+    public void setPath(String path){
+        this.path=path;
+    }
+    public String getPath(){
+       return this.path;
     }
 }

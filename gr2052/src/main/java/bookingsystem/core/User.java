@@ -12,7 +12,6 @@ public class User {
     }
     
     public User(String string) {
-
         String[] userInfo = string.split(";");
         setFirstName(userInfo[0]);
         setSurname(userInfo[1]);
