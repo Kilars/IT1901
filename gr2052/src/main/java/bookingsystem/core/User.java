@@ -95,8 +95,5 @@ public class User {
     //user.setPhone("97103994");
     //System.out.println(user.toString());
     //}
-    
-
-
-}
+}}
 
