@@ -10,6 +10,7 @@ public class Users {
     private FilesHandle fileHandler = new FilesHandle();
     private String fileName = "users.txt";
     public Users() {
+        
     }
 
     public void loadUsersFromFile(String fileName) {
@@ -17,16 +18,31 @@ public class Users {
     }
 
     public void saveUsersToFile(String fileName) {
-        fileHandler.writeToFile(fileName, usersList.stream().map(user -> user.toString()).collect(Collectors.toList()), true);
+        fileHandler.writeToFile(fileName, usersList.stream().map(user -> user.toString()).collect(Collectors.toList()), false);
     }
 
     public void addUser(User user) {
+        if (checkIfUserExists(user.getEmail()))
+            throw new IllegalArgumentException("Emailen er allerede registrert");
         this.usersList.add(user);
         saveUsersToFile(this.fileName);
     }
 
+    private User getUser(String email) {
+        for (User user : this.usersList) {
+            if (user.getEmail() == email) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+    private boolean checkIfUserExists(String email) {
+        return (getUser(email) == null) ? false : true;
+    }
+
     public void removeUser(User user) {
-        this.usersList.remove(user);   
+        this.usersList.remove(user);  
     }
 
     public static void main(String[] args) {
