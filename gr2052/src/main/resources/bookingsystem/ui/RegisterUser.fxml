@@ -16,7 +16,7 @@
          <left>
             <Pane prefHeight="292.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Text layoutX="71.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Navn" wrappingWidth="39.62109375">
+                  <Text layoutX="71.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Etternavn" wrappingWidth="82.62109375">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -41,19 +41,25 @@
                         <Font size="14.0" />
                      </font>
                   </Text>
-                  <Label fx:id="errorLabel" layoutX="69.0" layoutY="359.0" prefHeight="26.0" prefWidth="235.0" />
+                  <Label fx:id="feedbackLabel" layoutX="69.0" layoutY="359.0" prefHeight="26.0" prefWidth="235.0" />
+                  <Text layoutX="71.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fornavn" wrappingWidth="82.62109375">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
                </children>
             </Pane>
          </left>
          <center>
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="nameField" layoutX="14.0" layoutY="160.0" promptText="Ola Nordmann" />
+                  <TextField fx:id="surnameField" layoutX="14.0" layoutY="160.0" promptText="Nordmann" />
                   <TextField fx:id="emailField" layoutX="14.0" layoutY="200.0" promptText="o.nordmann@gmail.com" />
                   <TextField fx:id="phoneNumberField" layoutX="14.0" layoutY="235.0" promptText="99113688" />
-                  <Button fx:id="saveUserButton" layoutX="107.0" layoutY="359.0" mnemonicParsing="false" text="Registrer" />
+                  <Button fx:id="saveUserButton" layoutX="107.0" layoutY="359.0" mnemonicParsing="false" text="Registrer" onAction="#handleSaveUserButton" />
                   <PasswordField fx:id="passwordField" layoutX="14.0" layoutY="271.0" promptText="Minst 8 tegn" />
                   <PasswordField fx:id="confirmPasswordField" layoutX="14.0" layoutY="308.0" />
+                  <TextField fx:id="nameField" layoutX="14.0" layoutY="122.0" promptText="Ola" />
                </children>
             </Pane>
          </center>

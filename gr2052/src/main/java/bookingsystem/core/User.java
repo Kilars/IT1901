@@ -1,16 +1,33 @@
 package bookingsystem.core;
 import java.util.regex.Pattern;
-import java.util.*;
 
 public class User {
     public String firstName;
     public String surname;
     public String email;
     public String phone;
+    public String password;
 
-    
     public User() {
-	}
+    }
+    
+    public User(String string) {
+        String[] userInfo = string.split(";");
+        setFirstName(userInfo[0]);
+        setSurname(userInfo[1]);
+        setEmail(userInfo[2]);
+        setPhone(userInfo[3]);
+        setPassword(userInfo[4]);
+    }
+
+    public void setPassword(String password) {
+        if (Pattern.matches("\\w{8,}", password)) {
+            this.password = password;
+        }
+        else {
+            throw new IllegalArgumentException("Please enter a valid password containing 8 or more characters");
+        }
+    }
 
     public void setPhone(String phone) {
         if (Pattern.matches("\\d{8}", phone)) {
@@ -60,14 +77,8 @@ public class User {
 
      @java.lang.Override
     public java.lang.String toString() {
-        return "User{" +
-                "firstName='" + firstName + '\'' +
-                ", surname='" + surname + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                '}';
+        return (firstName + ';' + surname + ';' + email + ';' + phone);
     }
-
 
     public String getFirstName() {
         return firstName;
@@ -94,6 +105,5 @@ public class User {
     //user.setEmail("ingrid-hagen99@hotmail.com");
     //user.setPhone("97103994");
     //System.out.println(user.toString());
-    //}
-}}
-
+    }
+}
