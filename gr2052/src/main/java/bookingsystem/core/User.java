@@ -1,5 +1,6 @@
 package bookingsystem.core;
 import java.util.regex.Pattern;
+import java.util.*;
 
 public class User {
     public String firstName;
@@ -16,16 +17,17 @@ public class User {
             this.phone = phone;
         }
         else {
-            System.err.println("Please enter a valid phone number that contains 8 digits");
+            throw new IllegalArgumentException("Please enter a valid phone number");
         }
     }
+
 
     public void setFirstName(String firstName) {
         if (checkName(firstName)) {
             this.firstName = firstName;
         }
         else {
-            System.err.println("Please enter a valid  first name starting with a capital letter");
+            throw new IllegalArgumentException("Please enter a valid  first name starting with a capital letter");
         }
     }
 
@@ -34,7 +36,7 @@ public class User {
             this.surname = surname;
         }
         else {
-            System.err.println("Please enter a valid  surname starting with a capital letter");
+            throw new IllegalArgumentException("Please enter a valid  surname starting with a capital letter");
         }
     }
 
@@ -52,7 +54,7 @@ public class User {
             this.email = email;
         }
         else {
-            System.err.println("Please enter a valid email.");
+            throw new IllegalArgumentException("Please enter a valid email.");
         }
     }
 
@@ -86,12 +88,12 @@ public class User {
     public static void main(String[] args) {
     
         //TEST
-   //User user = new User();
-    //user.setFirstName("Ingrid"); 
-    //user.setSurname("Hagen"); 
-    //user.setEmail("ingrid-hagen99@hotmail.com");
-    //user.setPhone("97103994");
-    //System.out.println(user.toString());
+   User user = new User();
+    user.setFirstName("Ingrid"); 
+    user.setSurname("Hagen"); 
+    user.setEmail("ingrid-hagen99@hotmail.com");
+    user.setPhone("97103994");
+    System.out.println(user.toString());
     }
     
 
