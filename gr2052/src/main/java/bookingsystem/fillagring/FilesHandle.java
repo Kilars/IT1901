@@ -88,11 +88,10 @@ public class FilesHandle {
         FilesHandle file = new FilesHandle();
     //    file.writeToFile("testfile.txt");
     //    file.readFromFile("testfile.txt");
-        ArrayList<String> users = new ArrayList<>(Arrays.asList("Magnus Holta;Ålgård;12345678","Lars Skifjeld;Skien;hallo.du@tulla.bare"));
-
+        ArrayList<String> users = new ArrayList<>(Arrays.asList("Magnus;Holta;12345678","Lars Skifjeld;Skien;hallo.du@tulla.bare"));
         file.writeToFile("test.txt", users, false);
         file.readFromFile("test.txt").forEach(user -> System.out.println(user));
-        System.out.println(users +"\n"+file.readFromFile("test.txt"));
-        System.out.println(users.equals(file.readFromFile("test.txt")));
+        System.out.println("Orig:\t" + users +"\n"+file.readFromFile("test.txt"));
+        System.out.println("Res:\t" + users.equals(file.readFromFile("test.txt")));
     }
 }
