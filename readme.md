@@ -31,8 +31,8 @@ Brukergrensesnittet er laget med JavaFX og FXML og finnes i **[bsystem.ui](gr205
 ## Persistenslaget
 
 Persistenslaget inneholder alle klasser og logikk for lagring (skriving og lesing) av dataene i domenelaget. Vårt persistenslag vil etterhvert implementere fillagring med JSON-syntaks.
-
-Persistenslaget finnes i **[bsystem.json](gr2052/src/main/java/bookingsystem/json/)**-pakken.
+Per nå finnes persistenslaget i **[bsystem.fillagring](gr2052/src/main/java/bookingsystem/fillagring/)**-pakken.
+Når vi går over til bruk av json vil persistenslaget finnes i **[bsystem.json](gr2052/src/main/java/bookingsystem/json/)**-pakken.
 
 ## maven
 

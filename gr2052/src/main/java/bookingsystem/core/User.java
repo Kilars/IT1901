@@ -1,22 +1,40 @@
 package bookingsystem.core;
 import java.util.regex.Pattern;
-import java.util.*;
 
 public class User {
     public String firstName;
     public String surname;
     public String email;
     public String phone;
+    public String password;
 
     public User() {
-	}
+    }
+    
+    public User(String string) {
+        String[] userInfo = string.split(";");
+        setFirstName(userInfo[0]);
+        setSurname(userInfo[1]);
+        setEmail(userInfo[2]);
+        setPhone(userInfo[3]);
+        setPassword(userInfo[4]);
+    }
+
+    public void setPassword(String password) {
+        if (Pattern.matches("\\w{8,}", password)) {
+            this.password = password;
+        }
+        else {
+            throw new IllegalArgumentException("Vennligst skriv inn et gyldig passord");
+        }
+    }
 
     public void setPhone(String phone) {
         if (Pattern.matches("\\d{8}", phone)) {
             this.phone = phone;
         }
         else {
-            throw new IllegalArgumentException("Please enter a valid phone number");
+            throw new IllegalArgumentException("Vennligst skriv inn et gyldig telefonnummer");
         }
     }
 
@@ -26,7 +44,7 @@ public class User {
             this.firstName = firstName;
         }
         else {
-            throw new IllegalArgumentException("Please enter a valid  first name starting with a capital letter");
+            throw new IllegalArgumentException("Vennligst skriv inn et gydlig fornavn");
         }
     }
 
@@ -35,17 +53,19 @@ public class User {
             this.surname = surname;
         }
         else {
-            throw new IllegalArgumentException("Please enter a valid  surname starting with a capital letter");
+            throw new IllegalArgumentException("Vennligst skriv inn et gyldig etternavn");
         }
     }
 
     private boolean checkName(String name) {
-        if (Pattern.matches("[A-Z]{1}[a-z]{2,}",name)) {
-            return true;
+        boolean res = false;
+        String[] nameLst = name.split(" ");
+        for (String nam : nameLst) {     
+            if (Pattern.matches("[A-Z]{1}[a-z]{3,}",nam)) {
+                res = true;
+            }
         }
-        else {
-            return false;
-        }
+        return res;
     }
 
     public void setEmail(String email) {
@@ -53,20 +73,14 @@ public class User {
             this.email = email;
         }
         else {
-            throw new IllegalArgumentException("Please enter a valid email.");
+            throw new IllegalArgumentException("Vennligst skriv inn en gyldig email-adresse");
         }
     }
 
      @java.lang.Override
     public java.lang.String toString() {
-        return "User{" +
-                "firstName='" + firstName + '\'' +
-                ", surname='" + surname + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                '}';
+        return (firstName + ';' + surname + ';' + email + ';' + phone + ';' + password);
     }
-
 
     public String getFirstName() {
         return firstName;
@@ -84,18 +98,19 @@ public class User {
         return phone;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public static void main(String[] args) {
     
         //TEST
-   //User user = new User();
+   User user = new User();
     //user.setFirstName("Ingrid"); 
     //user.setSurname("Hagen"); 
     //user.setEmail("ingrid-hagen99@hotmail.com");
     //user.setPhone("97103994");
-    //System.out.println(user.toString());
-    //}
-    
-
-
+    //user.setPassword("H");
+   
+    }
 }
-
