@@ -18,7 +18,7 @@ public class Users {
     }
 
     public void saveUsersToFile(String fileName) {
-        fileHandler.writeToFile(fileName, usersList.stream().map(user -> user.toString()).collect(Collectors.toList()), true);
+        fileHandler.writeToFile(fileName, usersList.stream().map(user -> user.toString()).collect(Collectors.toList()), false);
     }
 
     public void addUser(User user) {
@@ -41,13 +41,6 @@ public class Users {
     public void removeUser(User user) {
         this.usersList.remove(user);  
     }
-
-    public static void main(String[] args) {
-        //User user = new User();
-    }
-
-
-
 
 
 }
