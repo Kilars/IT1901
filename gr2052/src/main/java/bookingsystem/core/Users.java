@@ -45,12 +45,6 @@ public class Users {
         this.usersList.remove(user);  
     }
 
-    public static void main(String[] args) {
-        //User user = new User();
-    }
-
-
-
 
 
 }
