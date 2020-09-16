@@ -1,6 +1,5 @@
 package bookingsystem.core;
 import java.util.regex.Pattern;
-import java.util.*;
 
 public class User {
     public String firstName;
@@ -9,12 +8,10 @@ public class User {
     public String phone;
     public String password;
 
-    
     public User() {
     }
     
     public User(String string) {
-
         String[] userInfo = string.split(";");
         setFirstName(userInfo[0]);
         setSurname(userInfo[1]);
@@ -114,6 +111,6 @@ public class User {
     //user.setEmail("ingrid-hagen99@hotmail.com");
     //user.setPhone("97103994");
     //user.setPassword("H");
-    System.out.println(user.toString());
+   
     }
 }
