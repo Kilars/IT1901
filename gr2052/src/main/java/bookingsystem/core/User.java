@@ -28,7 +28,7 @@ public class User {
             this.password = password;
         }
         else {
-            throw new IllegalArgumentException("Please enter a valid password containing 8 or more characters");
+            throw new IllegalArgumentException("Vennligst skriv inn et gyldig passord");
         }
     }
 
@@ -37,7 +37,7 @@ public class User {
             this.phone = phone;
         }
         else {
-            throw new IllegalArgumentException("Please enter a valid phone number");
+            throw new IllegalArgumentException("Vennligst skriv inn et gyldig telefonnummer");
         }
     }
 
@@ -47,7 +47,7 @@ public class User {
             this.firstName = firstName;
         }
         else {
-            throw new IllegalArgumentException("Please enter a valid  first name starting with a capital letter");
+            throw new IllegalArgumentException("Vennligst skriv inn et gydlig fornavn");
         }
     }
 
@@ -56,7 +56,7 @@ public class User {
             this.surname = surname;
         }
         else {
-            throw new IllegalArgumentException("Please enter a valid  surname starting with a capital letter");
+            throw new IllegalArgumentException("Vennligst skriv inn et gyldig etternavn");
         }
     }
 
@@ -64,7 +64,7 @@ public class User {
         boolean res = false;
         String[] nameLst = name.split(" ");
         for (String nam : nameLst) {     
-            if (Pattern.matches("[A-Z]{1}[a-z]{2,}",nam)) {
+            if (Pattern.matches("[A-Z]{1}[a-z]{3,}",nam)) {
                 res = true;
             }
         }
@@ -76,7 +76,7 @@ public class User {
             this.email = email;
         }
         else {
-            throw new IllegalArgumentException("Please enter a valid email.");
+            throw new IllegalArgumentException("Vennligst skriv inn en gyldig email-adresse");
         }
     }
 
