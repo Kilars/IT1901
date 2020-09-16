@@ -1,4 +1,4 @@
-package bookingsystem.core;
+package bookingsystem.fillagring;
 
 import java.io.File;
 import java.io.FileWriter;
