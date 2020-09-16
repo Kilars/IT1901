@@ -4,7 +4,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,7 +11,7 @@ import java.util.Scanner;
 
 public class FilesHandle {
 
-    private String path = "./gr2052/src/main/resources/bookingsystem/fillagring/";
+    private String path = ""; // TODO: Create path, e.g. ./gr2052/src/main/resources/bookingsystem/fillagring/
     public FilesHandle() {
 
     }
@@ -86,11 +85,13 @@ public class FilesHandle {
     }
     public static void main(String[] args) {
         FilesHandle file = new FilesHandle();
+    //    file.writeToFile("testfile.txt");
+    //    file.readFromFile("testfile.txt");
         List<String> users = new ArrayList<>(Arrays.asList("Magnus;Holta;12345678","Lars Skifjeld;Skien;hallo.du@tulla.bare"));
-/*         file.writeToFile("test.txt", users, false);
+        file.writeToFile("test.txt", users, false);
         file.readFromFile("test.txt").forEach(user -> System.out.println(user));
         System.out.println("Orig:\t" + users +"\n"+file.readFromFile("test.txt"));
-        System.out.println("Res:\t" + users.equals(file.readFromFile("test.txt"))); */
+        System.out.println("Res:\t" + users.equals(file.readFromFile("test.txt")));
         final String path2 = "./gr2052/src/test/resources/bookingsystem/fillagring/";
         file.setPath(path2);
         file.writeToFile("test.txt", users, false);
