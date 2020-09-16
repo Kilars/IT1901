@@ -17,7 +17,7 @@ public class FilesHandle {
 
     }
     
-    public void writeToFile(String fileName, ArrayList<String> users, boolean append) {
+    public void writeToFile(String fileName, List<String> users, boolean append) {
         // Check if file is empty. If not, append content
         try {
             FileWriter wr = new FileWriter(this.path + fileName, append); // Last parameter 'true' is wether to append or overwrite
@@ -33,11 +33,11 @@ public class FilesHandle {
         }
     }
 
-    public ArrayList<String> readFromFile(String fileName) {
+    public List<String> readFromFile(String fileName) {
         try {
             File f = new File(this.path + fileName);
             Scanner sc = new Scanner(f);
-            ArrayList<String> users = new ArrayList<>();
+            List<String> users = new ArrayList<>();
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
                 if (line != "") {
@@ -88,7 +88,7 @@ public class FilesHandle {
         FilesHandle file = new FilesHandle();
     //    file.writeToFile("testfile.txt");
     //    file.readFromFile("testfile.txt");
-        ArrayList<String> users = new ArrayList<>(Arrays.asList("Magnus;Holta;12345678","Lars Skifjeld;Skien;hallo.du@tulla.bare"));
+        List<String> users = new ArrayList<>(Arrays.asList("Magnus;Holta;12345678","Lars Skifjeld;Skien;hallo.du@tulla.bare"));
         file.writeToFile("test.txt", users, false);
         file.readFromFile("test.txt").forEach(user -> System.out.println(user));
         System.out.println("Orig:\t" + users +"\n"+file.readFromFile("test.txt"));
