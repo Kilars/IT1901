@@ -9,6 +9,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+/**
+ * Controller connected to RegisterUser.fxml
+ */
+
 public class RegisterUser{
 
     Users registeredUsers = new Users();
@@ -16,7 +20,7 @@ public class RegisterUser{
     @FXML
     TextField nameField, surnameField, emailField, phoneNumberField;
 
-     @FXML
+    @FXML
     PasswordField passwordField, confirmPasswordField;
 
     @FXML
@@ -25,6 +29,11 @@ public class RegisterUser{
     @FXML
     Label feedbackLabel;
 
+    /**
+     * Creates and saves a user object if the information provided by the users input is valid
+     * Throws exception with descriptive message if the input is invalid 
+     * @param event
+     */
     @FXML
     public void handleSaveUserButton(ActionEvent event){
         try{
@@ -43,7 +52,12 @@ public class RegisterUser{
         }
 
     }
-
+    /**
+     * Checks if the string from passwordField and confirmPasswordField are the same
+     * Throws exception if they do not match
+     * @throws IllegalArgumentException
+     * @return 
+     */
     public boolean checkPassword(){
         if (passwordField.getText().equals(confirmPasswordField.getText())){
             return true;
