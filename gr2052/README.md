@@ -11,18 +11,34 @@ Eventuelle ekstrafunksjoner: rate frisør, klippekort/lojalitetsprogram, kunne l
 
 
 ## Brukerhistorier:
-1. Som en bruker ønsker jeg å registrere meg/logge inn slik at dataene mine blir lagret.
-2. Som en bruker ønsker jeg å kunne velge den behandlingen jeg ønsker.
-3. Som en bruker ønsker jeg å se mine kommende og tidligere avtaler.
-4. Som en bruker ønsker jeg å kunne avbestille timen min.
-5. Som en bruker ønsker jeg å velge mellom de frisørene som er tilgjengelige.
-6. Som en bruker ønsker jeg å se tilgjengelige datoer og klokkeslett, og velge mellom disse. 
-7. Som en bruker ønsker jeg å kunne se prisen på behandlingen(e) jeg velger.
-8. Som en bruker ønsker jeg et intuitivt og funskjonelt brukergrensesnitt, slik at applikasjonen er enkel og praktisk i bruk.
+Disse brukerhistoriene dekker vår plan for applikasjonen, og vil bli avkrysset etterhvert som arbeidet med dem starter. Vi vil prioritere kodekvalitet over hvor mange av funksjonene/brukerhistoriene som faktisk blir implementert. 
+* [x] 1. Som en bruker ønsker jeg å registrere meg/logge inn slik at dataene mine blir lagret.
+* [ ] 2. Som en bruker ønsker jeg å kunne velge den behandlingen jeg ønsker.
+* [ ] 3. Som en bruker ønsker jeg å se mine kommende og tidligere avtaler.
+* [ ] 4. Som en bruker ønsker jeg å kunne avbestille timen min.
+* [ ] 5. Som en bruker ønsker jeg å velge mellom de frisørene som er tilgjengelige.
+* [ ] 6. Som en bruker ønsker jeg å se tilgjengelige datoer og klokkeslett, og velge mellom disse. 
+* [ ] 7. Som en bruker ønsker jeg å kunne se prisen på behandlingen(e) jeg velger.
+* [x] 8. Som en bruker ønsker jeg et intuitivt og funskjonelt brukergrensesnitt, slik at applikasjonen er enkel og praktisk i bruk.
 
+## Prosjektfremgang
 
-### Registrere bruker (us-1)
-Brukerhistorie 1: <br />
-Brukeren har behov for å dele sin kontaktinformasjon med frisørsalongen, og det er praktisk at dette lagres. Dette gjøres ved at det er mulig å registrere en bruker. Når en ny bruker skal registrere seg må hen oppgi navn, epost-adresse og telefonnummer.<br />
- -Issues:<br />
- -Milestone: Innlevering 1<br />
+### Oppstart og registrere bruker (uke 37 og 38)
+Milestone: Innlevering 1 <br />
+**Oppsett av prosjektet:** <br />
+Issues: #1, #2, #3, #4, #5, #6, #7, #10 <br />
+**Brukerhistorie 1:** <br />
+"Brukeren har behov for å dele sin kontaktinformasjon med frisørsalongen, og det er praktisk at dette lagres. Dette gjøres ved at det er mulig å registrere en bruker. Når en ny bruker skal registrere seg må hen oppgi navn, epost-adresse og telefonnummer."<br />
+ -Issues: #8, #9, #12, #13, #14, #15, #16 <br />
+ **Brukerhistorie 8:** <br />
+ "Som en bruker ønsker jeg et intuitivt og funskjonelt brukergrensesnitt, slik at applikasjonen er enkel og praktisk i bruk." <br />
+ -Issues: #9, #11, #14, <br />
+ <br />
+ ### Dokumentasjon og JSON-implementasjon (uke 39)
+ Milestone: Innlevering 2 <br />
+ **Dokumentasjon:**<br />
+ Kommentere koden fra forrige innlevering og oppdatere readme for å sikre god dokumentasjon.I tillegg skal diagram over arkitekturen legges til. <br />
+ Issues: #17, #18, #19, #20, #21, #22 <br />
+ **JSON-implementasjon:**<br />
+ Implementere JSON- og Jackson-plugins og legge til rette for god, enkel og sikker fillagring.<br />
+ Issues: #28 <br />

@@ -10,16 +10,20 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+/**
+ * Controller connected to FXApp.fxml
+ */
 
 public class AppController {
 	
 	@FXML
-    Button registerButton;
-    
+    Button registerButton, logInButton;
 
-    @FXML
-    Button logInButton;
-
+/**
+ * Changes the scene in the App from welcome-view to the register-user-view
+ * @param event
+ * @throws IOException
+ */
     public void registerButtonPushed(ActionEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("RegisterUser.fxml"));
         Parent registerUserParent = fxmlLoader.load();
@@ -29,6 +33,8 @@ public class AppController {
 
         window.setScene(registerUserScene);
         window.show();
+
+
 
     }
 	

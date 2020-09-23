@@ -1,11 +1,11 @@
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.idi.ntnu.no/#https://gitlab.stud.idi.ntnu.no/it1901/groups-2020/gr2052/gr2052) 
 
 
-# BOOKING-SYSTEM
+# Booking System - Oversikt og Struktur
 
 Dette prosjektet er en trelagsapplikasjon, med et domenelag, brukergrensesnitt (UI) og persistens (lagring). Prosjektet inneholder tester for alle lagene. Prosjektet er konfigurert med **maven** som byggesystem.
 
-Mappen **[gr2052](gr2052)** utgjør kodingsprosjektet.
+Mappen **[gr2052](gr2052)** utgjør kodingsprosjektet. Her finner du en **[readme-fil](gr2052/README.md)** som beskriver plan for selve prosjektet og fremgang nærmere.
 
 ## Organisering av koden
 

@@ -5,13 +5,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 /**
- * Hello world!
- *
+ * Starts the App
  */
 public class App extends Application{
-	
+    
+    
+    /**
+     * Starts the App, sets scene to welcome-view
+     * @param Stage 
+     * @throws Exception
+     */
     public void start(final Stage stage) throws Exception {
         final FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FxApp.fxml"));
         final Parent root = fxmlLoader.load();
