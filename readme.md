@@ -43,3 +43,9 @@ Vårt bygg har tillegg for:
 - kjøring av javafx (**javafx-maven-plugin**)
 - sjekking av kodekvalitet med [checkstyle](https://checkstyle.sourceforge.io) (**maven-checkstyle-plugin**) og [spotbugs](https://spotbugs.github.io) (**spotbugs-maven-plugin**)
 - testdekningsgrad med [jacoco](https://github.com/jacoco/jacoco) (**jacoco-maven-plugin**)
+
+## Foreløpig klassediagram
+Viser enveisassosiasjonen fra Users til User og FilesHandle
+
+<img src=http://www.plantuml.com/plantuml/png/TPFDRXCn4CVlVeev1kY-G1LLLQL6L224511d4qytLls1FBDPAjHtPsUzCZQxkJZs_pUPxxqdrea7xvHYomxX8SON6teulXAZXmu-EKs4nke-QQ-KEiaRlXCcWZyAeFjiYU673IQEj1Vz3eRf55dmmJgaZpeOX_0ytVCr2Jfoab2YVj4U9-d39Le3Bcep1pYawEN_kspvhbYGlk1iyIrkScsCu9qS_zI4Fbwm0PrSe4UMtyfDzpD6Xph0wOodbwTdmO-_BJ4LexUw5tChfZYbf4GiDJKg3Idyhw7NrZNAhtCCs2gQQ8p9P34t0FdhefQ4MYfUjj5XIUuAFkOij-6Zf5kZaYJ7VDcrSb_5MwCSQmrod9MSgrhBfHMPjCDhAdrRPbPjPPvSLthDvwhaCLd6PibkG3PxdnztDx34MdAg6IJKPht2nRT1XpoluyFhaodkhncsNjfDuFFcJFg5pSkQFzbzP-8OEf3NBGoYtSBx5jRT0QNkCPZ1kxy0>
+
