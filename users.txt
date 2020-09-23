@@ -1,0 +1,2 @@
+Ola;Nordmann;ola.nordmann@mail.no;12345678;null
+Kari;Nordmann;kari.nordmann@mail.no;12345678;Heiheih1832
