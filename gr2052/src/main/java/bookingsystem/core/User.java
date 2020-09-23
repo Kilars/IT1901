@@ -13,15 +13,11 @@ public class User {
     public String email;
     public String phone;
     public String password;
-
-<<<<<<< HEAD
     
     /**
      * User constructor with no paramaters. 
      * Sets all attributes to Null.
      */
-=======
->>>>>>> d2754b93e1982c72c2af425e97262fea043ce5c4
     public User() {
     }
 
@@ -181,13 +177,8 @@ public class User {
      */
     public static void main(String[] args) {
     
-<<<<<<< HEAD
     
     //User user = new User();
-=======
-        //TEST
-   //User user = new User();
->>>>>>> d2754b93e1982c72c2af425e97262fea043ce5c4
     //user.setFirstName("Ingrid"); 
     //user.setSurname("Hagen"); 
     //user.setEmail("ingrid-hagen99@hotmail.com");
