@@ -25,7 +25,7 @@ public class User {
     /**
      * User constructor that converts a String to an object. 
      * Fills all attributes.
-     * @param string
+     * @param string    String with format "firstName;surname;email;phone;password"
      */
     public User(String string) {
         String[] userInfo = string.split(";");
@@ -40,7 +40,7 @@ public class User {
      * Checks if password contains at least 8 characters, and consists only of letters and digits. 
      * Sets the attribute "password" if the input is valid. 
      * Throws an exception if the input is invalid.
-     * @param password
+     * @param password 
      */
     public void setPassword(String password) {
         if (Pattern.matches("\\w{8,}", password)) {
@@ -69,7 +69,7 @@ public class User {
     /**
      * Checks if a name starts with a capital letter, consists only of letters, and is at least 2 characters long.
      * @param name
-     * @return
+     * @return res      True if name is valid, False if name is invalid
      */
     private boolean checkName(String name) {
         boolean res = false;
