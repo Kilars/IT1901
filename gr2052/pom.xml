@@ -103,15 +103,15 @@
                         <xmlOutput>false</xmlOutput>
                         <htmlOutput>true</htmlOutput>
                     </configuration>
-                    <executions>
-                        <execution>
-                        <id>spotbugs-check</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                        </execution>
-                    </executions>
+                        <executions>
+                            <execution>
+                                <id>spotbugs-check</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>check</goal> <!-- spotbugs for å kjøre, check for å finne spotbugs -->
+                                </goals>
+                            </execution>
+                        </executions>
                     </plugin>
             
             <!-- Compiling code -->
@@ -123,17 +123,7 @@
                     <release>14</release>
                 </configuration>
             </plugin>
-
-            <!-- Running JavaFX code -->
-            <plugin>
-                <groupId>org.openjfx</groupId>
-                <artifactId>javafx-maven-plugin</artifactId>
-                <version>0.0.4</version>
-                <configuration>
-                    <mainClass>fxui\src\main\java\bookingsystem\ui\App.java</mainClass>
-                </configuration>
-            </plugin>
-
+            
            <!-- Configure jacoco code coverage -->
                 <plugin>
                     <groupId>org.jacoco</groupId>

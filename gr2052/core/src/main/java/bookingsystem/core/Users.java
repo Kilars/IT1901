@@ -28,7 +28,7 @@ public class Users {
      * @param fileName  specifies the file to load from
      */
     public void loadUsersFromFile(String fileName) {
-        this.usersList = (fileHandler.readFromFile(fileName) == null) ? 
+        this.usersList = (fileHandler.readFromFile(fileName).equals(null)) ? 
         new ArrayList<>() : fileHandler.readFromFile(fileName).stream()
             .map(user -> new User(user))
             .collect(Collectors.toList());
@@ -62,7 +62,7 @@ public class Users {
      */
     private User getUser(String email) {
         for (User user : this.usersList) {
-            if (user.getEmail() == email) {
+            if (user.getEmail().equals(email)) {
                 return user;
             }
         }
@@ -75,7 +75,7 @@ public class Users {
      * @return      if the user exists, true or false
      */
     private boolean checkIfUserExists(String email) {
-        return (getUser(email) == null) ? false : true;
+        return (getUser(email).equals(null)) ? false : true;
     }
 
     /**
