@@ -1,3 +1,12 @@
+import org.junit.jupiter.api.Test;
+import org.testfx.framework.junit5.ApplicationTest;
+
+import bookingsystem.ui.AppController;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 public class AppControllerTest extends ApplicationTest {
 
     private AppController controller;

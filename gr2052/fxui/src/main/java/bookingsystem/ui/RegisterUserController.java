@@ -13,7 +13,7 @@ import javafx.scene.control.TextField;
  * Controller connected to RegisterUser.fxml
  */
 
-public class RegisterUser{
+public class RegisterUserController {
 
     Users registeredUsers = new Users();
 

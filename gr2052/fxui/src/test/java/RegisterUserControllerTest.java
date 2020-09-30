@@ -1,3 +1,14 @@
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.testfx.framework.junit5.ApplicationTest;
+
+import bookingsystem.core.Users;
+import bookingsystem.ui.RegisterUserController;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 public class RegisterUserControllerTest extends ApplicationTest {
 
     /**
@@ -5,8 +16,8 @@ public class RegisterUserControllerTest extends ApplicationTest {
     */
     private RegisterUserController controller;
     private Users userList;
-    private String saveSuccess="Vellykket registrering av bruker";
-    private String saveUnsuccess="The passwords does not match"
+    private String saveSuccess = "Vellykket registrering av bruker";
+    private String saveUnsuccess = "The passwords does not match";
 
 
     @Override
@@ -16,9 +27,9 @@ public class RegisterUserControllerTest extends ApplicationTest {
         this.controller = loader.getController();
         stage.setScene(new Scene(root));
         stage.show();
-        stage.setScene(new Scene(clickOn("#registerButton")));
-        this.regUserController=reguserScene.getController();
-        this.userList = this.regUserController.getRegisteredUsers();
+     //   stage.setScene(new Scene(clickOn("#registerButton")));
+      //  this.controller = reguserScene.getController();
+        this.userList = this.controller.getRegisteredUsers();
     }
 
     /**
@@ -36,7 +47,7 @@ public class RegisterUserControllerTest extends ApplicationTest {
 
     /**
      * Check if the label prints correct message for a succsessfull register of an User
-     */
+     *
     @Test
     public void checkSuccessfullRegisterUser(){
         clickOn("#saveUserButton");
@@ -46,7 +57,7 @@ public class RegisterUserControllerTest extends ApplicationTest {
 
     /**
      * Check if the label prints correct message for an unsuccsessfull register of an User
-     */
+     *
     @Test
     public void  checkUnsuccsessfullRegisterUser(){
         clickOn("#confirmPasswordField").write("informatikk1234");
@@ -56,7 +67,7 @@ public class RegisterUserControllerTest extends ApplicationTest {
 
     /**
      * Check if the User gets saved to Users when clicking save-button
-     */
+     *
     @Test
     public void checkSavingOfUser(){
         clickOn("#saveUserButton");
@@ -67,7 +78,7 @@ public class RegisterUserControllerTest extends ApplicationTest {
      * help method for checkSavingOfUser()
      * @param email
      * @return True if email is saved with a User in Users
-     */
+     *
     private boolean iterateUserList(String email){
         for (User user in userList){
             if (user.getEmail().equals(email)){
@@ -79,7 +90,7 @@ public class RegisterUserControllerTest extends ApplicationTest {
         }
     }
 
-
+*/
 
 
 }
