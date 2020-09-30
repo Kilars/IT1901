@@ -1,0 +1,85 @@
+public class RegisterUserControllerTest extends ApplicationTest {
+
+    /**
+    * Set up for testing RegisterUserController.java
+    */
+    private RegisterUserController controller;
+    private Users userList;
+    private String saveSuccess="Vellykket registrering av bruker";
+    private String saveUnsuccess="The passwords does not match"
+
+
+    @Override
+    public void start(final Stage stage) throws Exception {
+        final FXMLLoader loader = new FXMLLoader(getClass().getResource("RegisterUser.fxml"));
+        final Parent root = loader.load();
+        this.controller = loader.getController();
+        stage.setScene(new Scene(root));
+        stage.show();
+        stage.setScene(new Scene(clickOn("#registerButton")));
+        this.regUserController=reguserScene.getController();
+        this.userList = this.regUserController.getRegisteredUsers();
+    }
+
+    /**
+     * Set up for the tests, clicking on the TextField and filling them with information
+     */
+    @BeforeEach
+    public void setupUsers() {
+        clickOn("#nameField").write("Ole");
+        clickOn("#surnameField").write("Olsen");
+        clickOn("#emailField").write("ole@hotmail.com");
+        clickOn("#phoneNumberField").write("12312398");
+        clickOn("#passwordField").write("informatikk");
+        clickOn("#confirmPasswordField").write("informatikk");
+    }
+
+    /**
+     * Check if the label prints correct message for a succsessfull register of an User
+     */
+    @Test
+    public void checkSuccessfullRegisterUser(){
+        clickOn("#saveUserButton");
+        assertEquals(feedbackLabel.getText(),saveSuccess);
+    }
+
+
+    /**
+     * Check if the label prints correct message for an unsuccsessfull register of an User
+     */
+    @Test
+    public void  checkUnsuccsessfullRegisterUser(){
+        clickOn("#confirmPasswordField").write("informatikk1234");
+        clickOn("#saveUserButton");
+        assertEquals(feedbackLabel.getText(),saveUnsuccess);
+    }
+
+    /**
+     * Check if the User gets saved to Users when clicking save-button
+     */
+    @Test
+    public void checkSavingOfUser(){
+        clickOn("#saveUserButton");
+        assertTrue(iterateUserList("ole@hotmail.com"););
+    }
+
+    /**
+     * help method for checkSavingOfUser()
+     * @param email
+     * @return True if email is saved with a User in Users
+     */
+    private boolean iterateUserList(String email){
+        for (User user in userList){
+            if (user.getEmail().equals(email)){
+                return True;
+            }
+        }
+        else{
+            return False;
+        }
+    }
+
+
+
+
+}
