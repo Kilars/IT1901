@@ -1,0 +1,7 @@
+Ola;Nordmann;ola.nordmann@mail.no;12345678;Heiheih1832
+Kari;Nordmann;kari.nordmann@mail.no;12345678;Heiheih1832
+Kari;Nordmann;kari.nordmann@mail.no;12345678;Heiheih1832
+Ola;Nordmann;ola.nordmann@mail.no;12345678;Heiheih1832
+Kari;Nordmann;kari.nordmann@mail.no;12345678;Heiheih1832
+Ola;Nordmann;ola.nordmann@mail.no;12345678;Heiheih1832
+Kari;Nordmann;kari.nordmann@mail.no;12345678;Heiheih1832
