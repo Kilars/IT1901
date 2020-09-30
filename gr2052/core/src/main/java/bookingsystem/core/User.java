@@ -21,6 +21,27 @@ public class User {
     public User() {
     }
 
+    /**
+     * Creates a new object taking in all parameters
+     * @param firstName
+     * @param surname
+     * @param email
+     * @param phone
+     * @param password
+     */
+    
+     public User(String firstName, String surname, String email, String phone, String password) {
+        /*if (firstName != "") setFirstName(firstName);
+        if (surname != "") setSurname(surname);
+        if (email != "") setEmail(email);
+        if (phone != "") setPhone(phone);
+        if (password != "") setPassword(password);*/
+        this.firstName = firstName;
+        this.surname = surname;
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
+    }
 
     /**
      * User constructor that converts a String to an object. 
@@ -178,12 +199,12 @@ public class User {
     public static void main(String[] args) {
     
     
-    //User user = new User();
-    //user.setFirstName("Ingrid"); 
-    //user.setSurname("Hagen"); 
-    //user.setEmail("ingrid-hagen99@hotmail.com");
-    //user.setPhone("97103994");
-    //user.setPassword("H");
-    //System.out.println(user.toString());
+    User user = new User();
+    user.setFirstName("Ingrid"); 
+    user.setSurname("Hagen"); 
+    user.setEmail("ingrid-hagen99@hotmail.com");
+    user.setPhone("97103994");
+    user.setPassword("Heiheih1832");
+    System.out.println(user.toString());
     }
 }
