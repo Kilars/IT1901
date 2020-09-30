@@ -98,14 +98,7 @@
                     </execution>
                 </executions>
             </plugin>
-<<<<<<< HEAD
-            </plugins>
-=======
-
-
         </plugins>
-
->>>>>>> 179ba3362c00e8dc9a8440667ab3c001b39375c0
     </build>
 
 </project>
