@@ -62,7 +62,7 @@ public class Users {
      */
     private User getUser(String email) {
         for (User user : this.usersList) {
-            if (user.getEmail() == email) {
+            if (user.getEmail().equals(email)) {
                 return user;
             }
         }

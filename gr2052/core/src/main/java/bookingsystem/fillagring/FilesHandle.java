@@ -62,7 +62,7 @@ public class FilesHandle {
             List<String> users = new ArrayList<>();
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
-                if (line != "") {
+                if (!line.equals("")) {
                     users.add(line);
                 }
             }
@@ -89,7 +89,7 @@ public class FilesHandle {
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
                 System.out.println(line);
-                if (line.split(";")[2] == userId) {
+                if (line.split(";")[2].equals(userId)) {
                     fr.write(""); // Removes line 
                 } else {
                     fr.write(line + "\n");
