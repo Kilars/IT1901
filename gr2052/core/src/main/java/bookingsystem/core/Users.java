@@ -96,7 +96,7 @@ public class Users implements Iterable<User> {
     public Iterator<User> iterator() {
         return this.usersList.iterator();
     }
-
+/*
     public Boolean checkIfUserExistsJson(JSONArray userArray, JSONObject user) {
         String email = user.email;
         Boolean exists = false;
@@ -122,5 +122,6 @@ public class Users implements Iterable<User> {
         }
         return logInSuccess;
     }
+    */
 
 }
