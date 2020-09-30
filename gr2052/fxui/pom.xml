@@ -10,6 +10,8 @@
     </parent>
 
     <artifactId>fxui</artifactId>
+    <packaging>jar</packaging>
+    <url>http://maven.apache.org</url>
 
     <dependencies>
         <dependency>
@@ -87,10 +89,16 @@
                     </options>
                     <mainClass>bookingsystem.ui.App</mainClass>
                 </configuration>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
-
-
         </plugins>
-
     </build>
+
 </project>
