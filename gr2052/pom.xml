@@ -108,7 +108,7 @@
                                 <id>spotbugs-check</id>
                                 <phase>verify</phase>
                                 <goals>
-                                    <goal>spotbugs</goal> <!-- spotbugs for å kjøre, check for å finne spotbugs -->
+                                    <goal>spotbugs</goal> <!-- 'spotbugs' for å kjøre, 'check' for å finne spotbugs -->
                                 </goals>
                             </execution>
                         </executions>
