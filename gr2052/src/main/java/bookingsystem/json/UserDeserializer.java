@@ -47,15 +47,12 @@ public class UserDeserializer extends JsonDeserializer<User> {
         u2.setEmail("kari.nordmann@mail.no");
         u1.setPhone("12345678");
         u2.setPhone("12345678");
-                u1.setPassword("Heiheih1832");
-
+        u1.setPassword("Heiheih1832");
         u2.setPassword("Heiheih1832");
         users.addUser(u1);
         users.addUser(u2);
         try {
             String json = mapper.writeValueAsString(u2);
-            System.out.println(json);
-            System.out.println("hei");
             mapper.readValue(json, User.class);
 
         } catch (Exception e) {
