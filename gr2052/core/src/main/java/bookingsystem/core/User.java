@@ -114,7 +114,7 @@ public class User {
             this.firstName = firstName;
         }
         else {
-            throw new IllegalArgumentException("Vennligst skriv inn et gydlig fornavn");
+            throw new IllegalArgumentException("Vennligst skriv inn et gyldig fornavn");
         }
     }
 
