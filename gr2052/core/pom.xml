@@ -60,20 +60,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
             </plugin>
 
-            <plugin>
-                <groupId>org.openjfx</groupId>
-                <artifactId>javafx-maven-plugin</artifactId>
-                <version>0.0.4</version>
-                <configuration>                    
-                    <options>
-                        <!-- 
-                            <option>dash dash enable-preview</option>
-                        -->
-                    </options>
-                    <mainClass>gr2052.fxui.App</mainClass>
-                </configuration>
-            </plugin>
-
             <!-- Run the checkstyle code quality tool -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
