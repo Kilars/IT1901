@@ -11,8 +11,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-<<<<<<< HEAD
+<dependencyManagement>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
         <dependency>
@@ -27,11 +26,6 @@
             <version>2.11.2</version>
         </dependency>
 
-=======
-
-    <dependencyManagement>
-        <dependencies>
->>>>>>> 47eecb2fe1ed679342413d7a6867346136338d47
         <!-- Test with JUnit5 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
