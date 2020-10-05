@@ -1,15 +1,16 @@
 package bookingsystem.core;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 import bookingsystem.fillagring.FilesHandle;
 
 /**
- * Class to handle the user database. The users are saved in an ArrayList as User-objects.
- * The class has methods to delete, save, add and get users.
+ * Class to handle the user database. The users are saved in an ArrayList as
+ * User-objects. The class has methods to delete, save, add and get users.
  */
-public class Users {
+public class Users implements Iterable<User> {
     private List<User> usersList = new ArrayList<>();
     private FilesHandle fileHandler = new FilesHandle();
     private String fileName = "users.txt";
@@ -19,46 +20,51 @@ public class Users {
      * File name is stored as a private variable and is used to load from file.
      */
     public Users() {
-        loadUsersFromFile(this.fileName);
+      //  loadUsersFromFile(this.fileName);
     }
 
     /**
-     * Loads users from file. Makes a stream if readFromFile() does not return null. 
+     * Loads users from file. Makes a stream if readFromFile() does not return null.
      * Maps from strings to User object. Using stream with map() and collect().
-     * @param fileName  specifies the file to load from
+     * 
+     * @param fileName specifies the file to load from
      */
     public void loadUsersFromFile(String fileName) {
-        this.usersList = (fileHandler.readFromFile(fileName).equals(null)) ? 
-        new ArrayList<>() : fileHandler.readFromFile(fileName).stream()
-            .map(user -> new User(user))
-            .collect(Collectors.toList());
+        this.usersList = (fileHandler.readFromFile(fileName) == null) ? new ArrayList<>()
+                : fileHandler.readFromFile(fileName).stream()
+                    .map(user -> new User(user))
+                    .collect(Collectors.toList());
     }
 
     /**
-     * Saves users to file. Utilizing stream with map() and collect() to get a String object.
-     * @param fileName  specifies the file to save to
+     * Saves users to file. Utilizing stream with map() and collect() to get a
+     * String object.
+     * 
+     * @param fileName specifies the file to save to
      */
     public void saveUsersToFile(String fileName) {
-        fileHandler.writeToFile(fileName, usersList.stream()
-            .map(user -> user.toString())
-            .collect(Collectors.toList()), false);
+        fileHandler.writeToFile(fileName, usersList.stream().map(user -> user.toString()).collect(Collectors.toList()),
+                false);
     }
 
     /**
      * Adds user to list and saves to file
-     * @param user  User to be added, of type User
+     * 
+     * @param user User to be added, of type User
      */
     public void addUser(User user) {
-        if (checkIfUserExists(user.getEmail()))
-            throw new IllegalArgumentException("Emailen er allerede registrert"); // TODO: Implement
+        /*if (checkIfUserExists(user.getEmail()))
+            throw new IllegalArgumentException("Emailen er allerede registrert"); // TODO: Implement*/
         this.usersList.add(user);
-        saveUsersToFile(this.fileName);
+       // saveUsersToFile(this.fileName);
     }
 
     /**
-     * Searches for a user with email. If it exists, return the user object. Else return null
-     * @param email     The email of the user to get
-     * @return          returns the user as a User-object or null
+     * Searches for a user with email. If it exists, return the user object. Else
+     * return null
+     * 
+     * @param email The email of the user to get
+     * @return returns the user as a User-object or null
      */
     private User getUser(String email) {
         for (User user : this.usersList) {
@@ -71,8 +77,9 @@ public class Users {
 
     /**
      * Uses getUser to return is the user exists.
+     * 
      * @param email email of the user to check
-     * @return      if the user exists, true or false
+     * @return if the user exists, true or false
      */
     private boolean checkIfUserExists(String email) {
         return (getUser(email).equals(null)) ? false : true;
@@ -82,8 +89,39 @@ public class Users {
      * Removes user with email if present.
      */
     public void removeUser(User user) {
-        this.usersList.remove(user);  
+        this.usersList.remove(user);
     }
 
+    @Override
+    public Iterator<User> iterator() {
+        return this.usersList.iterator();
+    }
+/*
+    public Boolean checkIfUserExistsJson(JSONArray userArray, JSONObject user) {
+        String email = user.email;
+        Boolean exists = false;
+
+        for (i = 0; i < userArray.length; i++) {
+            String checkMail = userArray[i].email;
+            if (email.equals(checkMail)) {
+                exists = true;
+            }
+        }
+        return exists;
+    }
+
+    public Boolean logIn(JSONArray userArray, JSONObject user, String mail, String password) {
+        Boolean logInSuccess = false;
+        if (checkIfUserExistsJson(userArray, user)) {
+            if(!(user.password.equals(password))) {
+                logInSuccess = true;
+            }
+        }
+        else {
+            throw new IllegalArgumentException("Brukeren eksisterer ikke");
+        }
+        return logInSuccess;
+    }
+    */
 
 }

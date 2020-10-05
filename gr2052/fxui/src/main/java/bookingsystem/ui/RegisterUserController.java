@@ -13,7 +13,7 @@ import javafx.scene.control.TextField;
  * Controller connected to RegisterUser.fxml
  */
 
-public class RegisterUser{
+public class RegisterUserController {
 
     Users registeredUsers = new Users();
 
@@ -56,7 +56,7 @@ public class RegisterUser{
      * Checks if the string from passwordField and confirmPasswordField are the same
      * Throws exception if they do not match
      * @throws IllegalArgumentException
-     * @return 
+     * @return True if they match
      */
     public boolean checkPassword(){
         if (passwordField.getText().equals(confirmPasswordField.getText())){
@@ -65,6 +65,14 @@ public class RegisterUser{
         else {
             throw new IllegalArgumentException("The passwords does not match");
         }
+    }
+
+    /**
+     * @return the list of already registered users in the app
+     */
+
+    public Users getRegisteredUsers() {
+        return registeredUsers;
     }
 
     
