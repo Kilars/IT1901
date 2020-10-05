@@ -1,3 +1,5 @@
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.testfx.framework.junit5.ApplicationTest;
 
@@ -9,13 +11,14 @@ import javafx.stage.Stage;
 
 public class AppControllerTest extends ApplicationTest {
 
+    
     private AppController controller;
 
     /**
      * Set up for testing AppController.java
      */
 
-    @Override
+    @BeforeEach
     public void start(final Stage stage) throws Exception {
         final FXMLLoader loader = new FXMLLoader(getClass().getResource("FxApp.fxml"));
         final Parent root = loader.load();
@@ -32,6 +35,8 @@ public class AppControllerTest extends ApplicationTest {
     public void testRegisterButton(){
         clickOn("#registerUserButton");
         //FxAssert.verifyThat(window("My Window"), WindowMatchers.isShowing());
-    }}
+    }
+    
+}
 
 

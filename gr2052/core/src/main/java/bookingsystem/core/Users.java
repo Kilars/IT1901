@@ -20,7 +20,7 @@ public class Users implements Iterable<User> {
      * File name is stored as a private variable and is used to load from file.
      */
     public Users() {
-        loadUsersFromFile(this.fileName);
+      //  loadUsersFromFile(this.fileName);
     }
 
     /**
