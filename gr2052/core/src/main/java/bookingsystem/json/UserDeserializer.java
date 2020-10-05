@@ -31,7 +31,6 @@ public class UserDeserializer extends JsonDeserializer<User> {
     }
     
     public static void main(String[] args) {
-        UserDeserializer d = new UserDeserializer();
         ObjectMapper mapper = new ObjectMapper();
         
         mapper.registerModule(new UsersModule());
