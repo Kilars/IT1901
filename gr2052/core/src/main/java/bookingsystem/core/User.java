@@ -8,11 +8,11 @@ import java.util.regex.Pattern;
  * The class has two different constructors
  */
 public class User {
-    public String firstName;
-    public String surname;
-    public String email;
-    public String phone;
-    public String password;
+    private String firstName;
+    private String surname;
+    private String email;
+    private String phone;
+    private String password;
     
     /**
      * User constructor with no paramaters. 

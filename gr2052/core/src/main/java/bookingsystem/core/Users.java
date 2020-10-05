@@ -53,10 +53,10 @@ public class Users implements Iterable<User> {
      * @param user User to be added, of type User
      */
     public void addUser(User user) {
-        if (checkIfUserExists(user.getEmail()))
-            throw new IllegalArgumentException("Emailen er allerede registrert"); // TODO: Implement
+        /*if (checkIfUserExists(user.getEmail()))
+            throw new IllegalArgumentException("Emailen er allerede registrert"); // TODO: Implement*/
         this.usersList.add(user);
-        saveUsersToFile(this.fileName);
+       // saveUsersToFile(this.fileName);
     }
 
     /**
