@@ -18,6 +18,7 @@ public class AppController {
 	
 	@FXML
     Button registerButton, logInButton;
+    private boolean checkScene = false;
 
 /**
  * Changes the scene in the App from welcome-view to the register-user-view
@@ -33,11 +34,19 @@ public class AppController {
 
         window.setScene(registerUserScene);
         window.show();
+        this.checkScene = true;
 
 
 
     }
-	
+
+    /**
+     * Help method for testing successfull change of scene
+     * @return boolean which is True if scene change was successfull
+     */
+	public boolean getCheckscene(){
+        return this.checkScene;
+    }
 	
 	
 	
