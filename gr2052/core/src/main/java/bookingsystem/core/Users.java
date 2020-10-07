@@ -98,10 +98,10 @@ public class Users implements Iterable<User> {
     }
     
 
-    public Boolean logIn(User user, String mail, String password) {
+    public Boolean logIn(String email, String password) {
         Boolean logInSuccess = false;
-        if (checkIfUserExists(user.getEmail())) {
-            if(user.getPassword().equals(password)) {
+        if (checkIfUserExists(email)) {
+            if(getUser(email).getPassword().equals(password)) {
                 logInSuccess = true;
             }
             else {

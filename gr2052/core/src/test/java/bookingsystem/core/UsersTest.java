@@ -7,6 +7,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -41,8 +42,14 @@ public class UsersTest {
         users.removeUser(julie);
         assertFalse(usersList.contains(julie));
 
-        users.logIn(ingrid, "ingrid@hotmail.com", "passord");
-        assertEquals(users.logIn(ingrid, "ingrid@hotmail.com", "passord123"), false);
-
+       
+        users.logIn("ingrid@hotmail.com", "passord");
+        boolean thrown = false;
+        try {
+            users.logIn("ingrid@hotmail.com", "passord123");
+        } catch (IllegalArgumentException e) {
+            thrown = true;
+        }
+        assertTrue(thrown);
     }
 }
