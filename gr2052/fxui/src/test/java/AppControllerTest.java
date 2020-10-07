@@ -18,7 +18,7 @@ public class AppControllerTest extends ApplicationTest {
 
     /**
      * Set up for testing AppController.java
-     * /
+     */
 
     @BeforeEach
     public void start(final Stage stage) throws Exception {
@@ -31,8 +31,8 @@ public class AppControllerTest extends ApplicationTest {
 
     /**
      * Check if scene is switched to RegisterUser.fxml when clicking Register-Button in FxApp.fxml
-     * /
-*/
+     */
+
     @Test
     public void testRegisterButton(){
      //   clickOn("#registerUserButton");
