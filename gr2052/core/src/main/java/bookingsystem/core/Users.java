@@ -10,8 +10,9 @@ import bookingsystem.fillagring.FilesHandle;
  * Class to handle the user database. The users are saved in an ArrayList as
  * User-objects. The class has methods to delete, save, add and get users.
  */
+
 public class Users implements Iterable<User> {
-    private List<User> usersList = new ArrayList<>();
+    private List<User> users = new ArrayList<>();
     private FilesHandle fileHandler = new FilesHandle();
     private String fileName = "users.txt";
 
@@ -30,7 +31,7 @@ public class Users implements Iterable<User> {
      * @param fileName specifies the file to load from
      */
     public void loadUsersFromFile(String fileName) {
-        this.usersList = (fileHandler.readFromFile(fileName) == null) ? new ArrayList<>()
+        this.users = (fileHandler.readFromFile(fileName) == null) ? new ArrayList<>()
                 : fileHandler.readFromFile(fileName).stream()
                     .map(user -> new User(user))
                     .collect(Collectors.toList());
@@ -43,7 +44,7 @@ public class Users implements Iterable<User> {
      * @param fileName specifies the file to save to
      */
     public void saveUsersToFile(String fileName) {
-        fileHandler.writeToFile(fileName, usersList.stream().map(user -> user.toString()).collect(Collectors.toList()),
+        fileHandler.writeToFile(fileName, users.stream().map(user -> user.toString()).collect(Collectors.toList()),
                 false);
     }
 
@@ -55,7 +56,7 @@ public class Users implements Iterable<User> {
     public void addUser(User user) {
         /*if (checkIfUserExists(user.getEmail()))
             throw new IllegalArgumentException("Emailen er allerede registrert"); // TODO: Implement*/
-        this.usersList.add(user);
+        this.users.add(user);
        // saveUsersToFile(this.fileName);
     }
 
@@ -67,7 +68,7 @@ public class Users implements Iterable<User> {
      * @return returns the user as a User-object or null
      */
     private User getUser(String email) {
-        for (User user : this.usersList) {
+        for (User user : this.users) {
             if (user.getEmail().equals(email)) {
                 return user;
             }
@@ -89,12 +90,12 @@ public class Users implements Iterable<User> {
      * Removes user with email if present.
      */
     public void removeUser(User user) {
-        this.usersList.remove(user);
+        this.users.remove(user);
     }
 
     @Override
     public Iterator<User> iterator() {
-        return this.usersList.iterator();
+        return this.users.iterator();
     }
 /*
     public Boolean checkIfUserExistsJson(JSONArray userArray, JSONObject user) {
@@ -124,4 +125,8 @@ public class Users implements Iterable<User> {
     }
     */
 
+    @Override
+    public String toString() {
+        return "" + users.stream().map(user -> user.toString()).collect(Collectors.toList());
+    }
 }

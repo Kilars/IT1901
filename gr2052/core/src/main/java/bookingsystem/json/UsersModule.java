@@ -17,6 +17,8 @@ public class UsersModule extends SimpleModule {
         super(NAME, VERSION_UTIL.version());
         addSerializer(User.class, new UserSerializer());
         addSerializer(Users.class, new UsersSerializer());
+        addDeserializer(User.class, new UserDeserializer());
+        addDeserializer(Users.class, new UsersDeserializer());
     }
 
     public static void main(String[] args) {

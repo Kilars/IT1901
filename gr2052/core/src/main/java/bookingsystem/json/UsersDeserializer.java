@@ -1,6 +1,7 @@
 package bookingsystem.json;
 
 import java.io.IOException;
+import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -8,49 +9,61 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.fasterxml.jackson.databind.node.TextNode;
 
 import bookingsystem.core.User;
 import bookingsystem.core.Users;
 
-public class UserDeserializer extends JsonDeserializer<User> {
+public class UsersDeserializer extends JsonDeserializer<Users> {
+
+    /**
+    {"users" : [
+        {
+            "firstName" : "Ola",
+            "surname":"Nordmann",
+            "email":"ola.nordmann@mail.no",
+            "phone":"12345678",
+            "password":"Heiheih1832"
+        },
+        {
+            "firstName":"Kari",
+            "surname":"Nordmann",
+            "email":"kari.nordmann@mail.no",
+            "phone":"12345678",
+            "password":"Heiheih1832"
+        }
+        ]
+    }
+    */
+    
+    private UserDeserializer userDeserializer = new UserDeserializer();
 
     @Override
-    public User deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+    public Users deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
         final JsonNode node = p.getCodec().readTree(p);
-        return deserialize(node);
+        return deserialize((JsonNode) node);
     }
 
-    User deserialize(JsonNode node) {
+    private Users deserialize(JsonNode node) {
         if (node instanceof ObjectNode) {
             ObjectNode objectNode = (ObjectNode) node;
-            User user = new User();
-            JsonNode firstNameNode = objectNode.get("firstName");
-            if (firstNameNode instanceof TextNode) {
-                user.setFirstName(firstNameNode.asText());
+            Users users = new Users();
+            JsonNode usersNode = (ArrayNode) objectNode.get("users");
+            if (usersNode instanceof ArrayNode) {
+                for (JsonNode userNode : ((ArrayNode) usersNode)) {
+                    User user = userDeserializer.deserialize(userNode);
+                    if (user != null) {
+                        users.addUser(user);
+                    }
+                }
             }
-            JsonNode surnameNode = objectNode.get("surname");
-            if (surnameNode instanceof TextNode) {
-                user.setSurname(surnameNode.asText());
-            }
-            JsonNode emailNode = objectNode.get("email");
-            if (emailNode instanceof TextNode) {
-                user.setEmail(emailNode.asText());
-            }
-            JsonNode phoneNode = objectNode.get("phone");
-            if (phoneNode instanceof TextNode) {
-                user.setPhone(phoneNode.asText());
-            }
-            JsonNode passwordNode = objectNode.get("password");
-            if (passwordNode instanceof TextNode) {
-                user.setPassword(passwordNode.asText());
-            }
-            return user;
+            System.out.println(users.toString());
+            return users;
         }
         return null;
     }
-    
+
     public static void main(String[] args) {
         ObjectMapper mapper = new ObjectMapper();
         
@@ -71,11 +84,9 @@ public class UserDeserializer extends JsonDeserializer<User> {
         u2.setPassword("Heiheih1832");
         users.addUser(u1);
         users.addUser(u2);
-        
         try {
-            String json = mapper.writeValueAsString(u2);
-            mapper.readValue(json, User.class);
-
+            String json = mapper.writeValueAsString(users);
+            mapper.readValue(json, Users.class);
         } catch (Exception e) {
             System.err.println("UsersModule didn't work");
             e.printStackTrace();

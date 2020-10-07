@@ -25,6 +25,8 @@ public class UsersModuleTest {
         mapper.registerModule(new UsersModule());
     }
 
+    private final static String jsonSample = "{\"users\":[{\"firstName\":\"Ola\",\"surname\":\"Nordmann\",\"email\":\"ola.nordmann@mail.no\",\"phone\":\"12345678\",\"password\":\"Heiheih1832\"},{\"firstName\":\"Kari\",\"surname\":\"Nordmann\",\"email\":\"kari.nordmann@mail.no\",\"phone\":\"12345678\",\"password\":\"Heiheih1832\"}]}";
+
     @Test
     public void testSerializers() {
         Users users = new Users();
@@ -45,7 +47,7 @@ public class UsersModuleTest {
         System.out.println(users);
         try {
             assertEquals(
-                "{\"users\":[{\"firstName\":\"Ola\",\"surname\":\"Nordmann\",\"email\":\"ola.nordmann@mail.no\",\"phone\":\"12345678\",\"password\":\"Heiheih1832\"},{\"firstName\":\"Kari\",\"surname\":\"Nordmann\",\"email\":\"kari.nordmann@mail.no\",\"phone\":\"12345678\",\"password\":\"Heiheih1832\"}]}",
+                jsonSample,
                 mapper.writeValueAsString(users)
             );
         } catch (JsonProcessingException e) {
