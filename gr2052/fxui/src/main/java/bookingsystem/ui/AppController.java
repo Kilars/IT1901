@@ -26,6 +26,7 @@ public class AppController {
  * @throws IOException
  */
     public void registerButtonPushed(ActionEvent event) throws IOException{
+        this.checkScene = true;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("RegisterUser.fxml"));
         Parent registerUserParent = fxmlLoader.load();
         
@@ -34,7 +35,6 @@ public class AppController {
 
         window.setScene(registerUserScene);
         window.show();
-        this.checkScene = true;
 
 
 
