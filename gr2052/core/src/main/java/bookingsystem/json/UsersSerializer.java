@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import bookingsystem.core.User;
 import bookingsystem.core.Users;
 
-public class UsersSerializer extends JsonSerializer<Users> {
+class UsersSerializer extends JsonSerializer<Users> {
     /*
      * 
      * format: { "users" : [ ... ] }

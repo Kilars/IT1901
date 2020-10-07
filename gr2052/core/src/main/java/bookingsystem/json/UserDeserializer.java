@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.node.TextNode;
 import bookingsystem.core.User;
 import bookingsystem.core.Users;
 
-public class UserDeserializer extends JsonDeserializer<User> {
+class UserDeserializer extends JsonDeserializer<User> {
 
     @Override
     public User deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {

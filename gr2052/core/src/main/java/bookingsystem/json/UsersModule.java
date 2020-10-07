@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import bookingsystem.core.User;
 import bookingsystem.core.Users;
 
-public class UsersModule extends SimpleModule {
+class UsersModule extends SimpleModule {
 
     private static final String NAME = "UsersModule";
     private static final VersionUtil VERSION_UTIL = new VersionUtil() {

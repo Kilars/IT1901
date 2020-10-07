@@ -15,7 +15,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import bookingsystem.core.User;
 import bookingsystem.core.Users;
 
-public class UsersDeserializer extends JsonDeserializer<Users> {
+class UsersDeserializer extends JsonDeserializer<Users> {
 
     /**
     {"users" : [
