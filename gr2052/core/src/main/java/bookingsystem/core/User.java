@@ -13,6 +13,8 @@ public class User {
     private String email;
     private String phone;
     private String password;
+
+    private 
     
     /**
      * User constructor with no paramaters. 
@@ -199,12 +201,6 @@ public class User {
     public static void main(String[] args) {
     
     
-    User user = new User();
-    user.setFirstName("Ingrid"); 
-    user.setSurname("Hagen"); 
-    user.setEmail("ingrid-hagen99@hotmail.com");
-    user.setPhone("97103994");
-    user.setPassword("Heiheih1832");
-    System.out.println(user.toString());
+    
     }
 }
