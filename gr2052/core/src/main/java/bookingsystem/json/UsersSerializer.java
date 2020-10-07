@@ -13,7 +13,7 @@ import bookingsystem.core.Users;
 public class UsersSerializer extends JsonSerializer<Users> {
     /*
      * 
-     * format: { "items" : [ ... ] }
+     * format: { "users" : [ ... ] }
      */
 
     @Override
