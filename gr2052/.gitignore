@@ -1,5 +1,4 @@
 # ignore build files
 target/
-.settings/
 .classpath
 .project

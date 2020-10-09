@@ -1,7 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.testfx.framework.junit5.ApplicationTest;
 
@@ -13,16 +11,15 @@ import javafx.stage.Stage;
 
 public class AppControllerTest extends ApplicationTest {
 
-    
     private AppController controller;
 
     /**
      * Set up for testing AppController.java
-     * /
+     */
 
-    @BeforeEach
+    @Override
     public void start(final Stage stage) throws Exception {
-        final FXMLLoader loader = new FXMLLoader(getClass().getResource("FxApp.fxml"));
+        final FXMLLoader loader = new FXMLLoader(getClass().getResource("FxApp_test.fxml"));
         final Parent root = loader.load();
         this.controller = loader.getController();
         stage.setScene(new Scene(root));
@@ -30,14 +27,13 @@ public class AppControllerTest extends ApplicationTest {
     }
 
     /**
-     * Check if scene is switched to RegisterUser.fxml when clicking Register-Button in FxApp.fxml
-     * /
-*/
+     * Check if a new scene is opened when clicking Register-Button in FxApp.fxml
+     */
+
     @Test
     public void testRegisterButton(){
-     //   clickOn("#registerUserButton");
-        //FxAssert.verifyThat(window("My Window"), WindowMatchers.isShowing()); */
-        assertTrue(true);
+        clickOn("#registerButton");
+        assertTrue(controller.getCheckscene());
     }
     
 }

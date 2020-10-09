@@ -34,6 +34,7 @@ public class AppController {
 	
 	@FXML
     Button registerButton, logInButton;
+    private boolean checkScene = false;
 
     private String json_path = "users.json";
 
@@ -88,6 +89,7 @@ public class AppController {
      * @throws IOException
      */
     public void registerButtonPushed(ActionEvent event) throws IOException{
+        this.checkScene = true;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("RegisterUser.fxml"));
         Parent registerUserParent = fxmlLoader.load();
         
@@ -97,10 +99,37 @@ public class AppController {
 
         window.setScene(registerUserScene);
         window.show();
+
+    }
+
+    /**
+     * Changes the scene from Welcome-view to Log-in-view
+     * @param event
+     * @throws IOException
+     */
+
+    public void logInButtonPushed(ActionEvent event) throws IOException{
+        this.checkScene = true;
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LogIn.fxml"));
+        Parent logInParent = fxmlLoader.load();
+        
+        Scene logInScene = new Scene(logInParent);
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(logInScene);
+        window.show();
+    }
+
+    /**
+     * Help method for testing successfull change of scene
+     * @return boolean which is True if scene change was successfull
+     */
+	public boolean getCheckscene(){
+        return this.checkScene;
     }
 	
-    
-    public static void main(String[] args) {
-        new AppController().getInitialUsers().forEach(x -> System.out.println(x));
-    }
+	
+	
+	
+
 }

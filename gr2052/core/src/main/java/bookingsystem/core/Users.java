@@ -107,8 +107,8 @@ public class Users implements Iterable<User> {
      * @param email email of the user to check
      * @return if the user exists, true or false
      */
-    private boolean checkIfUserExists(String email) {
-        return (getUser(email).equals(null)) ? false : true;
+    public boolean checkIfUserExists(String email) {
+        return (getUser(email) == null) ? false : true;
     }
 
     /**
@@ -122,25 +122,16 @@ public class Users implements Iterable<User> {
     public Iterator<User> iterator() {
         return this.users.iterator();
     }
-/*
-    public Boolean checkIfUserExistsJson(JSONArray userArray, JSONObject user) {
-        String email = user.email;
-        Boolean exists = false;
+    
 
-        for (i = 0; i < userArray.length; i++) {
-            String checkMail = userArray[i].email;
-            if (email.equals(checkMail)) {
-                exists = true;
-            }
-        }
-        return exists;
-    }
-
-    public Boolean logIn(JSONArray userArray, JSONObject user, String mail, String password) {
+    public Boolean logIn(String email, String password) {
         Boolean logInSuccess = false;
-        if (checkIfUserExistsJson(userArray, user)) {
-            if(!(user.password.equals(password))) {
+        if (checkIfUserExists(email)) {
+            if(getUser(email).getPassword().equals(password)) {
                 logInSuccess = true;
+            }
+            else {
+                throw new IllegalArgumentException("Feil passord!");
             }
         }
         else {
@@ -148,7 +139,7 @@ public class Users implements Iterable<User> {
         }
         return logInSuccess;
     }
-    */
+    
 
     @Override
     public String toString() {
