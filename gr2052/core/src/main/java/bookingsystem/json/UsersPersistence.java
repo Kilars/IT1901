@@ -30,4 +30,8 @@ public class UsersPersistence {
     public void writeUsers(Users users, Writer writer) throws IOException {
         mapper.writerWithDefaultPrettyPrinter().writeValue(writer, users);
     }
+
+    public static void main(String[] args) {
+        
+    }
 }

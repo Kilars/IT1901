@@ -21,6 +21,7 @@ public class User {
     public User() {
     }
 
+    
     /**
      * Creates a new object taking in all parameters
      * @param firstName

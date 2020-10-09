@@ -1,6 +1,7 @@
 package bookingsystem.core;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,6 +23,10 @@ public class Users implements Iterable<User> {
      */
     public Users() {
       //  loadUsersFromFile(this.fileName);
+    }
+
+    public Users(User... users) {
+        addUsers(users);;
     }
 
     /**
@@ -57,6 +62,26 @@ public class Users implements Iterable<User> {
         /*if (checkIfUserExists(user.getEmail()))
             throw new IllegalArgumentException("Emailen er allerede registrert"); // TODO: Implement*/
         this.users.add(user);
+       // saveUsersToFile(this.fileName);
+    }
+
+    public void addUsers(User... users) {
+        /*if (checkIfUserExists(user.getEmail()))
+            throw new IllegalArgumentException("Emailen er allerede registrert"); // TODO: Implement*/
+        for (User u : users) {
+            User user;
+            if (u instanceof User) {
+                user = (User) u;
+            } else {
+                user = new User();
+                user.setFirstName(u.getFirstName());
+                user.setSurname(u.getSurname());
+                user.setEmail(u.getEmail());
+                user.setPhone(u.getPhone());
+                user.setPassword(u.getPassword());
+            }
+            this.users.add(user);
+        }
        // saveUsersToFile(this.fileName);
     }
 

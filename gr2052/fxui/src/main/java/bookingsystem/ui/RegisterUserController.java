@@ -74,10 +74,4 @@ public class RegisterUserController {
     public Users getRegisteredUsers() {
         return registeredUsers;
     }
-
-    
-
-
-
-
 }
