@@ -42,4 +42,4 @@ Issues: #1, #2, #3, #4, #5, #6, #7, #10 <br />
  Issues: #17, #18, #19, #20, #21, #22 <br />
  **JSON-implementasjon:**<br />
  Implementere JSON- og Jackson-plugins og legge til rette for god, enkel og sikker fillagring.<br />
- -Issues: #28, #50 <br />
+ -Issues: #28, #50, #60 <br />
