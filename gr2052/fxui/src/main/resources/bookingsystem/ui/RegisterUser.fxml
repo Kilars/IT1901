@@ -3,6 +3,7 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,14 +15,15 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookingsystem.ui.RegisterUserController">
    <children>
       <BorderPane layoutY="1.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="registerUserButton" layoutX="426.0" layoutY="258.0" mnemonicParsing="false" text="Registrer" />
+                  <Button fx:id="registerUserButton" layoutX="426.0" layoutY="258.0" mnemonicParsing="false" onAction="#handleSaveUserButton" text="Registrer" />
                   <GridPane layoutX="111.0" layoutY="14.0" prefHeight="219.0" prefWidth="379.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -39,41 +41,42 @@
                         <TextField fx:id="nameField" promptText="Ola" GridPane.columnIndex="1" />
                         <TextField fx:id="emailField" promptText="o.nordmann@gmail.com" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <TextField fx:id="phoneNumberField" promptText="99113688" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField fx:id="passwordField" promptText="Minst 8 tegn" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <TextField fx:id="confirmPasswordField" promptText="Minst 8 tegn" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Label fx:id="nameField" text="Navn">
+                        <TextField fx:id="surnameField" promptText="Nordmann" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <PasswordField fx:id="passwordField" promptText="Minst 8 tegn" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <PasswordField fx:id="confirmPasswordField" promptText="Minst 8 tegn" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Navn">
                            <font>
                               <Font size="14.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="surNameField" text="Etternavn" GridPane.rowIndex="1">
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Etternavn" GridPane.rowIndex="1">
                            <font>
                               <Font size="14.0" />
                            </font>
-                        </Label>
-                        <TextField promptText="Nordmann" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label text="Epost" GridPane.rowIndex="2">
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Epost" GridPane.rowIndex="2">
                            <font>
                               <Font size="14.0" />
                            </font>
-                        </Label>
-                        <Label text="Telefonnummer" GridPane.rowIndex="3">
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Telefonnummer" GridPane.rowIndex="3">
                            <font>
                               <Font size="14.0" />
                            </font>
-                        </Label>
-                        <Label text="Passord" GridPane.rowIndex="4">
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Passord" GridPane.rowIndex="4">
                            <font>
                               <Font size="14.0" />
                            </font>
-                        </Label>
-                        <Label text="Gjenta passord" GridPane.rowIndex="5">
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Gjenta passord" GridPane.rowIndex="5">
                            <font>
                               <Font size="14.0" />
                            </font>
-                        </Label>
+                        </Text>
                      </children>
                   </GridPane>
+                  <Label fx:id="feedbackLabel" layoutX="111.0" layoutY="262.0" />
                </children>
             </Pane>
          </center>
