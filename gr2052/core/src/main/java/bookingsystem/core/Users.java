@@ -7,6 +7,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 import bookingsystem.fillagring.FilesHandle;
 
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringReader;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+
+import bookingsystem.core.User;
+import bookingsystem.core.Users;
+import bookingsystem.json.UsersPersistence;
+
+
 /**
  * Class to handle the user database. The users are saved in an ArrayList as
  * User-objects. The class has methods to delete, save, add and get users.
@@ -16,6 +28,7 @@ public class Users implements Iterable<User> {
     private List<User> users = new ArrayList<>();
     private FilesHandle fileHandler = new FilesHandle();
     private String fileName = "users.txt";
+    private String jsonFile = "users.json";
 
     /**
      * Constructor to initialize the instance. Automaticly loads users from file.
@@ -118,6 +131,9 @@ public class Users implements Iterable<User> {
         this.users.remove(user);
     }
 
+    /**
+     * Returns this object as an iterator. Enables use of 'for (user : users)'
+     */
     @Override
     public Iterator<User> iterator() {
         return this.users.iterator();
@@ -144,5 +160,52 @@ public class Users implements Iterable<User> {
     @Override
     public String toString() {
         return "" + users.stream().map(user -> user.toString()).collect(Collectors.toList());
+    }
+
+    public Users loadJSON(String jsonFile) {
+        // setter opp data
+        Reader reader = null;
+        URL path = getClass().getResource(jsonFile);
+        System.out.println(path);
+        if (path != null) {
+            try {
+            reader = new InputStreamReader(path.openStream(), StandardCharsets.UTF_8);
+            } catch (IOException e) {
+            System.err.println("Couldn't read " + jsonFile);
+            }
+        } else {
+            System.err.println("Couldn't find " + jsonFile);
+        }
+        
+        if (reader == null) {
+            // use embedded String
+            reader = new StringReader(jsonFile);
+        }
+        Users users = null;
+        try {
+            UsersPersistence usersPersistence = new UsersPersistence();
+            users = usersPersistence.readUsers(reader);
+        } catch (IOException e) {
+            // ignore
+        } finally {
+            try {
+                if (reader != null) {
+                reader.close();
+                }
+            } catch (IOException e) {
+                // ignore
+            }
+        }
+        if (users == null) {
+            users = new Users(
+                new User("Magnus", "Holta", "magnus.holta@gmail.com", "48052730", "Hallodu123"),
+                new User("Lars", "Skifjeld", "hallo.du@lars.no", "12345678", "Neineineinei123")
+            );
+        }
+        return users;
+    }
+
+    public static void main(String[] args) {
+        new Users().loadJSON("users.json").forEach(x -> System.out.println(x));
     }
 }

@@ -15,17 +15,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
+import javafx.stage.Stage; 
 
-import java.io.FileReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.io.StringReader;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Paths;
-import javafx.fxml.FXML;
+
 /**
  * Controller connected to FXApp.fxml
  */
@@ -35,51 +29,15 @@ public class AppController {
 	@FXML
     Button registerButton, logInButton;
     private boolean checkScene = false;
+    private Users users;
+    private String jsonFile = "users.json";
 
-    private String json_path = "users.json";
-
-    private Users getInitialUsers() {
-        // setter opp data
-        Reader reader = null;
-        URL url = getClass().getResource(json_path);
-        if (url != null) {
-            try {
-            reader = new InputStreamReader(url.openStream(), StandardCharsets.UTF_8);
-            } catch (IOException e) {
-            System.err.println("Kunne ikke lese innebygget " + json_path);
-            }
-        } else {
-            
-            System.err.println("Fant ikke innebygget " + json_path);
-        }
-        
-        if (reader == null) {
-        // use embedded String
-        reader = new StringReader(json_path);
-        }
-        Users users = null;
-        try {
-        UsersPersistence usersPersistence = new UsersPersistence();
-        users = usersPersistence.readUsers(reader);
-        } catch (IOException e) {
-        // ignore
-        } finally {
-            try {
-                if (reader != null) {
-                reader.close();
-                }
-            } catch (IOException e) {
-                // ignore
-            }
-        }
-        System.out.println("Users: " + users);
-        if (users == null) {
-            users = new Users(
-                new User("Magnus", "Holta", "magnus.holta@gmail.com", "48052730", "Hallodu123"),
-                new User("Lars", "Skifjeld", "hallo.du@lars.no", "12345678", "Neineineinei123")
-            );
-        }
-        return users;
+    /**
+     * Inializes the users object from the .json file.
+     * @param jsonFile Filename as String
+     */
+    private void getInitialUsers(String jsonFile) {
+        users.loadJSON(jsonFile);
     }
 
 
@@ -128,7 +86,9 @@ public class AppController {
         return this.checkScene;
     }
 	
-	
+	public static void main(String[] args) {
+        new AppController().getInitialUsers("users.json");
+    }
 	
 	
 
