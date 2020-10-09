@@ -8,9 +8,13 @@ public class Booking {
 
     User customer;
     HairDresser hairdresser;
-    String treatment;
+    Treatment treatment;
    
-
+    public Booking(User customer, HairDresser hairdresser, Treatment treatment) {
+        setHairdresser(hairdresser);
+        setTreatment(treatment);
+        setCustomer(customer);
+    }
     /**
      * @param customer the customer to set
      */
@@ -30,7 +34,7 @@ public class Booking {
     /**
      * @param treatment the treatment to set
      */
-    public void setTreatment(String treatment) {
+    public void setTreatment(Treatment treatment) {
         this.treatment = treatment;
     }
 
@@ -52,7 +56,7 @@ public class Booking {
     /**
      * @return the treatment
      */
-    public String getTreatment() {
+    public Treatment getTreatment() {
         return treatment;
     }
     
