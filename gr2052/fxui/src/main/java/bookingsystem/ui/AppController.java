@@ -36,8 +36,18 @@ public class AppController {
         window.setScene(registerUserScene);
         window.show();
 
+    }
 
+    public void logInButtonPushed(ActionEvent event) throws IOException{
+        this.checkScene = true;
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LogIn.fxml"));
+        Parent logInParent = fxmlLoader.load();
+        
+        Scene logInScene = new Scene(logInParent);
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
+        window.setScene(logInScene);
+        window.show();
     }
 
     /**

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" fx:controller="bookingsystem.ui.AppController" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookingsystem.ui.AppController">
    <children>
       <BorderPane layoutX="-7.0" layoutY="-7.0" prefHeight="414.0" prefWidth="612.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -58,7 +58,7 @@
                               <FontAwesomeIconView glyphName="USER" size="1.3em" />
                            </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" style="-fx-background-color: FFC0CB;" text="Logg inn" GridPane.rowIndex="2">
+                        <Button fx:id="logInButton" mnemonicParsing="false" onAction="#logInButtonPushed" prefHeight="31.0" prefWidth="123.0" style="-fx-background-color: FFC0CB;" text="Logg inn" GridPane.rowIndex="2">
                            <graphic>
                               <FontAwesomeIconView glyphName="LOCK" size="1.3EM" />
                            </graphic>
