@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="118.0" fitWidth="180.0" layoutX="11.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../gr2052/gr2052/fxui/src/main/resources/bookingsystem/ui/Logo_ITP.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="166.0" layoutY="23.0" text="Timebestilling">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="datePicker" layoutX="125.0" layoutY="130.0" prefHeight="27.0" prefWidth="150.0" promptText="Dato" />
+      <SplitMenuButton fx:id="hourMenu" layoutX="287.0" layoutY="130.0" mnemonicParsing="false" text="Klokkesett">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </SplitMenuButton>
+      <SplitMenuButton fx:id="treatmentMenu" layoutX="124.0" layoutY="173.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="273.0" text="Behandling">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </SplitMenuButton>
+      <Label layoutX="124.0" layoutY="219.0" text="Estimert pris:" />
+      <Label fx:id="priceLabel" layoutX="218.0" layoutY="219.0" prefHeight="17.0" prefWidth="46.0" text="-   kr" />
+      <Button fx:id="bestillButton" layoutX="125.0" layoutY="260.0" mnemonicParsing="false" style="-fx-background-color: FFC0BC;" text="Bestill time" />
+      <Label fx:id="feedbackLabel" layoutX="247.0" layoutY="265.0" prefHeight="17.0" prefWidth="241.0" text=" " />
+      <Button fx:id="cancelButton" layoutX="235.0" layoutY="260.0" mnemonicParsing="false" style="-fx-background-color: FFC0BC FFC0BC;" text="Avbryt" />
+   </children>
+</AnchorPane>
