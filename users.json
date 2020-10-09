@@ -17,6 +17,23 @@
     "email" : "haugenstua.0977@ferdi.da",
     "phone" : "09770977",
     "password" : "LivetMin0977"
-  }
-  ]
+  }, {
+    "firstName" : "Magnus",
+    "surname" : "Holta",
+    "email" : "magnus.holta@gmail.com",
+    "phone" : "48052730",
+    "password" : "HeiHallo1"
+  }, {
+    "firstName" : "Magnus",
+    "surname" : "Holta",
+    "email" : "magnus.holta@gmail.com",
+    "phone" : "48052730",
+    "password" : "HeiHallo1"
+  }, {
+    "firstName" : "Magnus",
+    "surname" : "Holta",
+    "email" : "magnus.holta@gmail.com",
+    "phone" : "48052730",
+    "password" : "HeiHallo1"
+  } ]
 }

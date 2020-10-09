@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 
 public class RegisterUserController {
 
-    Users registeredUsers = new Users();
+    private Users users;
 
     @FXML
     TextField nameField, surnameField, emailField, phoneNumberField;
@@ -54,7 +54,7 @@ public class RegisterUserController {
             user.setPhone(phoneNumberField.getText());
             checkPassword();
             user.setPassword(passwordField.getText());
-            registeredUsers.addUser(user);
+            this.users.addUser(user);
             feedbackLabel.setText("Vellykket registrering av bruker");
 
             changeScene(event);
@@ -68,12 +68,17 @@ public class RegisterUserController {
 
 
     public void changeScene(ActionEvent event) throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LogIn.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("LogIn.fxml"));
         Parent logInParent = fxmlLoader.load();
+
+        LogInController controller = fxmlLoader.getController();
+        controller.init_data(this.getUsers());
+        
         
         Scene logInScene = new Scene(logInParent);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            
+
         window.setScene(logInScene);
         window.show();
     }
@@ -96,12 +101,16 @@ public class RegisterUserController {
      * @return the list of already registered users in the app
      */
 
-    public Users getRegisteredUsers() {
-        return registeredUsers;
+    public Users getUsers() {
+        return this.users;
     }
 
     public String getFeedbackLabelText() {
         return feedbackLabel.getText();
+    }
+
+    public void init_data(Users users){
+        this.users = users;
     }
 
     

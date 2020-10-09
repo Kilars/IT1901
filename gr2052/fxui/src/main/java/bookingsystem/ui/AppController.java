@@ -21,26 +21,19 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 
 /**
- * Controller connected to FXApp.fxml
+ * Controller connected to FxApp.fxml
  */
 
 public class AppController {
 	
 	@FXML
     Button registerButton, logInButton;
+
     private boolean checkScene = false;
-    private Users users;
     private String jsonFile = "users.json";
+    private Users users = new Users(jsonFile);
 
-    /**
-     * Inializes the users object from the .json file.
-     * @param jsonFile Filename as String
-     */
-    private void getInitialUsers(String jsonFile) {
-        users.loadJSON(jsonFile);
-    }
-
-
+   
     /**
      * Changes the scene in the App from welcome-view to the register-user-view
      * @param event
@@ -48,11 +41,15 @@ public class AppController {
      */
     public void registerButtonPushed(ActionEvent event) throws IOException{
         this.checkScene = true;
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("RegisterUser.fxml"));
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("RegisterUser.fxml"));
         Parent registerUserParent = fxmlLoader.load();
+
+        RegisterUserController controller = fxmlLoader.getController();
+        controller.init_data(this.getUsers());
         
         Scene registerUserScene = new Scene(registerUserParent);
-
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(registerUserScene);
@@ -68,8 +65,13 @@ public class AppController {
 
     public void logInButtonPushed(ActionEvent event) throws IOException{
         this.checkScene = true;
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LogIn.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("LogIn.fxml"));
         Parent logInParent = fxmlLoader.load();
+
+        LogInController controller = fxmlLoader.getController();
+        controller.init_data(this.getUsers());
+        
         
         Scene logInScene = new Scene(logInParent);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -85,9 +87,17 @@ public class AppController {
 	public boolean getCheckscene(){
         return this.checkScene;
     }
+
+    public String returnFxmlFile(){
+        return "FxApp.fxml";
+    }
+
+    public Users getUsers(){
+        return this.users;
+    }
 	
 	public static void main(String[] args) {
-        new AppController().getInitialUsers("users.json");
+        new AppController();
     }
 	
 	

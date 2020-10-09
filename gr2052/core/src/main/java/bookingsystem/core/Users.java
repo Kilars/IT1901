@@ -7,12 +7,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 import bookingsystem.fillagring.FilesHandle;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.StringReader;
+import java.io.Writer;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Paths;
+import java.nio.file.attribute.UserPrincipal;
 
 import bookingsystem.core.User;
 import bookingsystem.core.Users;
@@ -23,77 +29,56 @@ import bookingsystem.json.UsersPersistence;
  * Class to handle the user database. The users are saved in an ArrayList as
  * User-objects. The class has methods to delete, save, add and get users.
  */
-
 public class Users implements Iterable<User> {
     private List<User> users = new ArrayList<>();
     private FilesHandle fileHandler = new FilesHandle();
-    private String fileName = "users.txt";
-    private String jsonFile = "users.json";
+    private String jsonFile = "sers.json";
+    private UsersPersistence usersPersistence = new UsersPersistence();
+
 
     /**
      * Constructor to initialize the instance. Automaticly loads users from file.
      * File name is stored as a private variable and is used to load from file.
      */
+
     public Users() {
+
+    }
+
+    public Users(String jsonFile) {
+        setJsonFilename(jsonFile);
+        this.users = getJsonUsers();
       //  loadUsersFromFile(this.fileName);
+    }
+
+    private void setJsonFilename(String jsonFile) {
+        this.jsonFile = jsonFile;
     }
 
     public Users(User... users) {
         addUsers(users);;
     }
 
-    /**
-     * Loads users from file. Makes a stream if readFromFile() does not return null.
-     * Maps from strings to User object. Using stream with map() and collect().
-     * 
-     * @param fileName specifies the file to load from
-     */
-    public void loadUsersFromFile(String fileName) {
-        this.users = (fileHandler.readFromFile(fileName) == null) ? new ArrayList<>()
-                : fileHandler.readFromFile(fileName).stream()
-                    .map(user -> new User(user))
-                    .collect(Collectors.toList());
-    }
-
-    /**
-     * Saves users to file. Utilizing stream with map() and collect() to get a
-     * String object.
-     * 
-     * @param fileName specifies the file to save to
-     */
-    public void saveUsersToFile(String fileName) {
-        fileHandler.writeToFile(fileName, users.stream().map(user -> user.toString()).collect(Collectors.toList()),
-                false);
-    }
-
-    /**
-     * Adds user to list and saves to file
-     * 
-     * @param user User to be added, of type User
-     */
     public void addUser(User user) {
-        /*if (checkIfUserExists(user.getEmail()))
+        /*if (checkIfUserExists(u.getEmail()))
             throw new IllegalArgumentException("Emailen er allerede registrert"); // TODO: Implement*/
+        User user_this;
+        if (user instanceof User) {
+            user_this = (User) user;
+        } else {
+            user_this = new User();
+            user_this.setFirstName(user.getFirstName());
+            user_this.setSurname(user.getSurname());
+            user_this.setEmail(user.getEmail());
+            user_this.setPhone(user.getPhone());
+            user_this.setPassword(user.getPassword());
+        }
         this.users.add(user);
-       // saveUsersToFile(this.fileName);
     }
 
     public void addUsers(User... users) {
-        /*if (checkIfUserExists(user.getEmail()))
-            throw new IllegalArgumentException("Emailen er allerede registrert"); // TODO: Implement*/
-        for (User u : users) {
-            User user;
-            if (u instanceof User) {
-                user = (User) u;
-            } else {
-                user = new User();
-                user.setFirstName(u.getFirstName());
-                user.setSurname(u.getSurname());
-                user.setEmail(u.getEmail());
-                user.setPhone(u.getPhone());
-                user.setPassword(u.getPassword());
-            }
-            this.users.add(user);
+        for (User user : users) {
+            addUser(user);
         }
        // saveUsersToFile(this.fileName);
     }
@@ -121,7 +106,7 @@ public class Users implements Iterable<User> {
      * @return if the user exists, true or false
      */
     public boolean checkIfUserExists(String email) {
-        return (getUser(email) == null) ? false : true;
+        return (getUser(email) != null);
     }
 
     /**
@@ -140,10 +125,11 @@ public class Users implements Iterable<User> {
     }
     
 
-    public Boolean logIn(String email, String password) {
+    public Boolean logIn(String email, String password) { // Burde vært try catch?
         Boolean logInSuccess = false;
         if (checkIfUserExists(email)) {
             if(getUser(email).getPassword().equals(password)) {
+                fireUsersChange();
                 logInSuccess = true;
             }
             else {
@@ -162,28 +148,27 @@ public class Users implements Iterable<User> {
         return "" + users.stream().map(user -> user.toString()).collect(Collectors.toList());
     }
 
-    public Users loadJSON(String jsonFile) {
+    public Users getJsonObject() {
         // setter opp data
         Reader reader = null;
-        URL path = getClass().getResource(jsonFile);
-        System.out.println(path);
-        if (path != null) {
+        URL url = getClass().getResource(getJsonFilename());
+        System.out.println(url);
+        if (url != null) {
             try {
-            reader = new InputStreamReader(path.openStream(), StandardCharsets.UTF_8);
+            reader = new InputStreamReader(url.openStream(), StandardCharsets.UTF_8);
             } catch (IOException e) {
-            System.err.println("Couldn't read " + jsonFile);
+            System.err.println("Couldn't read " + getJsonFilename());
             }
         } else {
-            System.err.println("Couldn't find " + jsonFile);
+            System.err.println("Couldn't find " + getJsonFilename());
         }
         
         if (reader == null) {
             // use embedded String
-            reader = new StringReader(jsonFile);
+            reader = new StringReader(getJsonFilename());
         }
         Users users = null;
         try {
-            UsersPersistence usersPersistence = new UsersPersistence();
             users = usersPersistence.readUsers(reader);
         } catch (IOException e) {
             // ignore
@@ -197,15 +182,44 @@ public class Users implements Iterable<User> {
             }
         }
         if (users == null) {
-            users = new Users(
-                new User("Magnus", "Holta", "magnus.holta@gmail.com", "48052730", "Hallodu123"),
-                new User("Lars", "Skifjeld", "hallo.du@lars.no", "12345678", "Neineineinei123")
-            );
+            users = new Users();
         }
         return users;
     }
 
+    public List<User> getUsers() {
+        return this.users;
+    }
+
+    private String getJsonFilename() {
+        return this.jsonFile;
+    } 
+
+    public List<User> getJsonUsers() {
+        return getJsonObject().getUsers();
+    }
+    public void saveToJson() {
+        try {
+            URL url = getClass().getResource(jsonFile);
+            
+            System.out.println("path: " + url.getPath());
+            Writer writer = new PrintWriter(new File("/workspace/gr2052/gr2052/core/src/main/resources/bookingsystem/core/users.json"));
+            usersPersistence.writeUsers(this, writer);
+        } catch (Exception e) {
+            System.err.println("Couldn't write to " + getJsonFilename());
+            e.printStackTrace();
+        }
+    }
+
+    public void fireUsersChange() {
+        saveToJson();
+        //this.users = getJsonUsers();
+    }
+
     public static void main(String[] args) {
-        new Users().loadJSON("users.json").forEach(x -> System.out.println(x));
+        Users users = new Users("users.json");
+        users.getUsers().forEach(x -> System.out.println(x));
+        users.addUsers(new User("Magnus", "Holta", "magnus.holta@gmail.com", "48052730", "HeiHallo1"));
+        users.fireUsersChange();
     }
 }
