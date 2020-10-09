@@ -92,7 +92,7 @@ public class Users implements Iterable<User> {
      * @param email The email of the user to get
      * @return returns the user as a User-object or null
      */
-    private User getUser(String email) {
+    public User getUser(String email) {
         for (User user : this.users) {
             if (user.getEmail().equals(email)) {
                 return user;

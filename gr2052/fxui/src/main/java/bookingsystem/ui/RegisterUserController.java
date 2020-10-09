@@ -100,7 +100,7 @@ public class RegisterUserController {
         return registeredUsers;
     }
 
-    public String getFeedbackLabelText(){
+    public String getFeedbackLabelText() {
         return feedbackLabel.getText();
     }
 
