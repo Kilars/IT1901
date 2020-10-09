@@ -1,5 +1,7 @@
 package bookingsystem.ui;
+
 import bookingsystem.core.Users;
+import bookingsystem.core.User;
 
 import java.io.IOException;
 
@@ -55,18 +57,21 @@ public class LogInController {
     }
 
     private void changeScene(ActionEvent event) throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("UserProfile.fxml"));
-        //fxmlLoader.setLocation(getClass().getResource("LogIn.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("UserProfile.fxml"));
         Parent logInParent = fxmlLoader.load();
 
-        //LogInController controller = fxmlLoader.getController();
-        //controller.init_data(this.getUsers());
-        
+        UserProfileController controller = fxmlLoader.getController();
+        controller.init_data(this.getUser(emailField.getText()));
         
         Scene logInScene = new Scene(logInParent);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(logInScene);
         window.show();
+    }
+
+    private User getUser(String email){
+        return this.users.getUser(email);
     }
 }
