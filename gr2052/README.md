@@ -20,6 +20,7 @@ Disse brukerhistoriene dekker vår plan for applikasjonen, og vil bli avkrysset 
 * [ ] 6. Som en bruker ønsker jeg å se tilgjengelige datoer og klokkeslett, og velge mellom disse. 
 * [ ] 7. Som en bruker ønsker jeg å kunne se prisen på behandlingen(e) jeg velger.
 * [x] 8. Som en bruker ønsker jeg et intuitivt og funskjonelt brukergrensesnitt, slik at applikasjonen er enkel og praktisk i bruk.
+* [ ] 9. Som en bruker ønsker jeg å kun måtte lage bruker en gang for så å kunne logge inn med denne.
 
 ## Prosjektfremgang
 
@@ -41,4 +42,4 @@ Issues: #1, #2, #3, #4, #5, #6, #7, #10 <br />
  Issues: #17, #18, #19, #20, #21, #22 <br />
  **JSON-implementasjon:**<br />
  Implementere JSON- og Jackson-plugins og legge til rette for god, enkel og sikker fillagring.<br />
- Issues: #28 <br />
+ -Issues: #28, #50 <br />

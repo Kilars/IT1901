@@ -31,6 +31,14 @@ public class UserTest {
         }
         user.setEmail("larsski@gmail.com");
         assertEquals("larsski@gmail.com", user.getEmail());
-    }
 
+        try {
+            user.setPassword("123");
+            fail();
+        } catch (IllegalArgumentException e) {
+
+        }
+
+
+}
 }
