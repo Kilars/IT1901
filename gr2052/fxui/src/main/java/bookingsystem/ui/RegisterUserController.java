@@ -67,7 +67,7 @@ public class RegisterUserController {
     }
 
 
-    public void changeScene(ActionEvent event) throws IOException{
+    private void changeScene(ActionEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("LogIn.fxml"));
         Parent logInParent = fxmlLoader.load();
