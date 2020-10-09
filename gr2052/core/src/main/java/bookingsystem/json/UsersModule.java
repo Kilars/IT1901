@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import bookingsystem.core.User;
 import bookingsystem.core.Users;
 
-public class UsersModule extends SimpleModule {
+class UsersModule extends SimpleModule {
 
     private static final String NAME = "UsersModule";
     private static final VersionUtil VERSION_UTIL = new VersionUtil() {
@@ -17,6 +17,8 @@ public class UsersModule extends SimpleModule {
         super(NAME, VERSION_UTIL.version());
         addSerializer(User.class, new UserSerializer());
         addSerializer(Users.class, new UsersSerializer());
+        addDeserializer(User.class, new UserDeserializer());
+        addDeserializer(Users.class, new UsersDeserializer());
     }
 
     public static void main(String[] args) {
