@@ -38,6 +38,12 @@ public class AppController {
 
     }
 
+    /**
+     * Changes the scene from Welcome-view to Log-in-view
+     * @param event
+     * @throws IOException
+     */
+
     public void logInButtonPushed(ActionEvent event) throws IOException{
         this.checkScene = true;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LogIn.fxml"));
