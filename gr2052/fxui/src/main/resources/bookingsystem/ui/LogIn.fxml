@@ -50,14 +50,15 @@
                         <FontAwesomeIconView glyphName="USER" size="1.8em" wrappingWidth="23.028547286987305" />
                      </graphic>
                   </Label>
-                  <TextField layoutX="211.0" layoutY="96.0" prefHeight="25.0" prefWidth="179.0" promptText="email" />
+                  <TextField fx:id="emailField" layoutX="211.0" layoutY="96.0" prefHeight="25.0" prefWidth="179.0" promptText="email" />
                   <Label layoutX="141.0" layoutY="158.0">
                      <graphic>
                         <FontAwesomeIconView glyphName="KEY" size="1.8em" />
                      </graphic>
                   </Label>
-                  <TextField layoutX="211.0" layoutY="156.0" prefHeight="25.0" prefWidth="179.0" promptText="passord" />
-                  <Button layoutX="338.0" layoutY="232.0" mnemonicParsing="false" text="Logg inn" />
+                  <TextField fx:id="passwordField" layoutX="211.0" layoutY="156.0" prefHeight="25.0" prefWidth="179.0" promptText="passord" />
+                  <Button fx:id="logInButton" onAction="#logInButtonPushed" layoutX="338.0" layoutY="232.0" mnemonicParsing="false" text="Logg inn" />
+                  <Label fx:id="feedbackLabel" layoutX="111.0" layoutY="262.0" />
                </children>
             </Pane>
          </center>
