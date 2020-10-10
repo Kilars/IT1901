@@ -55,11 +55,11 @@ public class RegisterUserController {
             checkPassword();
             user.setPassword(passwordField.getText());
             this.users.addUser(user);
+            this.users.fireUsersChange();
             feedbackLabel.setText("Vellykket registrering av bruker");
 
             changeScene(event);
-        }
-        catch(IllegalArgumentException e){
+        } catch (IllegalArgumentException e){
             feedbackLabel.setText(e.getMessage());
         }
 
@@ -112,10 +112,4 @@ public class RegisterUserController {
     public void init_data(Users users){
         this.users = users;
     }
-
-    
-
-
-
-
 }

@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import bookingsystem.fillagring.FilesHandle;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -27,7 +28,7 @@ import bookingsystem.json.UsersPersistence;
 
 /**
  * Class to handle the user database. The users are saved in an ArrayList as
- * User-objects. The class has methods to delete, save, add and get users.
+ * User-objects. The class has methods to save, add and get users.
  */
 public class Users implements Iterable<User> {
     private List<User> users = new ArrayList<>();
@@ -55,25 +56,23 @@ public class Users implements Iterable<User> {
         this.jsonFile = jsonFile;
     }
 
-    public Users(User... users) {
-        addUsers(users);;
-    }
-
     public void addUser(User user) {
-        /*if (checkIfUserExists(u.getEmail()))
-            throw new IllegalArgumentException("Emailen er allerede registrert"); // TODO: Implement*/
-        User user_this;
-        if (user instanceof User) {
-            user_this = (User) user;
+        if (checkIfUserExists(user.getEmail()) == false) {
+            User user_this;
+            if (user instanceof User) {
+                user_this = (User) user;
+            } else {
+                user_this = new User();
+                user_this.setFirstName(user.getFirstName());
+                user_this.setSurname(user.getSurname());
+                user_this.setEmail(user.getEmail());
+                user_this.setPhone(user.getPhone());
+                user_this.setPassword(user.getPassword());
+            }
+            this.users.add(user_this);
         } else {
-            user_this = new User();
-            user_this.setFirstName(user.getFirstName());
-            user_this.setSurname(user.getSurname());
-            user_this.setEmail(user.getEmail());
-            user_this.setPhone(user.getPhone());
-            user_this.setPassword(user.getPassword());
+                throw new IllegalArgumentException("Emailen er allerede registrert");
         }
-        this.users.add(user);
     }
 
     public void addUsers(User... users) {
@@ -92,7 +91,8 @@ public class Users implements Iterable<User> {
      */
     public User getUser(String email) {
         for (User user : this.users) {
-            if (user.getEmail().equals(email)) {
+            System.out.println(email + " - " + user.getEmail());
+            if (user.getEmail().equalsIgnoreCase(email)) {
                 return user;
             }
         }
@@ -106,11 +106,11 @@ public class Users implements Iterable<User> {
      * @return if the user exists, true or false
      */
     public boolean checkIfUserExists(String email) {
-        return (getUser(email) != null);
+        return (getUser(email) != null) ? true : false;
     }
 
     /**
-     * Removes user with email if present.
+     * Removes user object if present.
      */
     public void removeUser(User user) {
         this.users.remove(user);
@@ -125,11 +125,10 @@ public class Users implements Iterable<User> {
     }
     
 
-    public Boolean logIn(String email, String password) { // Burde vært try catch?
+    public Boolean logIn(String email, String password) {
         Boolean logInSuccess = false;
         if (checkIfUserExists(email)) {
             if(getUser(email).getPassword().equals(password)) {
-                fireUsersChange();
                 logInSuccess = true;
             }
             else {
@@ -151,9 +150,18 @@ public class Users implements Iterable<User> {
     public Users getJsonObject() {
         // setter opp data
         Reader reader = null;
+            // try to read file from home folder first
+        if (jsonFile != null) {
+            try {
+                reader = new FileReader(new File("/workspace/gr2052/gr2052/core/src/main/resources/bookingsystem/core/users.json"));
+            } catch (IOException ioex) {
+                System.err.println("Fant ingen " + jsonFile + " på hjemmeområdet");
+            }
+        }
+
         URL url = getClass().getResource(getJsonFilename());
-        System.out.println(url);
-        if (url != null) {
+        System.out.println(url.getPath());
+        /*if (url != null) {
             try {
             reader = new InputStreamReader(url.openStream(), StandardCharsets.UTF_8);
             } catch (IOException e) {
@@ -162,7 +170,7 @@ public class Users implements Iterable<User> {
         } else {
             System.err.println("Couldn't find " + getJsonFilename());
         }
-        
+        */
         if (reader == null) {
             // use embedded String
             reader = new StringReader(getJsonFilename());
@@ -203,6 +211,7 @@ public class Users implements Iterable<User> {
             URL url = getClass().getResource(jsonFile);
             
             System.out.println("path: " + url.getPath());
+            String tmp = "/workspace/gr2052/gr2052/core/src/main/resources/bookingsystem/core/users.json";
             Writer writer = new PrintWriter(new File("/workspace/gr2052/gr2052/core/src/main/resources/bookingsystem/core/users.json"));
             usersPersistence.writeUsers(this, writer);
         } catch (Exception e) {
@@ -213,7 +222,7 @@ public class Users implements Iterable<User> {
 
     public void fireUsersChange() {
         saveToJson();
-        //this.users = getJsonUsers();
+        this.users = getJsonUsers();
     }
 
     public static void main(String[] args) {

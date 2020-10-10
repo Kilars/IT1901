@@ -2,21 +2,38 @@
   "users" : [ {
     "firstName" : "Ola",
     "surname" : "Halvorsen",
-    "email" : "haugenstua.0977@ferdi.da",
+    "email" : "haugestua.0977@ferdi.da",
     "phone" : "09770977",
     "password" : "LivetMin0977"
   }, {
     "firstName" : "Ola",
     "surname" : "Halvorsen",
-    "email" : "haugenstua.0977@ferdi.da",
+    "email" : "hagenstua.0977@ferdi.da",
     "phone" : "09770977",
     "password" : "LivetMin0977"
   }, {
     "firstName" : "Ola",
     "surname" : "Halvorsen",
-    "email" : "haugenstua.0977@ferdi.da",
+    "email" : "haugenstua.097@ferdi.da",
     "phone" : "09770977",
     "password" : "LivetMin0977"
-  }
-  ]
+  }, {
+    "firstName" : "Magnus",
+    "surname" : "Holta",
+    "email" : "magnus.holta@gmail.com",
+    "phone" : "48052730",
+    "password" : "Hallla12"
+  }, {
+    "firstName" : "Magnus ",
+    "surname" : "Holta",
+    "email" : "magnus.holta@gmal.com",
+    "phone" : "48052730",
+    "password" : "asdf1234"
+  }, {
+    "firstName" : "Hallo",
+    "surname" : "Diu",
+    "email" : "ola.hal@haug.no",
+    "phone" : "48052730",
+    "password" : "Heidu123"
+  } ]
 }
