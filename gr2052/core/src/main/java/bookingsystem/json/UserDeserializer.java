@@ -46,6 +46,7 @@ class UserDeserializer extends JsonDeserializer<User> {
             if (passwordNode instanceof TextNode) {
                 user.setPassword(passwordNode.asText());
             }
+            
             return user;
         }
         return null;

@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
+import bookingsystem.core.Booking;
 import bookingsystem.core.User;
 
 class UserSerializer extends JsonSerializer<User> {
@@ -23,6 +24,11 @@ class UserSerializer extends JsonSerializer<User> {
         jGen.writeStringField("email", user.getEmail());
         jGen.writeStringField("phone", user.getPhone());
         jGen.writeStringField("password", user.getPassword());
+        jGen.writeArrayFieldStart("bookings");
+            for (Booking booking : user.getBookings()) {
+                jGen.writeObject(booking);
+            }
+        jGen.writeEndArray();
         jGen.writeEndObject();
     }
 }

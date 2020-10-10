@@ -19,6 +19,10 @@ public class Booking {
      * @param customer the customer to set
      */
     public void setCustomer(User customer) {
+        if (this.customer != null) {
+            this.customer.removeBooking(this);
+        }
+        customer.addBookings(this);
         this.customer = customer;
     }
 

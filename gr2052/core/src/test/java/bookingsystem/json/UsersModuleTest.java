@@ -9,6 +9,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
 
+import bookingsystem.core.Booking;
+import bookingsystem.core.HairDresser;
+import bookingsystem.core.Treatment;
 import bookingsystem.core.User;
 import bookingsystem.core.Users;
 
@@ -42,6 +45,7 @@ public class UsersModuleTest {
         u2.setPhone("12345678");
         u1.setPassword("Heiheih1832");
         u2.setPassword("Heiheih1832");
+        u1.addBookings(new Booking(u1, new HairDresser("Ola Halvorsen"), new Treatment("herreklipp", 200)),new Booking(u1, new HairDresser("Ola Hsalvorsen"), new Treatment("herreklipp", 200)));
         users.addUser(u1);
         users.addUser(u2);
         System.out.println(users);
