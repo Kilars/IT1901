@@ -1,0 +1,22 @@
+{
+  "users" : [ {
+    "firstName" : "Ola",
+    "surname" : "Halvorsen",
+    "email" : "haugenstua.0977@ferdi.da",
+    "phone" : "09770977",
+    "password" : "LivetMin0977"
+  }, {
+    "firstName" : "Ola",
+    "surname" : "Halvorsen",
+    "email" : "haugenstua.0977@ferdi.da",
+    "phone" : "09770977",
+    "password" : "LivetMin0977"
+  }, {
+    "firstName" : "Ola",
+    "surname" : "Halvorsen",
+    "email" : "haugenstua.0977@ferdi.da",
+    "phone" : "09770977",
+    "password" : "LivetMin0977"
+  }
+  ]
+}

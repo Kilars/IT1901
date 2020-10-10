@@ -15,17 +15,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
+import javafx.stage.Stage; 
 
-import java.io.FileReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.io.StringReader;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Paths;
-import javafx.fxml.FXML;
+
 /**
  * Controller connected to FxApp.fxml
  */
@@ -36,54 +30,10 @@ public class AppController {
     Button registerButton, logInButton;
 
     private boolean checkScene = false;
-    private String json_path = "users.json";
-    private Users users = getInitialUsers();
+    private String jsonFile = "users.json";
+    private Users users = new Users(jsonFile);
 
-    private Users getInitialUsers() {
-        // setter opp data
-        Reader reader = null;
-        URL url = getClass().getResource(json_path);
-        if (url != null) {
-            try {
-            reader = new InputStreamReader(url.openStream(), StandardCharsets.UTF_8);
-            } catch (IOException e) {
-            System.err.println("Kunne ikke lese innebygget " + json_path);
-            }
-        } else {
-            
-            System.err.println("Fant ikke innebygget " + json_path);
-        }
-        
-        if (reader == null) {
-        // use embedded String
-        reader = new StringReader(json_path);
-        }
-        Users users = null;
-        try {
-        UsersPersistence usersPersistence = new UsersPersistence();
-        users = usersPersistence.readUsers(reader);
-        } catch (IOException e) {
-        // ignore
-        } finally {
-            try {
-                if (reader != null) {
-                reader.close();
-                }
-            } catch (IOException e) {
-                // ignore
-            }
-        }
-        System.out.println("Users: " + users);
-        if (users == null) {
-            users = new Users(
-                new User("Magnus", "Holta", "magnus.holta@gmail.com", "48052730", "Hallodu123"),
-                new User("Lars", "Skifjeld", "hallo.du@lars.no", "12345678", "Neineineinei123")
-            );
-        }
-        return users;
-    }
-
-
+   
     /**
      * Changes the scene in the App from welcome-view to the register-user-view
      * @param event
@@ -146,7 +96,9 @@ public class AppController {
         return this.users;
     }
 	
-	
+	public static void main(String[] args) {
+        new AppController();
+    }
 	
 	
 
