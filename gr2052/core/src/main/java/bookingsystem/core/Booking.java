@@ -1,20 +1,25 @@
 package bookingsystem.core;
 
+import java.time.LocalDate;
 import java.util.*;
 
 public class Booking {
 
-    
-
-    User customer;
-    HairDresser hairdresser;
-    Treatment treatment;
+    private User customer;
+    private HairDresser hairdresser;
+    private Treatment treatment;
+    private LocalDate date;
+    private String time;
    
     public Booking(User customer, HairDresser hairdresser, Treatment treatment) {
         setHairdresser(hairdresser);
         setTreatment(treatment);
         setCustomer(customer);
     }
+
+    public Booking() {
+    }
+
     /**
      * @param customer the customer to set
      */
@@ -22,11 +27,9 @@ public class Booking {
         if (this.customer != null) {
             this.customer.removeBooking(this);
         }
-        customer.addBookings(this);
+        customer.addBooking(this);
         this.customer = customer;
     }
-
-
 
     /**
      * @param hairdresser the hairdresser to set

@@ -23,7 +23,7 @@ class BookingDeserializer extends JsonDeserializer<Booking> {
     }
 
     Booking deserialize(JsonNode node) {
-        if (node instanceof ObjectNode) {
+        /* if (node instanceof ObjectNode) {
             ObjectNode objectNode = (ObjectNode) node;
             Booking booking = new Booking();
             JsonNode treatmentNode = objectNode.get("treatment");
@@ -35,7 +35,7 @@ class BookingDeserializer extends JsonDeserializer<Booking> {
                 booking.setPrice(priceNode.asDouble());
             }
             return booking;
-        }
+        } */
         return null;
     }
 }

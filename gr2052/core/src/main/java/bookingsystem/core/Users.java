@@ -206,6 +206,7 @@ public class Users implements Iterable<User> {
     public List<User> getJsonUsers() {
         return getJsonObject().getUsers();
     }
+    
     public void saveToJson() {
         try {
             URL url = getClass().getResource(jsonFile);

@@ -204,7 +204,7 @@ public class User {
             this.bookings.remove(booking);
         }
     
-        public void addBookings(Booking... bookings) {
+        public void addBooking(Booking... bookings) {
             for (Booking booking : bookings) {
                 this.bookings.add(booking);
             }
