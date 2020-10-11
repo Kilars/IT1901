@@ -42,7 +42,7 @@ Kommentere koden fra forrige innlevering og oppdatere readme for å sikre god do
 Issues: #17, #18, #19, #20, #21, #22 <br />
 **JSON-implementasjon:**<br />
 Implementere JSON- og Jackson-plugins og legge til rette for god, enkel og sikker fillagring.<br />
--Issues: #28, #50, #60, #36 <br />
+-Issues: #28, #50, #60, #62 <br />
 <br />
 ### Modulering og tester (uke 40)
 Miletone: Innlevering 2<br />
