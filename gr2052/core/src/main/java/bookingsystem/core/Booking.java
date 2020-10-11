@@ -28,12 +28,18 @@ public class Booking {
      * @param customer the customer to set
      */
     public void setCustomer(User customer) {
+        System.out.println("Cost " + this.customer + " " + customer);
         if (this.customer != null) {
             this.customer.removeBooking(this);
         }
-        customer.addBooking(this);
+        if (customer == null) {
+            throw new IllegalArgumentException("Customer doesn't exist");
+        }
         this.customer = customer;
+        this.customer.addBooking(this);
     }
+
+    
 
     /**
      * @param hairdresser the hairdresser to set

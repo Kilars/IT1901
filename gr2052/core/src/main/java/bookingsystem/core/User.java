@@ -43,11 +43,12 @@ public class User {
         if (email != "") setEmail(email);
         if (phone != "") setPhone(phone);
         if (password != "") setPassword(password);*/
-        this.firstName = firstName;
-        this.surname = surname;
-        this.email = email;
-        this.phone = phone;
-        this.password = password;
+        setFirstName(firstName);
+        setSurname(surname);
+        setEmail(email);
+        setPhone(phone);
+        setPassword(password);
+
     }
 
     /**

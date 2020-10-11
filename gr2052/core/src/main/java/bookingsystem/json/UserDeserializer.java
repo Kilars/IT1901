@@ -8,14 +8,17 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 
+import bookingsystem.core.Booking;
 import bookingsystem.core.User;
 import bookingsystem.core.Users;
 
 class UserDeserializer extends JsonDeserializer<User> {
 
+    private BookingDeserializer bookingDeserializer = new BookingDeserializer();
     @Override
     public User deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
         final JsonNode node = p.getCodec().readTree(p);
@@ -45,6 +48,15 @@ class UserDeserializer extends JsonDeserializer<User> {
             JsonNode passwordNode = objectNode.get("password");
             if (passwordNode instanceof TextNode) {
                 user.setPassword(passwordNode.asText());
+            }
+            JsonNode bookingsNode = objectNode.get("bookings");
+            if (bookingsNode instanceof ArrayNode) {
+                for (JsonNode bookingNode : ((ArrayNode) bookingsNode)) {
+                    Booking booking = bookingDeserializer.deserialize(bookingNode);
+                    if (user != null) {
+                        booking.setCustomer(user);
+                    }
+                }
             }
             
             return user;
