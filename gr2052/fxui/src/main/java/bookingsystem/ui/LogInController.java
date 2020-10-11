@@ -48,6 +48,7 @@ public class LogInController {
             }
         } catch (Exception e) {
             feedbackLabel.setText(e.getMessage());
+            e.printStackTrace();
         }
 
     }
@@ -60,13 +61,13 @@ public class LogInController {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("UserProfile.fxml"));
         Parent logInParent = fxmlLoader.load();
-
-        UserProfileController controller = fxmlLoader.getController();
-        controller.init_data(this.getUser(emailField.getText()), this.users);
         
         Scene logInScene = new Scene(logInParent);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
+        UserProfileController controller = fxmlLoader.getController();
+        controller.init_data(this.getUser(emailField.getText()), this.users);
+        
         window.setScene(logInScene);
         window.show();
     }

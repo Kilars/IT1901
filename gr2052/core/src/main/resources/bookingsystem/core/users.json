@@ -2,20 +2,6 @@
   "users" : [ {
     "firstName" : "Ola",
     "surname" : "Halvorsen",
-    "email" : "haugestua.0977@ferdi.da",
-    "phone" : "09770977",
-    "password" : "LivetMin0977",
-    "bookings" : [ ]
-  }, {
-    "firstName" : "Ola",
-    "surname" : "Halvorsen",
-    "email" : "hagenstua.0977@ferdi.da",
-    "phone" : "09770977",
-    "password" : "LivetMin0977",
-    "bookings" : [ ]
-  }, {
-    "firstName" : "Ola",
-    "surname" : "Halvorsen",
     "email" : "haugenstua.097@ferdi.da",
     "phone" : "09770977",
     "password" : "LivetMin0977",
@@ -25,8 +11,18 @@
     "surname" : "Holta",
     "email" : "magnus.holta@gmail.com",
     "phone" : "48052730",
-    "password" : "Hallla12",
-    "bookings" : [ ]
+    "password" : "AAaaaa11",
+    "bookings" : [ {
+      "hairDresser" : {
+        "name" : "Kari"
+      },
+      "treatment" : {
+        "treatment" : "Herreklipp",
+        "price" : 0.0
+      },
+      "date" : "2020-10-11",
+      "time" : "10:20"
+    } ]
   }, {
     "firstName" : "Magnus ",
     "surname" : "Holta",
@@ -47,6 +43,13 @@
     "email" : "mgnus.holta@gmail.com",
     "phone" : "48052730",
     "password" : "Hallo1234",
+    "bookings" : [ ]
+  }, {
+    "firstName" : "Magnus",
+    "surname" : "Holta",
+    "email" : "magnus.hola@gmail.com",
+    "phone" : "48052730",
+    "password" : "HeiHei123",
     "bookings" : [ ]
   } ]
 }

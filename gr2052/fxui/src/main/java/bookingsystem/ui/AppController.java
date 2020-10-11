@@ -4,7 +4,11 @@ import java.io.IOException;
 import java.io.Reader;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
 
+import bookingsystem.core.Booking;
+import bookingsystem.core.HairDresser;
+import bookingsystem.core.Treatment;
 import bookingsystem.core.User;
 import bookingsystem.core.Users;
 import bookingsystem.json.UsersPersistence;
@@ -97,7 +101,18 @@ public class AppController {
     }
 	
 	public static void main(String[] args) {
-        new AppController();
+        AppController c = new AppController();
+        Users us = c.getUsers();
+        User u = us.getUser("magnus.holta@gmail.com");
+        User u2 = us.getUser("haugenstua.097@ferdi.da");
+        Booking b1 = u2.getBookings().get(0);
+        b1.setCustomer(u);
+        //new Booking(u, 
+        //                    new HairDresser("Kari"),
+        //                    new Treatment("Herreklipp", 200.1),
+        //                    LocalDate.now(), "10:20");
+        c.getUsers().fireUsersChange();
+        u.getBookings().forEach(b -> System.out.println(b));
     }
 	
 	

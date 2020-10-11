@@ -1,7 +1,5 @@
 package bookingsystem.core;
 
-import static org.junit.jupiter.api.Assertions.fail;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,8 +21,8 @@ public class UsersTest {
         List<User> usersList = new ArrayList<>();
 
         Users users = new Users();
-        User ingrid = new User("Ingrid","Hagen", "ingrid@hotmail.com","97103994", "passord");
-        User julie = new User ("Julie", "Kongsten", "Julie@gmail.com","12345678", "passord");
+        User ingrid = new User("Ingrid","Hagen", "ingrid@hotmail.com","97103994", "Passord123");
+        User julie = new User ("Julie", "Kongsten", "Julie@gmail.com","12345678", "Passord123");
         
         //Checks if user is added to usersList
         users.addUser(ingrid);
@@ -43,7 +41,7 @@ public class UsersTest {
         assertFalse(usersList.contains(julie));
 
        
-        users.logIn("ingrid@hotmail.com", "passord");
+        users.logIn("ingrid@hotmail.com", "Passord123");
         boolean thrown = false;
         try {
             users.logIn("ingrid@hotmail.com", "passord123");

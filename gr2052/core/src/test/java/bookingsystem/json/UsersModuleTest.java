@@ -1,20 +1,12 @@
 package bookingsystem.json;
 
-import static org.junit.jupiter.api.Assertions.fail;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
-
 import bookingsystem.core.Booking;
-import bookingsystem.core.HairDresser;
-import bookingsystem.core.Treatment;
 import bookingsystem.core.User;
-import bookingsystem.core.Users;
+import bookingsystem.core.Users; 
 
 /** Test for checking UserModule
  * Checking one case
@@ -27,9 +19,11 @@ public class UsersModuleTest {
     public static void setUp() {
         mapper = new ObjectMapper();
         mapper.registerModule(new UsersModule());
+        
     }
 
     /*
+    Format
     {"users" : [
         (User) {
             "firstName" : "Ola",
@@ -41,10 +35,13 @@ public class UsersModuleTest {
                 (Booking) {
                     "treatment" : (Treatment) {
                         "treatment" : "herreklipp"
+                        "price" : (Double) "100"
                     },
                     "hairDresser" : (HairDresser) {
                         "name" : "Kari Nordmann"
-                    }
+                    },
+                    "date" : (String) "...",
+                    "time" : "10:30"
                 }
             ]
         }
