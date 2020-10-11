@@ -49,7 +49,7 @@ class UsersDeserializer extends JsonDeserializer<Users> {
         if (node instanceof ObjectNode) {
             ObjectNode objectNode = (ObjectNode) node;
             Users users = new Users();
-            JsonNode usersNode = (ArrayNode) objectNode.get("users");
+            JsonNode usersNode = objectNode.get("users");
             if (usersNode instanceof ArrayNode) {
                 for (JsonNode userNode : ((ArrayNode) usersNode)) {
                     User user = userDeserializer.deserialize(userNode);
@@ -58,7 +58,6 @@ class UsersDeserializer extends JsonDeserializer<Users> {
                     }
                 }
             }
-            System.out.println(users.toString());
             return users;
         }
         return null;

@@ -20,7 +20,7 @@ public class BookingTest {
         HairDresser hairdresser = new HairDresser("Frisør");
         Treatment treatment = new Treatment("Klipp", 299);
         Treatment treatment2 = new Treatment("Striping", 299);
-        Booking booking = new Booking(customer, hairdresser, treatment);
+        Booking booking = new Booking();
 
         assertEquals(booking.getCustomer(),customer);
         assertEquals(booking.getHairdresser(), hairdresser);

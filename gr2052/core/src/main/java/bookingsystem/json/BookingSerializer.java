@@ -19,8 +19,12 @@ class BookingSerializer extends JsonSerializer<Booking> {
     @Override
     public void serialize(Booking booking, JsonGenerator jGen, SerializerProvider serializerProvider) throws IOException {
         jGen.writeStartObject();
-        jGen.writeObjectField("treatment", booking.getTreatment());
         jGen.writeObjectField("hairDresser", booking.getHairdresser());
+        jGen.writeObjectField("treatment", booking.getTreatment());
+        if (booking.getDate() != null) {
+            jGen.writeStringField("date", booking.getDate().toString());
+        }
+        jGen.writeStringField("time", booking.getTime());
         jGen.writeEndObject();
     }
 }
