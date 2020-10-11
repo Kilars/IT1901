@@ -67,7 +67,6 @@ public class UsersModuleTest {
         u2.setPhone("12345678");
         u1.setPassword("Heiheih1832");
         u2.setPassword("Heiheih1832");
-        u1.addBooking(new Booking(u1, new HairDresser("Ola Halvorsen"), new Treatment("herreklipp", 200)));
         users.addUser(u1);
         users.addUser(u2);
         System.out.println(users);
