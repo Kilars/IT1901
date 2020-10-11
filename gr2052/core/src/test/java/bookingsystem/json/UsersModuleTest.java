@@ -1,18 +1,10 @@
 package bookingsystem.json;
 
-import static org.junit.jupiter.api.Assertions.fail;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
-
 import bookingsystem.core.Booking;
-import bookingsystem.core.HairDresser;
-import bookingsystem.core.Treatment;
 import bookingsystem.core.User;
 import bookingsystem.core.Users;
 
@@ -30,6 +22,7 @@ public class UsersModuleTest {
     }
 
     /*
+    Format
     {"users" : [
         (User) {
             "firstName" : "Ola",
@@ -47,7 +40,7 @@ public class UsersModuleTest {
                         "name" : "Kari Nordmann"
                     },
                     "date" : (String) "...",
-
+                    "time" : "10:30"
                 }
             ]
         }
