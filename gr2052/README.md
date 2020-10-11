@@ -4,7 +4,7 @@ Appen skal vise en oversikt over tilgjengelige behandlinger hvor brukeren kan kr
 
 Eventuelle ekstrafunksjoner: rate frisør, klippekort/lojalitetsprogram, kunne legge inn fast bestilling med ønsket tidsrom, endre bestillingen uten å avbestille.<br />
 
-## Illustrasjon av appen
+## Tidlig mockup
 
 <img src="Skjermbilde_2020-09-09_kl._12.14.44.png" alt="llustrasjon 1 - velge behandling" width="450"/>
 <img src="Skjermbilde_2020-09-09_kl._12.14.51.png" alt="Illustrasjon 2- velge dato" width="450"/>
