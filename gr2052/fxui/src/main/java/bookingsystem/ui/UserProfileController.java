@@ -53,17 +53,17 @@ public class UserProfileController {
     private void changeScene(ActionEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("Booking.fxml"));
-        Parent logInParent = fxmlLoader.load();
+        Parent bookingParent = fxmlLoader.load();
         
-        Scene logInScene = new Scene(logInParent);
+        Scene bookingScene = new Scene(bookingParent);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
-        /* 
+        
         UserProfileController controller = fxmlLoader.getController();
         controller.init_data(this.user, this.users);
-        */
+        
 
-        window.setScene(logInScene);
+        window.setScene(bookingScene);
         window.show();
     }
     

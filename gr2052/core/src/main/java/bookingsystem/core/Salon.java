@@ -19,21 +19,35 @@ public void initialize(){
     addTreatment("Farging av bryn", 199);
     addTreatment("Vask og føn", 149);
     addTreatment("Styling", 599);
-
+    addHairdresser("Sofie Blond");
+    addHairdresser("Marie Brunette");
 
 }
 
-public void addTreatment(String nameTreatment, double price) {
+private void addTreatment(String nameTreatment, double price) {
     Treatment newTreatment = new Treatment(nameTreatment, price);
     treatments.add(newTreatment);
 }
 
-public void removeTreatment(Treatment treatment) {
+private void removeTreatment(Treatment treatment) {
     treatments.remove(treatment);
 }
 
 public List<Treatment> getTreatmentList() {
     return this.treatments;
+}
+
+private void addHairdresser(String name){
+    HairDresser hairdresser = new HairDresser(name);
+    hairDressers.add(hairdresser);
+}
+
+private void removeHairdresser(HairDresser hairdresser) {
+    hairDressers.remove(hairdresser);
+}
+
+public List<HairDresser> getHairdresserList(){
+    return this.hairDressers;
 }
 
 }
