@@ -32,7 +32,6 @@ public class BookingTest {
         date = LocalDate.of(2020, 12, 15);
         time = "10:30";
     }
-
     @Test
     public void testGettersAndSetters() {
         booking.setCustomer(customer1);
