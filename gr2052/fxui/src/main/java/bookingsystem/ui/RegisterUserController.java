@@ -105,10 +105,18 @@ public class RegisterUserController {
         return this.users;
     }
 
+    /**
+     * @return text from feedback label
+     */
     public String getFeedbackLabelText() {
         return feedbackLabel.getText();
     }
 
+
+    /**
+     * Help method for the methods changing scenes. Setting Users in the new scene's controller.
+     * @param users
+     */
     public void init_data(Users users){
         this.users = users;
     }
