@@ -79,17 +79,17 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="email" text="email" GridPane.rowIndex="1">
+                        <Label fx:id="email" text="email" GridPane.rowIndex="1" GridPane.columnSpan="2">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="phoneNumber" prefHeight="28.0" prefWidth="96.0" text="telefonnummer" GridPane.rowIndex="2">
+                        <Label fx:id="phone" prefHeight="28.0" prefWidth="96.0" text="telefonnummer" GridPane.rowIndex="2" GridPane.columnSpan="2">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="surName" text="etternavn" GridPane.columnIndex="1">
+                        <Label fx:id="surname" text="etternavn" GridPane.columnIndex="1">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -135,7 +135,7 @@
          <right>
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="34.0" layoutY="14.0" text="Timebestilling">
+                  <Label layoutX="34.0" layoutY="14.0" text="Timebestilling" >
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -143,7 +143,7 @@
                         <FontAwesomeIconView glyphName="CHECK" />
                      </graphic>
                   </Label>
-                  <Button layoutX="42.0" layoutY="121.0" mnemonicParsing="false" text="Gå til timebestiling" />
+                  <Button fx:id="bookingButton" layoutX="42.0" layoutY="121.0" mnemonicParsing="false" onAction="#handleBookingButton" text="Gå til timebestiling" />
                </children>
             </Pane>
          </right>
