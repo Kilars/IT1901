@@ -1,7 +1,6 @@
 package bookingsystem.core;
 
 import java.time.LocalDate;
-import java.util.*;
 
 public class Booking {
 
@@ -30,14 +29,13 @@ public class Booking {
         if (this.customer != null) {
             this.customer.removeBooking(this);
         }
-        if (customer == null) {
-            throw new IllegalArgumentException("Customer doesn't exist");
-        }
-        this.customer = customer;
-        this.customer.addBooking(this);
-    }
 
-    
+        this.customer = customer;
+        
+        if (customer != null) {
+            this.customer.addBooking(this);
+        }
+    }
 
     /**
      * @param hairdresser the hairdresser to set
