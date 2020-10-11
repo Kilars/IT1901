@@ -39,9 +39,9 @@
                     </rowConstraints>
                      <children>
                         <TextField fx:id="nameField" promptText="Ola" GridPane.columnIndex="1" />
+                        <TextField fx:id="surnameField" promptText="Nordmann" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextField fx:id="emailField" promptText="o.nordmann@gmail.com" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <TextField fx:id="phoneNumberField" promptText="99113688" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField fx:id="surnameField" promptText="Nordmann" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <PasswordField fx:id="passwordField" promptText="Minst 8 tegn" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <PasswordField fx:id="confirmPasswordField" promptText="Minst 8 tegn" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Navn">
