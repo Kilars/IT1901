@@ -5,6 +5,8 @@ import bookingsystem.core.User;
 import bookingsystem.core.Users;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -26,26 +28,46 @@ public class UserProfileController {
     @FXML
     Button logInButton;
 
-    public static void main(String[] args) {
-        UserProfileController c = new UserProfileController();
-        User u = c.getUser();
-        Booking b = new Booking();
-        // ...
-        u.addBooking(b);
-        Users us = c.getUsers();
-        us.saveToJson();
-    }
+    @FXML
+    Label firstName;
 
+    @FXML
+    Label surname;
+
+    @FXML
+    Label email;
+    @FXML
+    Label phone;
+
+    
+    
+    public void initialize(URL location, ResourceBundle resources) {
+        firstName.setText(user.getFirstName());
+        surname.setText(user.getSurname());
+        email.setText(user.getEmail());
+        phone.setText(user.getPhone());
+    }
+    
     private User getUser() {
         return this.user;
     }
-
+    
     private Users getUsers() {
         return this.users;
     }
-
+    
     public User init_data(User user, Users users) {
         this.users = users;
         return this.user = user;
     }
+    
+        public static void main(String[] args) {
+            UserProfileController c = new UserProfileController();
+            User u = c.getUser();
+            Booking b = new Booking();
+            // ...
+            u.addBooking(b);
+            Users us = c.getUsers();
+            us.saveToJson();
+        }
 }

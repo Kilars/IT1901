@@ -16,12 +16,14 @@ public class BookingTest {
 
     @Test
     public void testBooking(){
-        User customer = new User("Ingrid", "Hagen", "ingrid@hotmail.com","97103994", "passord");
+        User customer = new User("Ingrid", "Hagen", "ingrid@hotmail.com","97103994", "PAssord123");
         HairDresser hairdresser = new HairDresser("Frisør");
         Treatment treatment = new Treatment("Klipp", 299);
         Treatment treatment2 = new Treatment("Striping", 299);
         Booking booking = new Booking();
-
+        booking.setCustomer(customer);
+        booking.setHairdresser(hairdresser);
+        booking.setTreatment(treatment);
         assertEquals(booking.getCustomer(),customer);
         assertEquals(booking.getHairdresser(), hairdresser);
         assertEquals(booking.getTreatment(),treatment);
