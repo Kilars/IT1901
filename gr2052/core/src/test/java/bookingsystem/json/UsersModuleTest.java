@@ -28,6 +28,27 @@ public class UsersModuleTest {
         mapper.registerModule(new UsersModule());
     }
 
+    /*
+    {"users" : [
+        (User) {
+            "firstName" : "Ola",
+            "surname" : "Nordmann",
+            "email" : "ola.nordmann@mail.com",
+            "phone" : "12345678",
+            "password" : "passord01",
+            "bookings" : [
+                (Booking) {
+                    "treatment" : (Treatment) {
+                        "treatment" : "herreklipp"
+                    },
+                    "hairDresser" : (HairDresser) {
+                        "name" : "Kari Nordmann"
+                    }
+                }
+            ]
+        }
+    ]} 
+     */
     private final static String jsonSample = "{\"users\":[{\"firstName\":\"Ola\",\"surname\":\"Nordmann\",\"email\":\"ola.nordmann@mail.no\",\"phone\":\"12345678\",\"password\":\"Heiheih1832\"},{\"firstName\":\"Kari\",\"surname\":\"Nordmann\",\"email\":\"kari.nordmann@mail.no\",\"phone\":\"12345678\",\"password\":\"Heiheih1832\"}]}";
 
     @Test
@@ -45,7 +66,7 @@ public class UsersModuleTest {
         u2.setPhone("12345678");
         u1.setPassword("Heiheih1832");
         u2.setPassword("Heiheih1832");
-        u1.addBookings(new Booking(u1, new HairDresser("Ola Halvorsen"), new Treatment("herreklipp", 200)),new Booking(u1, new HairDresser("Ola Hsalvorsen"), new Treatment("herreklipp", 200)));
+        u1.addBookings(new Booking(u1, new HairDresser("Ola Halvorsen"), new Treatment("herreklipp", 200)));
         users.addUser(u1);
         users.addUser(u2);
         System.out.println(users);

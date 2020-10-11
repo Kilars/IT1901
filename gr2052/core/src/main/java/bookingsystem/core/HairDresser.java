@@ -9,9 +9,17 @@ public class HairDresser {
     public HairDresser(String name) {
         this.name = name;
     }
+
+    public HairDresser() {
+
+    }
     
     public String getName() {
         return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
 

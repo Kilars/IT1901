@@ -11,6 +11,10 @@ public Treatment(String treatment, double price) {
     this.treatment = treatment;
 }
 
+public Treatment() {
+    
+}
+
 /**
  * @param price the price to set
  */
