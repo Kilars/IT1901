@@ -1,4 +1,8 @@
 package bookingsystem.core;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.regex.Pattern;
 
 
@@ -13,6 +17,7 @@ public class User {
     private String email;
     private String phone;
     private String password;
+    private List<Booking> bookings = new ArrayList<>();
 
     
     /**
@@ -194,6 +199,25 @@ public class User {
         return password;
     }
 
+    
+        public void removeBooking(Booking booking) {
+            this.bookings.remove(booking);
+        }
+    
+        public void addBooking(Booking... bookings) {
+            for (Booking booking : bookings) {
+                this.bookings.add(booking);
+            }
+        }
+    
+        public List<Booking> getBookings() {
+            return this.bookings;
+        }
+    
+
+        public Iterator<Booking> iterator() {
+            return this.bookings.iterator();
+        }
     /**
      * Test
      * @param args

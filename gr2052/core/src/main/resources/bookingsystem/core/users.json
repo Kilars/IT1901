@@ -4,36 +4,49 @@
     "surname" : "Halvorsen",
     "email" : "haugestua.0977@ferdi.da",
     "phone" : "09770977",
-    "password" : "LivetMin0977"
+    "password" : "LivetMin0977",
+    "bookings" : [ ]
   }, {
     "firstName" : "Ola",
     "surname" : "Halvorsen",
     "email" : "hagenstua.0977@ferdi.da",
     "phone" : "09770977",
-    "password" : "LivetMin0977"
+    "password" : "LivetMin0977",
+    "bookings" : [ ]
   }, {
     "firstName" : "Ola",
     "surname" : "Halvorsen",
     "email" : "haugenstua.097@ferdi.da",
     "phone" : "09770977",
-    "password" : "LivetMin0977"
+    "password" : "LivetMin0977",
+    "bookings" : [ ]
   }, {
     "firstName" : "Magnus",
     "surname" : "Holta",
     "email" : "magnus.holta@gmail.com",
     "phone" : "48052730",
-    "password" : "Hallla12"
+    "password" : "Hallla12",
+    "bookings" : [ ]
   }, {
     "firstName" : "Magnus ",
     "surname" : "Holta",
     "email" : "magnus.holta@gmal.com",
     "phone" : "48052730",
-    "password" : "asdf1234"
+    "password" : "asdf1234",
+    "bookings" : [ ]
   }, {
     "firstName" : "Hallo",
     "surname" : "Diu",
     "email" : "ola.hal@haug.no",
     "phone" : "48052730",
-    "password" : "Heidu123"
+    "password" : "Heidu123",
+    "bookings" : [ ]
+  }, {
+    "firstName" : "Magnus",
+    "surname" : "Holta",
+    "email" : "mgnus.holta@gmail.com",
+    "phone" : "48052730",
+    "password" : "Hallo1234",
+    "bookings" : [ ]
   } ]
 }

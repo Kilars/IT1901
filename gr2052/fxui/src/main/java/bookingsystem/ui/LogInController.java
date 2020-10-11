@@ -62,7 +62,7 @@ public class LogInController {
         Parent logInParent = fxmlLoader.load();
 
         UserProfileController controller = fxmlLoader.getController();
-        controller.init_data(this.getUser(emailField.getText()));
+        controller.init_data(this.getUser(emailField.getText()), this.users);
         
         Scene logInScene = new Scene(logInParent);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
