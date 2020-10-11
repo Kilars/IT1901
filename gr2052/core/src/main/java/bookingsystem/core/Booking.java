@@ -11,10 +11,12 @@ public class Booking {
     private LocalDate date;
     private String time;
    
-    public Booking(User customer, HairDresser hairdresser, Treatment treatment) {
+    public Booking(User customer, HairDresser hairdresser, Treatment treatment, LocalDate date, String time) {
         setHairdresser(hairdresser);
         setTreatment(treatment);
         setCustomer(customer);
+        setDate(date);
+        setTime(time);
     }
 
     public Booking() {
@@ -65,6 +67,34 @@ public class Booking {
      */
     public Treatment getTreatment() {
         return treatment;
+    }
+
+    /**
+     * @return date of treatment
+     */
+    public LocalDate getDate() {
+        return date;
+    }
+
+    /**
+     * @param date to set for the treatment
+     */
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    /**
+     * @return time of the treatment
+     */
+    public String getTime() {
+        return time;
+    }
+
+    /**
+     * @param time for treatment
+     */
+    public void setTime(String time) {
+        this.time = time;
     }
     
 }
