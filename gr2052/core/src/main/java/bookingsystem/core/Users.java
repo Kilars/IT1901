@@ -1,25 +1,19 @@
 package bookingsystem.core;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
-import bookingsystem.fillagring.FilesHandle;
 
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.StringReader;
 import java.io.Writer;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Paths;
-import java.nio.file.attribute.UserPrincipal;
+
 
 import bookingsystem.core.User;
 import bookingsystem.core.Users;
@@ -32,7 +26,6 @@ import bookingsystem.json.UsersPersistence;
  */
 public class Users implements Iterable<User> {
     private List<User> users = new ArrayList<>();
-    private FilesHandle fileHandler = new FilesHandle();
     private String jsonFile = "sers.json";
     private UsersPersistence usersPersistence = new UsersPersistence();
 
