@@ -39,9 +39,35 @@ public class UserProfileController {
     @FXML
     Label phone;
 
+    @FXML
+    Button bookingButton;
+
+
+    public void handleBookingButton(ActionEvent event) throws IOException {
+        try{
+            changeScene(event);
+        } catch (IllegalArgumentException e){
+            e.printStackTrace();
+        }
+    }
+    private void changeScene(ActionEvent event) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("Booking.fxml"));
+        Parent logInParent = fxmlLoader.load();
+        
+        Scene logInScene = new Scene(logInParent);
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        /* 
+        UserProfileController controller = fxmlLoader.getController();
+        controller.init_data(this.user, this.users);
+        */
+
+        window.setScene(logInScene);
+        window.show();
+    }
     
-    
-    public void initialize(URL location, ResourceBundle resources) {
+    private void setUIvalues() {
         firstName.setText(user.getFirstName());
         surname.setText(user.getSurname());
         email.setText(user.getEmail());
@@ -58,7 +84,9 @@ public class UserProfileController {
     
     public User init_data(User user, Users users) {
         this.users = users;
-        return this.user = user;
+        this.user = user;
+        setUIvalues();
+        return this.user;
     }
     
         public static void main(String[] args) {
