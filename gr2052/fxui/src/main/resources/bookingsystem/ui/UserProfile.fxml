@@ -14,37 +14,23 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookingsystem.ui.UserProfileController">
    <children>
       <BorderPane layoutX="4.0" layoutY="4.0" prefHeight="394.0" prefWidth="600.0">
          <top>
             <Pane prefHeight="103.0" prefWidth="590.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox alignment="TOP_RIGHT" layoutX="497.0" layoutY="-6.0" prefHeight="65.0" prefWidth="97.0">
-                     <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="30.0">
-                           <graphic>
-                              <FontAwesomeIconView glyphName="MINUS" size="1.3em" />
-                           </graphic>
-                        </Label>
-                        <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="30.0">
-                           <graphic>
-                              <FontAwesomeIconView glyphName="CLOSE" size="1.3em" wrappingWidth="12.257143020629883" />
-                           </graphic>
-                        </Label>
-                     </children>
-                  </HBox>
+                  <HBox alignment="TOP_RIGHT" layoutX="497.0" layoutY="-6.0" prefHeight="65.0" prefWidth="97.0" />
                   <ImageView fitHeight="137.0" fitWidth="185.0" layoutX="215.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../Downloads/Logo_ITP.png" />
                      </image>
                   </ImageView>
-                  <Label>
+                  <Button fx:id="returnButton" mnemonicParsing="false" onAction="#handleReturnButton">
                      <graphic>
                         <FontAwesomeIconView glyphName="BACKWARD" size="1.3em" />
                      </graphic>
-                  </Label>
+                  </Button>
                </children>
             </Pane>
          </top>
@@ -79,12 +65,12 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="email" text="email" GridPane.rowIndex="1" GridPane.columnSpan="2">
+                        <Label fx:id="email" text="email" GridPane.columnSpan="2" GridPane.rowIndex="1">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="phone" prefHeight="28.0" prefWidth="96.0" text="telefonnummer" GridPane.rowIndex="2" GridPane.columnSpan="2">
+                        <Label fx:id="phone" prefHeight="28.0" prefWidth="96.0" text="telefonnummer" GridPane.columnSpan="2" GridPane.rowIndex="2">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -135,7 +121,7 @@
          <right>
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="34.0" layoutY="14.0" text="Timebestilling" >
+                  <Label layoutX="34.0" layoutY="14.0" text="Timebestilling">
                      <font>
                         <Font size="18.0" />
                      </font>
