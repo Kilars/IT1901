@@ -36,12 +36,23 @@ class UsersDeserializer extends JsonDeserializer<Users> {
     
     private UserDeserializer userDeserializer = new UserDeserializer();
 
+    /**
+     * Takes in a JsonParser and calls on deserialize
+     * @param JsonParser
+     * @param DeserializationContext
+     */
     @Override
     public Users deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
         final JsonNode node = p.getCodec().readTree(p);
         return deserialize((JsonNode) node);
     }
 
+    /**
+     * Takes in a JsonNode, converts it and returns a user object
+     * Returns null if JsonNode is not an instance of User
+     * @param JsonNode
+     * @return User
+     */
     private Users deserialize(JsonNode node) {
         if (node instanceof ObjectNode) {
             ObjectNode objectNode = (ObjectNode) node;

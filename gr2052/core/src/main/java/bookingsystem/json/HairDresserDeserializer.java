@@ -15,12 +15,24 @@ import bookingsystem.core.HairDresser;
 
 class HairDresserDeserializer extends JsonDeserializer<HairDresser> {
 
+    /**
+     * Used in deserialize, takes in a JsonParser and calls on deserialize
+     * @param JsonParser
+     * @param DeserializationContext
+     */
     @Override
     public HairDresser deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
         final JsonNode node = p.getCodec().readTree(p);
         return deserialize(node);
     }
 
+
+     /**
+     * Takes in a JsonNode, converts it and returns a HairDresser object
+     * Returns null if JsonNode is not an instance of HairDresser
+     * @param JsonNode
+     * @return hairDresser
+     */
     HairDresser deserialize(JsonNode node) {
         if (node instanceof ObjectNode) {
             ObjectNode objectNode = (ObjectNode) node;

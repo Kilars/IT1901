@@ -15,6 +15,12 @@ class UsersSerializer extends JsonSerializer<Users> {
      * format: { "users" : [ ... ] }
      */
 
+    /**
+     *Writes a Json string to the JsonGenerator jGen
+     *@param User
+     *@param JsonGenerator
+     *@param SerializerProvider
+     */
     @Override
     public void serialize(Users users, JsonGenerator jGen, SerializerProvider serializerProvider) throws IOException {
         jGen.writeStartObject();

@@ -17,12 +17,24 @@ import bookingsystem.core.User;
 class UserDeserializer extends JsonDeserializer<User> {
 
     private BookingDeserializer bookingDeserializer = new BookingDeserializer();
+
+    /**
+     * Used in deserialize, takes in a JsonParser and calls on deserialize
+     * @param JsonParser
+     * @param DeserializationContext
+     */
     @Override
     public User deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
         final JsonNode node = p.getCodec().readTree(p);
         return deserialize(node);
     }
 
+    /**
+     * Takes in a JsonNode, converts it and returns a User object
+     * Returns null if JsonNode is not an instance of User
+     * @param JsonNode
+     * @return User
+     */
     User deserialize(JsonNode node) {
         if (node instanceof ObjectNode) {
             ObjectNode objectNode = (ObjectNode) node;
