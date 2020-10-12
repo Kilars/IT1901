@@ -1,17 +1,7 @@
 package bookingsystem.ui;
 
 import java.io.IOException;
-import java.io.Reader;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.time.LocalDate;
-
-import bookingsystem.core.Booking;
-import bookingsystem.core.HairDresser;
-import bookingsystem.core.Treatment;
-import bookingsystem.core.User;
 import bookingsystem.core.Users;
-import bookingsystem.json.UsersPersistence;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,10 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.stage.Stage; 
-
-import java.io.InputStreamReader;
-import java.io.StringReader;
+import javafx.stage.Stage;
 
 /**
  * Controller connected to FxApp.fxml
@@ -99,22 +86,4 @@ public class AppController {
     public Users getUsers(){
         return this.users;
     }
-	
-	public static void main(String[] args) {
-        AppController c = new AppController();
-        Users us = c.getUsers();
-        User u = us.getUser("magnus.holta@gmail.com");
-        User u2 = us.getUser("haugenstua.097@ferdi.da");
-        Booking b1 = u2.getBookings().get(0);
-        b1.setCustomer(u);
-        //new Booking(u, 
-        //                    new HairDresser("Kari"),
-        //                    new Treatment("Herreklipp", 200.1),
-        //                    LocalDate.now(), "10:20");
-        c.getUsers().fireUsersChange();
-        u.getBookings().forEach(b -> System.out.println(b));
-    }
-	
-	
-
 }

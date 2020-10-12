@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
-
 import bookingsystem.core.Booking;
 import bookingsystem.core.HairDresser;
 import bookingsystem.core.Salon;
@@ -23,11 +21,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SplitMenuButton;
-import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
@@ -72,6 +66,9 @@ public class BookingController {
 
     public void addDynamicContent() {
         // Fill elements
+        hairdressersChoiceBox.setId("hairdressersChoiceBox");
+        treatmentsChoiceBox.setId("treatmentsChoiceBox");
+        hourChoiceBox.setId("hourChoiceBox");
         hairdressersChoiceBox.setItems(FXCollections.observableList(this.salon.getHairdresserList()));
         treatmentsChoiceBox.setItems(FXCollections.observableList(this.salon.getTreatmentList()));
         hourChoiceBox.setItems(FXCollections.observableList(getTimeList()));
@@ -200,6 +197,8 @@ public class BookingController {
             saveBooking();
 
             users.saveToJson();
+
+            this.feedbackLabel.setText("Vellykket booking");
             // Change back to UserProfile
             cancelButtonPushed(event);
         }
