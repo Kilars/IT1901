@@ -143,11 +143,7 @@
                         <FontAwesomeIconView glyphName="CHECK" />
                      </graphic>
                   </Label>
-<<<<<<< HEAD
-                  <Button fx:id="bookingButton" layoutX="42.0" layoutY="121.0" mnemonicParsing="false" text="Gå til timebestiling" />
-=======
                   <Button fx:id="bookingButton" layoutX="42.0" layoutY="121.0" mnemonicParsing="false" onAction="#handleBookingButton" text="Gå til timebestiling" />
->>>>>>> 8dbf5ca89f266e11432917f8811dd45d5339bd61
                </children>
             </Pane>
          </right>
