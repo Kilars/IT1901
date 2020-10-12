@@ -1,7 +1,6 @@
 package bookingsystem.json;
 
 import java.io.IOException;
-import java.time.format.DateTimeFormatter;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
