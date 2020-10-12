@@ -51,5 +51,12 @@
     "phone" : "48052730",
     "password" : "HeiHei123",
     "bookings" : [ ]
+  }, {
+    "firstName" : "Ola",
+    "surname" : "Halvorsen",
+    "email" : "jj.@gmail.com",
+    "phone" : "99113688",
+    "password" : "12345678",
+    "bookings" : [ ]
   } ]
 }
