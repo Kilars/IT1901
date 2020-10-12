@@ -42,7 +42,9 @@ public class UserProfileController {
     @FXML
     Button bookingButton;
 
-
+    /**
+     * 
+     */
     public void handleBookingButton(ActionEvent event) throws IOException {
         try{
             changeScene(event);
@@ -50,6 +52,12 @@ public class UserProfileController {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Changes the scene to Log In, used in handleBookingButton
+     * @param event
+     * @throws IOException
+     */
     private void changeScene(ActionEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("Booking.fxml"));
@@ -66,6 +74,25 @@ public class UserProfileController {
         window.setScene(bookingScene);
         window.show();
     }
+
+    /**
+     * The return button lets you go back to the logIn-view
+     * @param event
+     * @throws IOException
+     */
+    @FXML
+    public void handleReturnButton(ActionEvent event) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("LogIn.fxml"));
+        Parent Parent = fxmlLoader.load();
+
+        Scene Scene = new Scene(Parent);
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(Scene);
+        window.show();
+
+    }
     
     private void setUIvalues() {
         firstName.setText(user.getFirstName());
@@ -73,7 +100,10 @@ public class UserProfileController {
         email.setText(user.getEmail());
         phone.setText(user.getPhone());
     }
-    
+
+    /**
+     * @return the list of already registered users in the app
+     */
     private User getUser() {
         return this.user;
     }
