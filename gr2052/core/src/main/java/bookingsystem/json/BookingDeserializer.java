@@ -20,12 +20,24 @@ class BookingDeserializer extends JsonDeserializer<Booking> {
 
     private HairDresserDeserializer hairDresserDeserializer = new HairDresserDeserializer();
     private TreatmentDeserializer treatmenDeserializer = new TreatmentDeserializer();
+
+    /**
+     * Used in deserialize, takes in a JsonParser and calls on deserialize
+     * @param JsonParser
+     * @param DeserializationContext
+     */
     @Override
     public Booking deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
         final JsonNode node = p.getCodec().readTree(p);
         return deserialize(node);
     }
 
+    /**
+     * Takes in a JsonNode, converts it and returns a booking object
+     * Returns null if JsonNode is not an instance of booking
+     * @param JsonNode
+     * @return booking
+     */
     Booking deserialize(JsonNode node) {
         if (node instanceof ObjectNode) {
             ObjectNode objectNode = (ObjectNode) node;

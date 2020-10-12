@@ -3,36 +3,39 @@
 
 # Booking System - Oversikt og Struktur
 
-Dette prosjektet er en trelagsapplikasjon, med et domenelag, brukergrensesnitt (UI) og persistens (lagring). Prosjektet inneholder tester for alle lagene. Prosjektet er konfigurert med **maven** som byggesystem.
+Dette prosjektet har to moduler, en for core og en for fxui. Inne i core finner man domenelag og persistenslag. I fxui finner man brukergrensesnittlaget. Disse tre lagene gjør at vi har en trelagsapplikasjon.  Prosjektet er konfigurert med **maven** som byggesystem.
 
 Mappen **[gr2052](gr2052)** utgjør kodingsprosjektet. Her finner du en **[readme-fil](gr2052/README.md)** som beskriver plan for selve prosjektet og fremgang nærmere.
 
 ## Organisering av koden
 
-Prosjektet er organisert med 4 kildekodemapper, kode og ressurser for henholdsvis applikasjonen selv og testene:
+Hvert lag har 4 kildekodemapper, kode og ressurser for henholdsvis applikasjonen selv og testene:
 
 - **src/main/java** for koden til applikasjonen
 - **src/main/resources** for tilhørende ressurser, f.eks. data-filer og FXML-filer, som brukes av applikasjonen.
 - **src/test/java** for testkoden
 - **src/test/resources** for tilhørende ressurser, f.eks. data-filer og FXML-filer, som brukes av testene.
 
+## Bygging og kjøring av prosjektet
+
+Prosjektet bruker maven til bygging og kjøring. `mvn install` må kjøres fra rot-prosjektet før appen kan kjøres. Denne kjører automatisk alle tester og kvalitetssjekker.  
+Selve prosjektet (applikasjonen) må kjøres fra fxui-modulen, enten med `mvn javafx:run -f fxui/pom.xml` eller ved å først kjøre `cd fxui` og så `mvn javafx:run`.
+
 
 ## Domenelaget
 
-Domenelaget inneholder alle klasser og logikk knyttet til dataene som applikasjonen handler om og håndterer, og disse finnes i **[bsystem.core](gr2052/src/main/java/bookingsystem/core)**-pakken.
-Vår app handler om å kunne booke en tid med en frisør som skal utføre en viss behandling.
+Domenelaget inneholder alle klasser og logikk knyttet til dataene som applikasjonen handler om og håndterer, og disse finnes i **[bsystem.core](gr2052/core/src/main/java/bookingsystem/core)**-pakken.
+Vår app handler om å kunne registrere seg som bruker i et bookingsystem for frisørsalong for så å booke timeavtale med en frisør for å få en gitt behandling. 
 
 ## Brukergrensesnittlaget
 
-Brukergrensesnittlaget inneholder alle klasser og logikk knyttet til visning og handlinger på dataene i domenelaget. Brukergrensesnittet til vår app viser frem en liste av tilgjengelige behandlinger. Når en velges vises en liste av frisører som utfører denne behandlingen, frisør kan velges og det kommer opp en kalendervisning der med åpne datoer og klokkeslett. Når dette også er valgt kan timen bekreftes.
+Brukergrensesnittlaget inneholder alle klasser og logikk knyttet til visning og handlinger på dataene i domenelaget. Brukergrensesnittet til vår app inneholder per nå registrering av bruker, innlogging, brukerprofilside og side for å booke ny time. 
 
-Brukergrensesnittet er laget med JavaFX og FXML og finnes i **[bsystem.ui](gr2052/src/main/java/bookingsystem/ui)**-pakken (JavaFX-koden i **gr2052/src/main/java** og FXML-filen i **gr2052/src/main/resources**)
+Brukergrensesnittet er laget med JavaFX og FXML og finnes i **[bsystem.ui](gr2052/fxui/src/main/)**-pakken (JavaFX-koden i **gr2052/fxui/src/main/java** og FXML-filen i **gr2052/fxui/src/main/resources**)
 
 ## Persistenslaget
 
-Persistenslaget inneholder alle klasser og logikk for lagring (skriving og lesing) av dataene i domenelaget. Vårt persistenslag vil etterhvert implementere fillagring med JSON-syntaks.
-Per nå finnes persistenslaget i **[bsystem.fillagring](gr2052/src/main/java/bookingsystem/fillagring/)**-pakken.
-Når vi går over til bruk av json vil persistenslaget finnes i **[bsystem.json](gr2052/src/main/java/bookingsystem/json/)**-pakken.
+Persistenslaget inneholder alle klasser og logikk for lagring (skriving og lesing) av dataene i domenelaget. Vårt persistenslag implementerer fillagring med JSON-syntaks og finnes i **[bsystem.json](gr2052/core/src/main/java/bookingsystem/json/)**-pakken.
 
 ## maven
 
