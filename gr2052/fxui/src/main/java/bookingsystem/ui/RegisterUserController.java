@@ -66,17 +66,12 @@ public class RegisterUserController {
         
         
     }
-<<<<<<< HEAD
-    
-    
-=======
 
     /**
      * Changes the scene to Log In, used in handleSaveUserButton
      * @param event
      * @throws IOException
      */
->>>>>>> 07bcc8dfdb76200ff80c70e4d309a00d9d808d74
     private void changeScene(ActionEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("LogIn.fxml"));

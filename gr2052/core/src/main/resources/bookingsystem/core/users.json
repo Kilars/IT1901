@@ -62,61 +62,14 @@
     "password" : "HeiHei123",
     "bookings" : [ ]
   }, {
-<<<<<<< HEAD
-    "firstName" : "Lars",
-    "surname" : "Skifjeld",
-    "email" : "larssski@gmail.com",
+
+    "firstName" : "Karen",
+    "surname" : "Hompland",
+    "email" : "karenerkul@gmail.com",
     "phone" : "12345678",
-    "password" : "abcd1234",
-    "bookings" : [ ]
-  }, {
-    "firstName" : "Sral",
-    "surname" : "Kifjeld",
-    "email" : "lars@gmail.com",
-    "phone" : "12344321",
-    "password" : "abcd1234",
-    "bookings" : [ ]
-  }, {
-    "firstName" : "Lasr",
-    "surname" : "Ofjkeld",
-    "email" : "larzki@gmail.com",
-    "phone" : "12345678",
-    "password" : "abcd1234",
-    "bookings" : [ ]
-  }, {
-    "firstName" : "Absad",
-    "surname" : "Aasdgvad",
-    "email" : "klars@gmail.com",
-    "phone" : "12335209",
-    "password" : "abcd1234",
-    "bookings" : [ ]
-  }, {
-    "firstName" : "Klars",
-    "surname" : "Skifjeld",
-    "email" : "asdas@gmail.com",
-    "phone" : "12344392",
-    "password" : "abcd1234",
-    "bookings" : [ ]
-  }, {
-    "firstName" : "Ole",
-    "surname" : "Olsen",
-    "email" : "ole@hotmail.com",
-    "phone" : "12312398",
-    "password" : "informatikk",
-=======
-    "firstName" : "Ola",
-    "surname" : "Halvorsen",
-    "email" : "jj.@gmail.com",
-    "phone" : "99113688",
-    "password" : "12345678",
-    "bookings" : [ ]
-  }, {
-    "firstName" : "Julie",
-    "surname" : "Kongsten",
-    "email" : "juliekongsten@gmail.com",
-    "phone" : "99113688",
-    "password" : "12345678",
->>>>>>> 07bcc8dfdb76200ff80c70e4d309a00d9d808d74
+    "password" : "karenerkul",
+
+
     "bookings" : [ ]
   } ]
 }

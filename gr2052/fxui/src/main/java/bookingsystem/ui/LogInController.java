@@ -16,7 +16,7 @@ import javafx.scene.Scene;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 
-/* Controller for LogIn.fxml */
+/* Controller connected to LogIn.fxml */
 public class LogInController {
     
     private Users users;
@@ -33,15 +33,14 @@ public class LogInController {
     @FXML
     Button logInButton;
 
-<<<<<<< HEAD
 
-        /**
-=======
+
+
     /**
->>>>>>> 07bcc8dfdb76200ff80c70e4d309a00d9d808d74
      *Checks if user i an existing user and
+     *Checks if user already an existing user, if so it
      *"logs in" the user and changes scene to
-     *userprofile.fxml
+     *userprofile.fxml. If not it prints an error message to the label.
      * 
      * @param event
      */
@@ -61,6 +60,11 @@ public class LogInController {
 
     }
 
+     /**
+     * Help method for the methods changing scenes. Setting Users in the new scene's controller.
+     * @param users
+     * @return Users
+     */
     public Users init_data(Users users){
         return this.users = users;
     }
@@ -103,6 +107,11 @@ public class LogInController {
         window.show();
     }
 
+    /**
+     * Get User object from Users using email
+     * @param email
+     * @return User object that is logging in
+     */
     private User getUser(String email){
         return this.users.getUser(email);
     }
