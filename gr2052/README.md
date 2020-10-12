@@ -45,12 +45,12 @@ Implementere JSON- og Jackson-plugins og legge til rette for god, enkel og sikke
 -Issues: #28, #50, #60, #62 <br />
 <br />
 ### Modulering og tester (uke 40)
-Miletone: Innlevering 2<br />
+Milestone: Innlevering 2<br />
 **Modulering:**<br />
-Endring av prosjektstrukturen og opprette moduler for fxui og core. Fikse pom.xml for de to modulene og rydde opp i mapper.<br />
+Endring av prosjektstrukturen og opprette moduler for fxui og core. Vi delte opp prosjektet i to moduler, én for kjernekoden (logikk og serialisering) og en for brukergrensesnittet Fikse pom.xml for de to modulene og rydde opp i mapper. <br />
 Issues: #29, #37, #43, #45, #46 <br />
 **Tester:**<br />
-Skrev flere tester for å øke testdekningsgraden. La til plugin for checkin og spotbugs i prosjektet.<br /> 
+Skrev flere tester for å øke testdekningsgraden. La til plugin for checkstyle og spotbugs i prosjektet.<br /> 
 Issues: #23, #24, #26, #49, #52<br />
 <br />
 ### Booking-funksjonen, innlogging og brukerprofil (uke 41)
@@ -58,7 +58,7 @@ Issues: #23, #24, #26, #49, #52<br />
 På bookingsiden kan brukeren velge dato, tid og type behandling, og får opp prisanslag for dette, for så å få valget mellom å booke timen eller avbryte. Begge knapper tar brukeren tilbake til brukerprofilsiden, så sant det var en eventuell vellykket booking. <br />
 Issues: #33, #34, #35, #36<br />
 **Innlogging - brukerhistorie 1, 8, 9**<br />
-Når bruker er registrert blir hen tatt til innloggingsside som sjekker mail opp mot registrerte brukere og at passord stemmer. Kan også velge å gå rett til innlogging fra startsiden.<br /> 
+Når bruker er registrert blir hen tatt til innloggingsside som sjekker mail opp mot registrerte brukere og at passord stemmer. Kan også velge å gå rett til innlogging fra startsiden. <br /> 
 Issues: #30, #31, #32, #57, #58  <br />
 **Brukerprofil - brukerhistorie 3, 8**<br />
 På brukerprofilsiden får brukeren en oversikt over kommende avtaler i frisørsalongen og kan også trykke for å komme seg til booking av ny time. <br />
