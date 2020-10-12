@@ -1,6 +1,8 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -29,12 +31,12 @@ public class BookingControllerTest extends ApplicationTest {
     * Set up for testing RegisterUserController.java
     */
     private String jsonFile = "users.json";
-    private Users users;
+    private Users users = new Users(jsonFile);
     private BookingController controller;
     private Users userList;
     private String saveSuccess = "Vellykket registrering av bruker";
     private String saveUnsuccess = "The passwords does not match";
-    private Salon salon;
+    private Salon salon = new Salon();
 
 
     @Override
@@ -47,47 +49,60 @@ public class BookingControllerTest extends ApplicationTest {
         this.userList = this.controller.getUsers();
     }
 
-    @BeforeAll
-    public void init() {
-        users = new Users(jsonFile);
-        salon = controller.getSalon();
-    }
+    
 
     /**
      * Set up for the tests, clicking on the TextField and filling them with information
      */
     @BeforeEach
     public void setupUsers() {
-        clickOn("#nameField").write("Ole");
-        clickOn("#surnameField").write("Olsen");
-        clickOn("#emailField").write("ole@hotmail.com");
-        clickOn("#phoneNumberField").write("12312398");
-        clickOn("#passwordField").write("informatikk");
-        clickOn("#confirmPasswordField").write("informatikk");
+
     }
 
     /**
      * Check if the label prints correct message for a succsessfull register of an User
-     */
+     *
     @Test
     public void checkSuccessfullRegisterUser(){
         clickOn("#saveUserButton");
         assertEquals(controller.getFeedbackLabelText(), saveSuccess);
     }
-
+*/
     @Test
     public void checkChoiceBoxes() {
-        ChoiceBox<HairDresser> hairdressersChoiceBox = controller.getHairDresserChoiceBox();
-        List<HairDresser> hairdressersFromChoiceBox = hairdressersChoiceBox.getItems();
-        List<HairDresser> hairdressers;
-        ChoiceBox<Treatment> treatmentsChoiceBox = controller.getTreatmentsChoiceBox();
-        ChoiceBox<String> hourChoiceBox = controller.getHourChoiceBox();
+        try {
+            ChoiceBox<HairDresser> hairdressersChoiceBox = controller.getHairDresserChoiceBox();
+            List<HairDresser> hairdressersFromChoiceBox = hairdressersChoiceBox.getItems();
+            List<HairDresser> hairdressersFromSalon = salon.getHairdresserList();
+            for (int i = 0; i < hairdressersFromSalon.size(); i++) {
+                assertEquals(hairdressersFromChoiceBox.get(i).getName(), 
+                    hairdressersFromSalon.get(i).getName());
+            }
 
+            ChoiceBox<Treatment> treatmentsChoiceBox = controller.getTreatmentsChoiceBox();
+            List<Treatment> treatmentsFromChoiceBox = treatmentsChoiceBox.getItems();
+            List<Treatment> treatmentsFromSalon = salon.getTreatmentList();
+            for (int i = 0; i < treatmentsFromSalon.size(); i++) {
+                assertEquals(treatmentsFromChoiceBox.get(i).getTreatment(), 
+                    treatmentsFromSalon.get(i).getTreatment());
+            }
+
+            ChoiceBox<String> hourChoiceBox = controller.getHourChoiceBox();
+            List<String> hoursFromChoiceBox = hourChoiceBox.getItems();
+            List<String> hoursFromController = controller.getTimeList();
+            for (int i = 0; i < hoursFromController.size(); i++) {
+                assertEquals(hoursFromChoiceBox.get(i), hoursFromController.get(i));
+            }
+
+        } catch (Exception e) {
+            fail();
+            e.printStackTrace();
+        }
     } 
     
     /**
      * Check if the label prints correct message for an unsuccsessfull register of an User
-     */
+     *
     @Test
     public void  checkUnsuccsessfullRegisterUser(){
         clickOn("#confirmPasswordField").write("1234");
@@ -119,7 +134,6 @@ public class BookingControllerTest extends ApplicationTest {
             }
         }
         return false;
-        
     }
 
 

@@ -35,8 +35,8 @@ public class LogInControllerTest extends ApplicationTest {
 
     @BeforeEach
     public void setupUsers() {
-        clickOn("#emailField").write("magnus.holta@gmail.com");
-        clickOn("#passwordField").write("AAaaaa11");
+        clickOn("#emailField").write("ole@hotmail.com");
+        clickOn("#passwordField").write("informatikk");
     }
 
     @Test
