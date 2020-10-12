@@ -209,46 +209,6 @@ public class BookingController {
     }
 
     /**
-     * Updating price label when treatment is chosen by user and setting treatment for booking
-     * @param event
-     *
-    public void treatmentChosen(ActionEvent event){
-        for (MenuItem treatmentItem : treatmentMenu.getItems()){
-            if (treatmentMenu.getText().equals(treatmentItem.getText())){
-                this.treatment = salon.getTreatmentList().get((Integer.parseInt(treatmentItem.getText().substring(0, 1))));
-                this.priceLabel.setText(String.valueOf(this.treatment.getPrice()+" kr"));
-
-            }
-            else{
-                this.feedbackLabel.setText("Vennligst velg en behandling");
-            }
-        }
-    }
-
-    /**
-     * Setting hairdresser when it is choosed by user
-     * @param event
-     *
-    public void hairdresserChosen(ActionEvent event){
-        for (MenuItem hairdresserItem : hairdresserMenu.getItems()){
-            if (hairdresserMenu.getText().equals(hairdresserItem.getText())){
-                if (hairdresserItem.getText().matches("Tilfeldig")){
-                    int randomNum = ThreadLocalRandom.current().nextInt(0, salon.getHairdresserList().size());
-                    this.hairdresser=salon.getHairdresserList().get(randomNum);
-                }
-                else {
-                    this.hairdresser=salon.getHairdresserList().get(Integer.parseInt(hairdresserItem.getText().substring(0, 1)));
-                }
-            }
-            else{
-                this.feedbackLabel.setText("Vennligst velg en frisør");
-            }
-        }
-    }
-
-
-
-    /**
      * Save booking and add to the User object. 
      * Prints error message in feedback-label if anything is missing.
      */
@@ -280,7 +240,7 @@ public class BookingController {
      * Needed for saving to file
      * @return Users for the whole program
      */
-    private Users getUsers() {
+    public Users getUsers() {
         return this.users;
     }
 
@@ -293,5 +253,25 @@ public class BookingController {
     public User init_data(User user, Users users) {
         this.users = users;
         return this.user = user;
+    }
+
+    public ChoiceBox<HairDresser> getHairDresserChoiceBox() {
+        return this.hairdressersChoiceBox;
+    }
+
+    public ChoiceBox<Treatment> getTreatmentsChoiceBox() {
+        return this.treatmentsChoiceBox;
+    }
+
+    public ChoiceBox<String> getHourChoiceBox() {
+        return this.hourChoiceBox;
+    }
+
+    public String getFeedbackLabelText() {
+        return this.feedbackLabel.getText();
+    }
+
+    public Salon getSalon() {
+        return this.salon;
     }
 }
