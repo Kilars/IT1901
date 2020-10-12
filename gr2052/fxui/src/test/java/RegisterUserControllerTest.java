@@ -13,14 +13,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-//@RunWith(MockitoJUnitRunner.class)
 public class RegisterUserControllerTest extends ApplicationTest {
 
     /**
     * Set up for testing RegisterUserController.java
     */
     private RegisterUserController controller;
-    private Users userList;
+    private String jsonFile = "users.json";
+    private Users userList = new Users(jsonFile);
     private String saveSuccess = "Vellykket registrering av bruker";
     private String saveUnsuccess = "The passwords does not match";
 
@@ -30,10 +30,9 @@ public class RegisterUserControllerTest extends ApplicationTest {
         final FXMLLoader loader = new FXMLLoader(getClass().getResource("RegisterUser_test.fxml"));
         final Parent root = loader.load();
         this.controller = loader.getController();
+        this.controller.init_data(this.userList);
         stage.setScene(new Scene(root));
         stage.show();
-        this.userList = this.controller.getUsers();
-
     }
 
 
@@ -55,8 +54,10 @@ public class RegisterUserControllerTest extends ApplicationTest {
      */
     @Test
     public void checkSuccessfullRegisterUser(){
+        this.userList.removeUser(this.userList.getUser("ole@hotmail.com"));
+        this.userList.saveToJson();
         clickOn("#saveUserButton");
-        assertEquals(controller.getFeedbackLabelText(), saveSuccess);
+        assertEquals(saveSuccess, controller.getFeedbackLabelText());
     }
 
 
@@ -64,7 +65,7 @@ public class RegisterUserControllerTest extends ApplicationTest {
      * Check if the label prints correct message for an unsuccsessfull register of an User
      */
     @Test
-    public void  checkUnsuccsessfullRegisterUser(){
+    public void checkUnsuccsessfullRegisterUser(){
         clickOn("#confirmPasswordField").write("1234");
         clickOn("#saveUserButton");
         assertEquals(controller.getFeedbackLabelText(), saveUnsuccess);

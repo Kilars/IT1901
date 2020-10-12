@@ -51,5 +51,47 @@
     "phone" : "48052730",
     "password" : "HeiHei123",
     "bookings" : [ ]
+  }, {
+    "firstName" : "Lars",
+    "surname" : "Skifjeld",
+    "email" : "larssski@gmail.com",
+    "phone" : "12345678",
+    "password" : "abcd1234",
+    "bookings" : [ ]
+  }, {
+    "firstName" : "Sral",
+    "surname" : "Kifjeld",
+    "email" : "lars@gmail.com",
+    "phone" : "12344321",
+    "password" : "abcd1234",
+    "bookings" : [ ]
+  }, {
+    "firstName" : "Lasr",
+    "surname" : "Ofjkeld",
+    "email" : "larzki@gmail.com",
+    "phone" : "12345678",
+    "password" : "abcd1234",
+    "bookings" : [ ]
+  }, {
+    "firstName" : "Absad",
+    "surname" : "Aasdgvad",
+    "email" : "klars@gmail.com",
+    "phone" : "12335209",
+    "password" : "abcd1234",
+    "bookings" : [ ]
+  }, {
+    "firstName" : "Klars",
+    "surname" : "Skifjeld",
+    "email" : "asdas@gmail.com",
+    "phone" : "12344392",
+    "password" : "abcd1234",
+    "bookings" : [ ]
+  }, {
+    "firstName" : "Ole",
+    "surname" : "Olsen",
+    "email" : "ole@hotmail.com",
+    "phone" : "12312398",
+    "password" : "informatikk",
+    "bookings" : [ ]
   } ]
 }

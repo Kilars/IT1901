@@ -56,17 +56,18 @@ public class RegisterUserController {
             user.setPassword(passwordField.getText());
             this.users.addUser(user);
             this.users.fireUsersChange();
+            feedbackLabel.setText("");
             feedbackLabel.setText("Vellykket registrering av bruker");
-
+            
             changeScene(event);
         } catch (IllegalArgumentException e){
             feedbackLabel.setText(e.getMessage());
         }
-
-
+        
+        
     }
-
-
+    
+    
     private void changeScene(ActionEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("LogIn.fxml"));
