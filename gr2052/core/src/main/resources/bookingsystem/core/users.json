@@ -57,6 +57,18 @@
     "email" : "karenerkul@gmail.com",
     "phone" : "12345678",
     "password" : "karenerkul",
+    "firstName" : "Ola",
+    "surname" : "Halvorsen",
+    "email" : "jj.@gmail.com",
+    "phone" : "99113688",
+    "password" : "12345678",
+    "bookings" : [ ]
+  }, {
+    "firstName" : "Julie",
+    "surname" : "Kongsten",
+    "email" : "juliekongsten@gmail.com",
+    "phone" : "99113688",
+    "password" : "12345678",
     "bookings" : [ ]
   } ]
 }

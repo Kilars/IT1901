@@ -49,6 +49,10 @@ public class Users implements Iterable<User> {
         this.jsonFile = jsonFile;
     }
 
+    /**
+     * Method to add user
+     * @param user
+     */
     public void addUser(User user) {
         if (checkIfUserExists(user.getEmail()) == false) {
             User user_this;
@@ -68,6 +72,10 @@ public class Users implements Iterable<User> {
         }
     }
 
+    /**
+     * Method to add Users
+     * @param users
+     */
     public void addUsers(User... users) {
         for (User user : users) {
             addUser(user);

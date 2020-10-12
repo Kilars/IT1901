@@ -2,7 +2,6 @@ package bookingsystem.json;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.Date;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;

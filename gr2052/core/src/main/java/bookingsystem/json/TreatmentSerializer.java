@@ -6,10 +6,7 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
-import bookingsystem.core.Booking;
-import bookingsystem.core.HairDresser;
 import bookingsystem.core.Treatment;
-import bookingsystem.core.User;
 
 class TreatmentSerializer extends JsonSerializer<Treatment> {
     /*

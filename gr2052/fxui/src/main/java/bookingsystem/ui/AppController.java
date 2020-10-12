@@ -66,7 +66,6 @@ public class AppController {
      * @param event
      * @throws IOException
      */
-
     public void logInButtonPushed(ActionEvent event) throws IOException{
         this.checkScene = true;
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -92,15 +91,23 @@ public class AppController {
         return this.checkScene;
     }
 
+    /**
+     * Method to return this controller's fxml-file
+     * @return String name of fxml-file
+     */
     public String returnFxmlFile(){
         return "FxApp.fxml";
     }
 
+    /**
+     * Method to return Users
+     * @return users
+     */
     public Users getUsers(){
         return this.users;
     }
 	
-	public static void main(String[] args) {
+	/**public static void main(String[] args) {
         AppController c = new AppController();
         Users us = c.getUsers();
         User u = us.getUser("magnus.holta@gmail.com");
@@ -113,7 +120,7 @@ public class AppController {
         //                    LocalDate.now(), "10:20");
         c.getUsers().fireUsersChange();
         u.getBookings().forEach(b -> System.out.println(b));
-    }
+    }**/
 	
 	
 
