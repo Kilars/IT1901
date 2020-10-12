@@ -1,75 +1,27 @@
 {
   "users" : [ {
-    "firstName" : "Ola",
-    "surname" : "Halvorsen",
-    "email" : "haugenstua.097@ferdi.da",
-    "phone" : "09770977",
-    "password" : "LivetMin0977",
+    "firstName" : "Ole",
+    "surname" : "Olsen",
+    "email" : "ole@hotmail.com",
+    "phone" : "12312398",
+    "password" : "informatikk",
     "bookings" : [ ]
   }, {
-    "firstName" : "Magnus",
-    "surname" : "Holta",
-    "email" : "magnus.holta@gmail.com",
-    "phone" : "48052730",
-    "password" : "AAaaaa11",
+    "firstName" : "Ingrid",
+    "surname" : "Hagen",
+    "email" : "ingrid@gmail.no",
+    "phone" : "97103994",
+    "password" : "passord123",
     "bookings" : [ {
       "hairDresser" : {
-        "name" : "Kari"
+        "name" : "Marie Brunette"
       },
       "treatment" : {
-        "treatment" : "Herreklipp",
-        "price" : 0.0
-      },
-      "date" : "2020-11-20",
-      "time" : "10:20"
-    }, {
-      "hairDresser" : {
-        "name" : "Sofie Blond"
-      },
-      "treatment" : {
-        "treatment" : "Striping langt hår",
-        "price" : 1400.0
+        "treatment" : "Vask og føn",
+        "price" : 149.0
       },
       "date" : "2020-10-21",
       "time" : "13:00"
     } ]
-  }, {
-    "firstName" : "Magnus ",
-    "surname" : "Holta",
-    "email" : "magnus.holta@gmal.com",
-    "phone" : "48052730",
-    "password" : "asdf1234",
-    "bookings" : [ ]
-  }, {
-    "firstName" : "Hallo",
-    "surname" : "Diu",
-    "email" : "ola.hal@haug.no",
-    "phone" : "48052730",
-    "password" : "Heidu123",
-    "bookings" : [ ]
-  }, {
-    "firstName" : "Magnus",
-    "surname" : "Holta",
-    "email" : "mgnus.holta@gmail.com",
-    "phone" : "48052730",
-    "password" : "Hallo1234",
-    "bookings" : [ ]
-  }, {
-    "firstName" : "Magnus",
-    "surname" : "Holta",
-    "email" : "magnus.hola@gmail.com",
-    "phone" : "48052730",
-    "password" : "HeiHei123",
-    "bookings" : [ ]
-  }, {
-
-    "firstName" : "Karen",
-    "surname" : "Hompland",
-    "email" : "karenerkul@gmail.com",
-    "phone" : "12345678",
-    "password" : "karenerkul",
-
-
-    "bookings" : [ ]
   } ]
 }

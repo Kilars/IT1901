@@ -34,9 +34,7 @@ public class LogInController {
     Button logInButton;
 
 
-
-
-    /**
+        /**
      *Checks if user i an existing user and
      *Checks if user already an existing user, if so it
      *"logs in" the user and changes scene to
