@@ -1,5 +1,9 @@
 package bookingsystem.core;
 
+/**
+ * Class for treatments. Each treatment has a treatment name and a price
+ * The class has to constructors, one with no parameters, and one with parameters.
+ */
 public class Treatment {
 
     public String treatment;
