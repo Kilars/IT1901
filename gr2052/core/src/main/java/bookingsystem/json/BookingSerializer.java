@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
 import bookingsystem.core.Booking;
-import bookingsystem.core.User;
 
 class BookingSerializer extends JsonSerializer<Booking> {
     /*
