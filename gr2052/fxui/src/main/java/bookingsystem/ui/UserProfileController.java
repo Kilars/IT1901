@@ -1,15 +1,9 @@
 package bookingsystem.ui;
 
-import bookingsystem.core.Booking;
 import bookingsystem.core.User;
 import bookingsystem.core.Users;
-
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.fxml.FXMLLoader;
@@ -86,9 +80,4 @@ public class UserProfileController {
         setUIvalues();
         return this.user;
     }
-    
-        public static void main(String[] args) {
-            UserProfileController c = new UserProfileController();
-
-        }
 }

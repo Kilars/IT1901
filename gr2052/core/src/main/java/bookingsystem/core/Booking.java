@@ -121,5 +121,6 @@ public class Booking {
             throw new IllegalArgumentException("Vennligst velg et tidspunkt");
         }
     }
+
     
 }
