@@ -33,7 +33,12 @@ public class LogInController {
     @FXML
     Button logInButton;
 
+<<<<<<< HEAD
+
+        /**
+=======
     /**
+>>>>>>> 07bcc8dfdb76200ff80c70e4d309a00d9d808d74
      *Checks if user i an existing user and
      *"logs in" the user and changes scene to
      *userprofile.fxml
@@ -43,12 +48,15 @@ public class LogInController {
     @FXML
     public void logInButtonPushed(ActionEvent event) throws IOException{
         try {
+            System.out.println("in try");
             if(this.users.logIn(emailField.getText(), passwordField.getText())){
+                System.out.println("in if");
+                feedbackLabel.setText("Successfull log in");
                 changeScene(event);
             }
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
+            System.out.println("in catch");
             feedbackLabel.setText(e.getMessage());
-            e.printStackTrace();
         }
 
     }
@@ -98,4 +106,11 @@ public class LogInController {
     private User getUser(String email){
         return this.users.getUser(email);
     }
+    public Users getUsers(){
+        return this.users;
+    }
+    public String getFeedBackLabelText(){
+        return this.feedbackLabel.getText();
+    }
+
 }
