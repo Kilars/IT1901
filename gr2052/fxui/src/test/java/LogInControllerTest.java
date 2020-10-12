@@ -32,7 +32,7 @@ public class LogInControllerTest extends ApplicationTest {
         
 
     }
-
+/*
     @BeforeEach
     public void setupUsers() {
         clickOn("#emailField").write("magnus.holta@gmail.com");
@@ -50,5 +50,5 @@ public class LogInControllerTest extends ApplicationTest {
         clickOn("#passwordField").write("skr");
         clickOn("#logInButton");
         assertEquals("Feil passord!", controller.getFeedBackLabelText());
-    }
+    }*/
 }

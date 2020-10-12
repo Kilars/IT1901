@@ -33,12 +33,8 @@ public class LogInController {
     @FXML
     Button logInButton;
 
-<<<<<<< HEAD
 
-        /**
-=======
     /**
->>>>>>> 07bcc8dfdb76200ff80c70e4d309a00d9d808d74
      *Checks if user i an existing user and
      *"logs in" the user and changes scene to
      *userprofile.fxml
