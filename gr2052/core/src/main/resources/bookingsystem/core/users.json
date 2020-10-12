@@ -1,122 +1,27 @@
 {
   "users" : [ {
-    "firstName" : "Ola",
-    "surname" : "Halvorsen",
-    "email" : "haugenstua.097@ferdi.da",
-    "phone" : "09770977",
-    "password" : "LivetMin0977",
-    "bookings" : [ ]
-  }, {
-    "firstName" : "Magnus",
-    "surname" : "Holta",
-    "email" : "magnus.holta@gmail.com",
-    "phone" : "48052730",
-    "password" : "AAaaaa11",
-    "bookings" : [ {
-      "hairDresser" : {
-        "name" : "Kari"
-      },
-      "treatment" : {
-        "treatment" : "Herreklipp",
-        "price" : 0.0
-      },
-      "date" : "2020-11-20",
-      "time" : "10:20"
-    }, {
-      "hairDresser" : {
-        "name" : "Sofie Blond"
-      },
-      "treatment" : {
-        "treatment" : "Striping langt hår",
-        "price" : 1400.0
-      },
-      "date" : "2020-10-21",
-      "time" : "13:00"
-    } ]
-  }, {
-    "firstName" : "Magnus ",
-    "surname" : "Holta",
-    "email" : "magnus.holta@gmal.com",
-    "phone" : "48052730",
-    "password" : "asdf1234",
-    "bookings" : [ ]
-  }, {
-    "firstName" : "Hallo",
-    "surname" : "Diu",
-    "email" : "ola.hal@haug.no",
-    "phone" : "48052730",
-    "password" : "Heidu123",
-    "bookings" : [ ]
-  }, {
-    "firstName" : "Magnus",
-    "surname" : "Holta",
-    "email" : "mgnus.holta@gmail.com",
-    "phone" : "48052730",
-    "password" : "Hallo1234",
-    "bookings" : [ ]
-  }, {
-    "firstName" : "Magnus",
-    "surname" : "Holta",
-    "email" : "magnus.hola@gmail.com",
-    "phone" : "48052730",
-    "password" : "HeiHei123",
-    "bookings" : [ ]
-  }, {
-<<<<<<< HEAD
-    "firstName" : "Lars",
-    "surname" : "Skifjeld",
-    "email" : "larssski@gmail.com",
-    "phone" : "12345678",
-    "password" : "abcd1234",
-    "bookings" : [ ]
-  }, {
-    "firstName" : "Sral",
-    "surname" : "Kifjeld",
-    "email" : "lars@gmail.com",
-    "phone" : "12344321",
-    "password" : "abcd1234",
-    "bookings" : [ ]
-  }, {
-    "firstName" : "Lasr",
-    "surname" : "Ofjkeld",
-    "email" : "larzki@gmail.com",
-    "phone" : "12345678",
-    "password" : "abcd1234",
-    "bookings" : [ ]
-  }, {
-    "firstName" : "Absad",
-    "surname" : "Aasdgvad",
-    "email" : "klars@gmail.com",
-    "phone" : "12335209",
-    "password" : "abcd1234",
-    "bookings" : [ ]
-  }, {
-    "firstName" : "Klars",
-    "surname" : "Skifjeld",
-    "email" : "asdas@gmail.com",
-    "phone" : "12344392",
-    "password" : "abcd1234",
-    "bookings" : [ ]
-  }, {
     "firstName" : "Ole",
     "surname" : "Olsen",
     "email" : "ole@hotmail.com",
     "phone" : "12312398",
     "password" : "informatikk",
-=======
-    "firstName" : "Ola",
-    "surname" : "Halvorsen",
-    "email" : "jj.@gmail.com",
-    "phone" : "99113688",
-    "password" : "12345678",
     "bookings" : [ ]
   }, {
-    "firstName" : "Julie",
-    "surname" : "Kongsten",
-    "email" : "juliekongsten@gmail.com",
-    "phone" : "99113688",
-    "password" : "12345678",
->>>>>>> 07bcc8dfdb76200ff80c70e4d309a00d9d808d74
-    "bookings" : [ ]
+    "firstName" : "Ingrid",
+    "surname" : "Hagen",
+    "email" : "ingrid@gmail.no",
+    "phone" : "97103994",
+    "password" : "passord123",
+    "bookings" : [ {
+      "hairDresser" : {
+        "name" : "Marie Brunette"
+      },
+      "treatment" : {
+        "treatment" : "Vask og føn",
+        "price" : 149.0
+      },
+      "date" : "2020-10-21",
+      "time" : "13:00"
+    } ]
   } ]
 }

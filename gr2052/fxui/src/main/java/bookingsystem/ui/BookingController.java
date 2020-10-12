@@ -264,7 +264,7 @@ public class BookingController {
     }
 
     public ChoiceBox<String> getHourChoiceBox() {
-        return this.hourChoiceBox;
+        return this.hourChoiceBox; 
     }
 
     public String getFeedbackLabelText() {
