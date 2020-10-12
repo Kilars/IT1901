@@ -75,11 +75,11 @@ public class RegisterUserControllerTest extends ApplicationTest {
      * Check if the User gets saved to Users when clicking save-button
      */
     //Made code crash when updating controllers
-/*     @Test
+    @Test
     public void checkSavingOfUser(){
         clickOn("#saveUserButton");
         assertTrue(iterateUserList("ole@hotmail.com"));
-    } */
+    }
 
     /**
      * help method for checkSavingOfUser()
