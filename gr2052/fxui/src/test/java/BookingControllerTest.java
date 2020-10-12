@@ -21,23 +21,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
 //@RunWith(MockitoJUnitRunner.class)
 public class BookingControllerTest extends ApplicationTest {
 
-
     /**
     * Set up for testing RegisterUserController.java
     */
     private String jsonFile = "users.json";
-    private Users users = new Users(jsonFile);
     private BookingController controller;
     private Users userList;
-    private String saveSuccess = "Vellykket registrering av bruker";
-    private String saveUnsuccess = "The passwords does not match";
+    private String uncompletedBookingMessage = "Fyll ut alle feltene";
+    private String successfullBookingMessage = "Vellykket booking";
     private Salon salon = new Salon();
-
 
     @Override
     public void start(final Stage stage) throws Exception {
@@ -49,25 +47,23 @@ public class BookingControllerTest extends ApplicationTest {
         this.userList = this.controller.getUsers();
     }
 
-    
-
     /**
      * Set up for the tests, clicking on the TextField and filling them with information
      */
     @BeforeEach
-    public void setupUsers() {
-
+    public void setupSuccessfullBooking() {
+        clickOn("#datePicker").write("10/28/2020");
+        clickOn("#hairdressersChoiceBox");
+        type(KeyCode.DOWN);
+        type(KeyCode.ENTER);
+        clickOn("#treatmentsChoiceBox");
+        type(KeyCode.DOWN);
+        type(KeyCode.ENTER);
+        clickOn("#hourChoiceBox");
+        type(KeyCode.DOWN);
+        type(KeyCode.ENTER);
     }
 
-    /**
-     * Check if the label prints correct message for a succsessfull register of an User
-     *
-    @Test
-    public void checkSuccessfullRegisterUser(){
-        clickOn("#saveUserButton");
-        assertEquals(controller.getFeedbackLabelText(), saveSuccess);
-    }
-*/
     @Test
     public void checkChoiceBoxes() {
         try {
@@ -100,43 +96,10 @@ public class BookingControllerTest extends ApplicationTest {
         }
     } 
     
-    /**
-     * Check if the label prints correct message for an unsuccsessfull register of an User
-     *
     @Test
-    public void  checkUnsuccsessfullRegisterUser(){
-        clickOn("#confirmPasswordField").write("1234");
-        clickOn("#saveUserButton");
-        assertEquals(controller.getFeedbackLabelText(), saveUnsuccess);
+    public void testUnsuccessfullBooking() {
+        clickOn("#datePicker").write("");
+        clickOn("#bestillButton");
+        assertEquals(uncompletedBookingMessage, controller.getFeedbackLabelText());
     }
-
-    /**
-     * Check if the User gets saved to Users when clicking save-button
-     */
-    //Made code crash when updating controllers
-/*     @Test
-    public void checkSavingOfUser(){
-        clickOn("#saveUserButton");
-        assertTrue(iterateUserList("ole@hotmail.com"));
-    } */
-
-    /**
-     * help method for checkSavingOfUser()
-     * @param email
-     * @return True if email is saved with a User in Users
-     */
-    private boolean iterateUserList(String email){
-        if(!userList.equals(null)){
-            for (User user:userList){
-                if (user.getEmail().equals(email)){
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-
-
-
 }

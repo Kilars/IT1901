@@ -27,6 +27,30 @@
       "time" : "13:00"
     } ]
   }, {
+    "firstName" : "Skrr",
+    "surname" : "Asafdsaf",
+    "email" : "sralski@gmai.com",
+    "phone" : "12345678",
+    "password" : "abcd1234",
+    "bookings" : [ ]
+  }, {
+    "firstName" : "Lars",
+    "surname" : "Skifjeld",
+    "email" : "lars@gmail.com",
+    "phone" : "47681793",
+    "password" : "abcd1234",
+    "bookings" : [ {
+      "hairDresser" : {
+        "name" : "Sofie Blond"
+      },
+      "treatment" : {
+        "treatment" : "Dameklipp",
+        "price" : 0.0
+      },
+      "date" : "2020-10-14",
+      "time" : "14:00"
+    } ]
+  }, {
     "firstName" : "Ole",
     "surname" : "Olsen",
     "email" : "ole@hotmail.com",

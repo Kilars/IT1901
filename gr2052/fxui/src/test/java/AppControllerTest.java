@@ -30,11 +30,11 @@ public class AppControllerTest extends ApplicationTest {
      * Check if a new scene is opened when clicking Register-Button in FxApp.fxml
      */
 
-/*     @Test
+    @Test
     public void testRegisterButton(){
         clickOn("#registerButton");
         assertTrue(controller.getCheckscene());
-    } */
+    }
     
 }
 
