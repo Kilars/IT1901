@@ -1,12 +1,5 @@
 {
   "users" : [ {
-    "firstName" : "Ole",
-    "surname" : "Olsen",
-    "email" : "ole@hotmail.com",
-    "phone" : "12312398",
-    "password" : "informatikk",
-    "bookings" : [ ]
-  }, {
     "firstName" : "Ingrid",
     "surname" : "Hagen",
     "email" : "ingrid@gmail.no",
@@ -18,10 +11,17 @@
       },
       "treatment" : {
         "treatment" : "Vask og føn",
-        "price" : 149.0
+        "price" : 0.0
       },
       "date" : "2020-10-21",
       "time" : "13:00"
     } ]
+  }, {
+    "firstName" : "Ole",
+    "surname" : "Olsen",
+    "email" : "ole@hotmail.com",
+    "phone" : "12312398",
+    "password" : "informatikk",
+    "bookings" : [ ]
   } ]
 }
