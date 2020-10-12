@@ -16,7 +16,7 @@ import javafx.scene.Scene;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 
-/* Kontroller for LogIn.fxml */
+/* Controller for LogIn.fxml */
 public class LogInController {
     
     private Users users;
@@ -33,8 +33,12 @@ public class LogInController {
     @FXML
     Button logInButton;
 
+<<<<<<< HEAD
 
         /**
+=======
+    /**
+>>>>>>> 07bcc8dfdb76200ff80c70e4d309a00d9d808d74
      *Checks if user i an existing user and
      *"logs in" the user and changes scene to
      *userprofile.fxml
@@ -61,6 +65,11 @@ public class LogInController {
         return this.users = users;
     }
 
+    /**
+     * Changes the scene to UserProfile, used in logInButtonPushed
+     * @param event
+     * @throws IOException
+     */
     private void changeScene(ActionEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("UserProfile.fxml"));
@@ -73,6 +82,24 @@ public class LogInController {
         controller.init_data(this.getUser(emailField.getText()), this.users);
         
         window.setScene(logInScene);
+        window.show();
+    }
+
+    /**
+     * The return button lets you go back to the welcome-view
+     * @param event
+     * @throws IOException
+     */
+    @FXML
+    public void handleReturnButton(ActionEvent event) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("FxApp.fxml"));
+        Parent Parent = fxmlLoader.load();
+
+        Scene Scene = new Scene(Parent);
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(Scene);
         window.show();
     }
 

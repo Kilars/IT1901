@@ -1,15 +1,9 @@
 package bookingsystem.ui;
 
-import bookingsystem.core.Booking;
 import bookingsystem.core.User;
 import bookingsystem.core.Users;
-
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.fxml.FXMLLoader;
@@ -42,7 +36,9 @@ public class UserProfileController {
     @FXML
     Button bookingButton;
 
-
+    /**
+     * 
+     */
     public void handleBookingButton(ActionEvent event) throws IOException {
         try{
             changeScene(event);
@@ -50,6 +46,12 @@ public class UserProfileController {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Changes the scene to Log In, used in handleBookingButton
+     * @param event
+     * @throws IOException
+     */
     private void changeScene(ActionEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("Booking.fxml"));
@@ -58,13 +60,30 @@ public class UserProfileController {
         Scene bookingScene = new Scene(bookingParent);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
-        
-        UserProfileController controller = fxmlLoader.getController();
+        BookingController controller = fxmlLoader.getController();
         controller.init_data(this.user, this.users);
-        
 
         window.setScene(bookingScene);
         window.show();
+    }
+
+    /**
+     * The return button lets you go back to the logIn-view
+     * @param event
+     * @throws IOException
+     */
+    @FXML
+    public void handleReturnButton(ActionEvent event) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("LogIn.fxml"));
+        Parent Parent = fxmlLoader.load();
+
+        Scene Scene = new Scene(Parent);
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(Scene);
+        window.show();
+
     }
     
     private void setUIvalues() {
@@ -73,7 +92,10 @@ public class UserProfileController {
         email.setText(user.getEmail());
         phone.setText(user.getPhone());
     }
-    
+
+    /**
+     * @return the list of already registered users in the app
+     */
     private User getUser() {
         return this.user;
     }
@@ -88,14 +110,4 @@ public class UserProfileController {
         setUIvalues();
         return this.user;
     }
-    
-        public static void main(String[] args) {
-            UserProfileController c = new UserProfileController();
-            User u = c.getUser();
-            Booking b = new Booking();
-            // ...
-            u.addBooking(b);
-            Users us = c.getUsers();
-            us.saveToJson();
-        }
 }

@@ -4,6 +4,10 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.regex.Pattern;
 
+/**
+ * Booking class
+ * Each booking has a customer, hairdresser, treatment, date, and time
+ */
 public class Booking {
 
     private User customer;
@@ -12,6 +16,14 @@ public class Booking {
     private LocalDate date;
     private String time;
    
+    /**
+     * Constructor using parameters customer, hairdresser, treatment, date, and time
+     * @param customer      User object
+     * @param hairdresser   hairdresser object
+     * @param treatment     treatment object
+     * @param date          LocalDate object
+     * @param time          String time
+     */
     public Booking(User customer, HairDresser hairdresser, Treatment treatment, LocalDate date, String time) {
         setHairdresser(hairdresser);
         setTreatment(treatment);
@@ -20,10 +32,15 @@ public class Booking {
         setTime(time);
     }
 
+    /**
+     * Constructor with no parameters. 
+     * All parameters are set to null
+     */
     public Booking() {
     }
 
     /**
+     * Method to set Customer
      * @param customer the customer to set
      */
     public void setCustomer(User customer) {
@@ -40,6 +57,7 @@ public class Booking {
     }
 
     /**
+     * Method to set hairdresser
      * @param hairdresser the hairdresser to set
      */
     public void setHairdresser(HairDresser hairdresser) {
@@ -48,6 +66,7 @@ public class Booking {
 
 
     /**
+     * Method to set treatment
      * @param treatment the treatment to set
      */
     public void setTreatment(Treatment treatment) {
@@ -55,6 +74,7 @@ public class Booking {
     }
 
     /**
+     * Method to return customer
      * @return the customer
      */
     public User getCustomer() {
@@ -62,6 +82,7 @@ public class Booking {
     }
 
     /**
+     * Method to return hairdresser
      * @return the hairdresser
      */
     public HairDresser getHairdresser() {
@@ -69,6 +90,7 @@ public class Booking {
     }
 
     /**
+     * Method to return treatment
      * @return the treatment
      */
     public Treatment getTreatment() {
@@ -76,6 +98,7 @@ public class Booking {
     }
 
     /**
+     * Method to return date
      * @return date of treatment
      */
     public LocalDate getDate() {
@@ -83,6 +106,7 @@ public class Booking {
     }
 
     /**
+     * Method to set date
      * @param date to set for the treatment
      */
     public void setDate(LocalDate date) {
@@ -104,6 +128,7 @@ public class Booking {
     }
 
     /**
+     * Method to return time of treatment.
      * @return time of the treatment
      */
     public String getTime() {
@@ -111,6 +136,7 @@ public class Booking {
     }
 
     /**
+     * Method to set time for treatment.
      * @param time for treatment
      */
     public void setTime(String time) {    
@@ -121,5 +147,6 @@ public class Booking {
             throw new IllegalArgumentException("Vennligst velg et tidspunkt");
         }
     }
+
     
 }

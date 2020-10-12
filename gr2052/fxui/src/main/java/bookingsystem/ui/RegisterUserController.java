@@ -31,7 +31,7 @@ public class RegisterUserController {
     PasswordField passwordField, confirmPasswordField;
 
     @FXML
-    Button registerUserButton, saveUserButton;
+    Button registerUserButton, saveUserButton, returnButton;
 
     @FXML
     Label feedbackLabel;
@@ -66,8 +66,17 @@ public class RegisterUserController {
         
         
     }
+<<<<<<< HEAD
     
     
+=======
+
+    /**
+     * Changes the scene to Log In, used in handleSaveUserButton
+     * @param event
+     * @throws IOException
+     */
+>>>>>>> 07bcc8dfdb76200ff80c70e4d309a00d9d808d74
     private void changeScene(ActionEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("LogIn.fxml"));
@@ -82,6 +91,25 @@ public class RegisterUserController {
 
         window.setScene(logInScene);
         window.show();
+    }
+
+    /**
+     * The return button lets you go back to the welcome-view
+     * @param event
+     * @throws IOException
+     */
+    @FXML
+    public void handleReturnButton(ActionEvent event) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("FxApp.fxml"));
+        Parent Parent = fxmlLoader.load();
+
+        Scene Scene = new Scene(Parent);
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(Scene);
+        window.show();
+
     }
     /**
      * Checks if the string from passwordField and confirmPasswordField are the same
@@ -101,7 +129,6 @@ public class RegisterUserController {
     /**
      * @return the list of already registered users in the app
      */
-
     public Users getUsers() {
         return this.users;
     }

@@ -22,6 +22,16 @@
       },
       "date" : "2020-11-20",
       "time" : "10:20"
+    }, {
+      "hairDresser" : {
+        "name" : "Sofie Blond"
+      },
+      "treatment" : {
+        "treatment" : "Striping langt hår",
+        "price" : 1400.0
+      },
+      "date" : "2020-10-21",
+      "time" : "13:00"
     } ]
   }, {
     "firstName" : "Magnus ",
@@ -52,6 +62,7 @@
     "password" : "HeiHei123",
     "bookings" : [ ]
   }, {
+<<<<<<< HEAD
     "firstName" : "Lars",
     "surname" : "Skifjeld",
     "email" : "larssski@gmail.com",
@@ -92,6 +103,20 @@
     "email" : "ole@hotmail.com",
     "phone" : "12312398",
     "password" : "informatikk",
+=======
+    "firstName" : "Ola",
+    "surname" : "Halvorsen",
+    "email" : "jj.@gmail.com",
+    "phone" : "99113688",
+    "password" : "12345678",
+    "bookings" : [ ]
+  }, {
+    "firstName" : "Julie",
+    "surname" : "Kongsten",
+    "email" : "juliekongsten@gmail.com",
+    "phone" : "99113688",
+    "password" : "12345678",
+>>>>>>> 07bcc8dfdb76200ff80c70e4d309a00d9d808d74
     "bookings" : [ ]
   } ]
 }
