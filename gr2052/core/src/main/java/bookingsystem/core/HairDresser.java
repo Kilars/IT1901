@@ -23,7 +23,6 @@ public class HairDresser {
      * Constructor with no parameters
      */
     public HairDresser() {
-
     }
     
     /**

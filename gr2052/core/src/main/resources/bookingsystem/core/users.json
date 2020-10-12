@@ -22,6 +22,16 @@
       },
       "date" : "2020-11-20",
       "time" : "10:20"
+    }, {
+      "hairDresser" : {
+        "name" : "Sofie Blond"
+      },
+      "treatment" : {
+        "treatment" : "Striping langt hår",
+        "price" : 1400.0
+      },
+      "date" : "2020-10-21",
+      "time" : "13:00"
     } ]
   }, {
     "firstName" : "Magnus ",

@@ -18,7 +18,7 @@ import bookingsystem.core.Booking;
 import bookingsystem.core.HairDresser;
 import bookingsystem.core.Treatment;
 import bookingsystem.core.User;
-import bookingsystem.core.Users;
+import bookingsystem.core.Users; 
 
 /*
 Format
@@ -66,6 +66,7 @@ public class UsersModuleTest {
     public static void init() {
         mapper = new ObjectMapper();
         mapper.registerModule(new UsersModule());
+        
     }
 
     @BeforeEach

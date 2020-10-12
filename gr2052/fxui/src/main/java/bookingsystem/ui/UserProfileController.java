@@ -1,15 +1,9 @@
 package bookingsystem.ui;
 
-import bookingsystem.core.Booking;
 import bookingsystem.core.User;
 import bookingsystem.core.Users;
-
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.fxml.FXMLLoader;
@@ -66,10 +60,8 @@ public class UserProfileController {
         Scene bookingScene = new Scene(bookingParent);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
-        
-        UserProfileController controller = fxmlLoader.getController();
+        BookingController controller = fxmlLoader.getController();
         controller.init_data(this.user, this.users);
-        
 
         window.setScene(bookingScene);
         window.show();
@@ -118,14 +110,4 @@ public class UserProfileController {
         setUIvalues();
         return this.user;
     }
-    
-        public static void main(String[] args) {
-            UserProfileController c = new UserProfileController();
-            User u = c.getUser();
-            Booking b = new Booking();
-            // ...
-            u.addBooking(b);
-            Users us = c.getUsers();
-            us.saveToJson();
-        }
 }
