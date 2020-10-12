@@ -13,7 +13,7 @@ import javafx.scene.Scene;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 
-/* Kontroller for UserProfile.fxml */
+/* Controller connected to UserProfile.fxml */
 public class UserProfileController {
     
     private User user;
@@ -37,7 +37,7 @@ public class UserProfileController {
     Button bookingButton;
 
     /**
-     * 
+     * Method for when bookingButton is hit ("Gå til timebestilling"), for changing scene to Booking.fxml
      */
     public void handleBookingButton(ActionEvent event) throws IOException {
         try{
@@ -86,6 +86,9 @@ public class UserProfileController {
 
     }
     
+    /**
+     * Set the user information to the labels in the ui. The information is collected from the currently logged in User object.
+     */
     private void setUIvalues() {
         firstName.setText(user.getFirstName());
         surname.setText(user.getSurname());
@@ -94,16 +97,26 @@ public class UserProfileController {
     }
 
     /**
-     * @return the list of already registered users in the app
+     * @return the currently logged in User object
      */
     private User getUser() {
         return this.user;
     }
     
+    /**
+     * 
+     * @return the list of already registered users in the app
+     */
     private Users getUsers() {
         return this.users;
     }
     
+    /**
+     * Help method for the methods changing scenes. Setting User and Users in the new scene's controller.
+     * @param user
+     * @param users
+     * @return User
+     */
     public User init_data(User user, Users users) {
         this.users = users;
         this.user = user;
