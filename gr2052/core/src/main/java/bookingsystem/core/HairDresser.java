@@ -1,9 +1,5 @@
 package bookingsystem.core;
 
-import java.util.Calendar;
-import java.util.HashMap;
-
-
 /**
  * Hairdresser class
  * Each hairdresser has a name

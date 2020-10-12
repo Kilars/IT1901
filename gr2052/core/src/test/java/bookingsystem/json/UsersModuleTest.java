@@ -105,7 +105,6 @@ public class UsersModuleTest {
     public void testSerializers() {
 
         try {
-            System.out.println(mapper.writeValueAsString(users));
             assertEquals(
                 jsonSample,
                 mapper.writeValueAsString(users)

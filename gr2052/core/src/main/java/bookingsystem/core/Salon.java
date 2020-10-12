@@ -1,10 +1,10 @@
 package bookingsystem.core;
-import java.util.*;
 
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Salon class
- * Each salon has a list of treatments, and a list of hairdressers.
+ * Salon class Each salon has a list of treatments, and a list of hairdressers.
  */
 public class Salon{
     public List<Treatment> treatments = new ArrayList<>();

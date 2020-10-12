@@ -43,14 +43,11 @@ public class LogInController {
     @FXML
     public void logInButtonPushed(ActionEvent event) throws IOException{
         try {
-            System.out.println("in try");
             if(this.users.logIn(emailField.getText(), passwordField.getText())){
-                System.out.println("in if");
                 feedbackLabel.setText("Successfull log in");
                 changeScene(event);
             }
         } catch (IllegalArgumentException e) {
-            System.out.println("in catch");
             feedbackLabel.setText(e.getMessage());
         }
 

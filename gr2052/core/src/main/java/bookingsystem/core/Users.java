@@ -12,7 +12,6 @@ import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.StringReader;
 import java.io.Writer;
-import java.net.URL;
 
 
 import bookingsystem.core.User;
@@ -153,23 +152,12 @@ public class Users implements Iterable<User> {
             // try to read file from home folder first
         if (jsonFile != null) {
             try {
-                reader = new FileReader(new File("/workspace/gr2052/gr2052/core/src/main/resources/bookingsystem/core/users.json"));
+                reader = new FileReader(new File("/workspace/gr2052/gr2052/core/src/main/resources/bookingsystem/core/" + getJsonFilename()));
             } catch (IOException ioex) {
                 System.err.println("Fant ingen " + jsonFile + " på hjemmeområdet");
             }
         }
 
-        URL url = getClass().getResource(getJsonFilename());
-        /*if (url != null) {
-            try {
-            reader = new InputStreamReader(url.openStream(), StandardCharsets.UTF_8);
-            } catch (IOException e) {
-            System.err.println("Couldn't read " + getJsonFilename());
-            }
-        } else {
-            System.err.println("Couldn't find " + getJsonFilename());
-        }
-        */
         if (reader == null) {
             // use embedded String
             reader = new StringReader(getJsonFilename());
@@ -207,11 +195,8 @@ public class Users implements Iterable<User> {
     }
     
     public void saveToJson() {
-        try {
-            URL url = getClass().getResource(jsonFile);
-            
-            String tmp = "/workspace/gr2052/gr2052/core/src/main/resources/bookingsystem/core/users.json";
-            Writer writer = new PrintWriter(new File("/workspace/gr2052/gr2052/core/src/main/resources/bookingsystem/core/users.json"));
+        try {            
+            Writer writer = new PrintWriter(new File("/workspace/gr2052/gr2052/core/src/main/resources/bookingsystem/core/" + getJsonFilename()));
             usersPersistence.writeUsers(this, writer);
         } catch (Exception e) {
             System.err.println("Couldn't write to " + getJsonFilename());
@@ -224,10 +209,4 @@ public class Users implements Iterable<User> {
         this.users = getJsonUsers();
     }
 
-    /*
-    public static void main(String[] args) {
-        Users users = new Users("users.json");
-        users.addUsers(new User("Magnus", "Holta", "magnus.holta@gmail.com", "48052730", "HeiHallo1"));
-        users.fireUsersChange();
-    } */
 }

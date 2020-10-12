@@ -25,6 +25,16 @@
       },
       "date" : "2020-10-21",
       "time" : "13:00"
+    }, {
+      "hairDresser" : {
+        "name" : "Marie Brunette"
+      },
+      "treatment" : {
+        "treatment" : "Striping langt hår",
+        "price" : 1400.0
+      },
+      "date" : "2020-10-29",
+      "time" : "13:00"
     } ]
   }, {
     "firstName" : "Skrr",
