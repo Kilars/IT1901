@@ -33,12 +33,15 @@ public class BookingTest {
         time = "12:32";
     }
     @Test
-    public void testBooking(){
-        User customer = new User("Ingrid", "Hagen", "ingrid@hotmail.com","97103994", "passord");
-        HairDresser hairdresser = new HairDresser("Frisør");
-        Treatment treatment = new Treatment("Klipp", 299);
-        Treatment treatment2 = new Treatment("Striping", 299);
-        
+    public void testGettersAndSetters() {
+        booking.setCustomer(customer1);
+        assertEquals(booking.getCustomer(),customer1);
+        booking.setHairdresser(hairDresser);
+        assertEquals(booking.getHairdresser(), hairDresser);
+        booking.setTreatment(treatment1);
+        assertEquals(booking.getTreatment(),treatment1);
+        booking.setTreatment(treatment2);
+        assertEquals(booking.getTreatment(),treatment2);
     }
 
     @Test 
