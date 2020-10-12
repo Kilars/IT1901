@@ -39,10 +39,10 @@ Som en bruker ønsker jeg et intuitivt og funskjonelt brukergrensesnitt, slik at
 Milestone: Innlevering 2 <br />
 **Dokumentasjon:**<br />
 Kommentere koden fra forrige innlevering og oppdatere readme for å sikre god dokumentasjon.I tillegg skal diagram over arkitekturen legges til. <br />
-Issues: #17, #18, #19, #20, #21, #22 <br />
+Issues: #17, #18, #19, #20, #21, #22, #45, #72, #76 <br />
 **JSON-implementasjon:**<br />
 Implementere JSON- og Jackson-plugins og legge til rette for god, enkel og sikker fillagring.<br />
--Issues: #28, #50, #60, #62 <br />
+-Issues: #27, #28, #50, #57, #60, #62, #65, #67, #70 <br />
 <br />
 ### Modulering og tester (uke 40)
 Milestone: Innlevering 2<br />
@@ -51,20 +51,20 @@ Endring av prosjektstrukturen og opprette moduler for fxui og core. Vi delte opp
 Issues: #29, #37, #43, #45, #46 <br />
 **Tester:**<br />
 Skrev flere tester for å øke testdekningsgraden. La til plugin for checkstyle og spotbugs i prosjektet.<br /> 
-Issues: #23, #24, #26, #49, #52<br />
+Issues: #23, #24, #25, #26, #49, #52, #71 <br />
 <br />
 ### Booking-funksjonen, innlogging og brukerprofil (uke 41)
 **Booking-funksjon - brukerhistorie 2, 6, 7, 8**<br />
 På bookingsiden kan brukeren velge dato, tid og type behandling, og får opp prisanslag for dette, for så å få valget mellom å booke timen eller avbryte. Begge knapper tar brukeren tilbake til brukerprofilsiden, så sant det var en eventuell vellykket booking. <br />
-Issues: #33, #34, #35, #36, <br />
+Issues: #33, #34, #35, #36, #64, #66, #73 <br />
 **Innlogging - brukerhistorie 1, 8, 9**<br />
 Når bruker er registrert blir hen tatt til innloggingsside som sjekker mail opp mot registrerte brukere og at passord stemmer. Kan også velge å gå rett til innlogging fra startsiden. <br /> 
-Issues: #30, #31, #32, #57, #58  <br />
+Issues: #30, #31, #32, #57, #58, #69  <br />
 **Brukerprofil - brukerhistorie 3, 8**<br />
 På brukerprofilsiden får brukeren en oversikt over kommende avtaler i frisørsalongen og kan også trykke for å komme seg til booking av ny time. <br />
-Issues: #38, #39, #40, #59, #60 <br />
+Issues: #38, #39, #40, #59, #60, #75 <br />
 **Logikk for frisørsalongen** <br />
 Opprette og knytte sammen klasser for å hjelpe controllerklassene.<br />
-Issues: #35, #40, #53, #54, #55 <br />
+Issues: #35, #40, #53, #54, #55, #60 <br />
 <br />
  
