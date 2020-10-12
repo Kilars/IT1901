@@ -3,10 +3,14 @@ package bookingsystem.core;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.util.*;
 import java.util.regex.Pattern;
 =======
 >>>>>>> d76d531b015ab6bbc22577d94e415f0d329779ac
+=======
+import java.util.regex.Pattern;
+>>>>>>> 182ecce129f7e7b904f575c192eeeccc0bca7a9e
 
 public class Booking {
 

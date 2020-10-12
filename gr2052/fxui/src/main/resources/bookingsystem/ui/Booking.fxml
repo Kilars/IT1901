@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -23,22 +22,13 @@
          </font>
       </Label>
       <DatePicker fx:id="datePicker" layoutX="125.0" layoutY="130.0" prefHeight="27.0" prefWidth="150.0" promptText="Dato" />
-      <SplitMenuButton fx:id="hourMenu" layoutX="287.0" layoutY="130.0" mnemonicParsing="false" text="Klokkesett">
-        <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
-        </items>
-      </SplitMenuButton>
-      <SplitMenuButton fx:id="treatmentMenu" layoutX="124.0" layoutY="173.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="273.0" text="Behandling">
-        <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
-        </items>
-      </SplitMenuButton>
-      <Label layoutX="124.0" layoutY="219.0" text="Estimert pris:" />
-      <Label fx:id="priceLabel" layoutX="218.0" layoutY="219.0" prefHeight="17.0" prefWidth="46.0" text="-   kr" />
-      <Button fx:id="bestillButton" layoutX="125.0" layoutY="260.0" mnemonicParsing="false" style="-fx-background-color: FFC0BC;" text="Bestill time" />
-      <Label fx:id="feedbackLabel" layoutX="247.0" layoutY="265.0" prefHeight="17.0" prefWidth="241.0" text=" " />
-      <Button fx:id="cancelButton" layoutX="235.0" layoutY="260.0" mnemonicParsing="false" style="-fx-background-color: FFC0BC FFC0BC;" text="Avbryt" />
+      <SplitMenuButton fx:id="hourMenu" layoutX="287.0" layoutY="130.0" mnemonicParsing="false" text="Klokkesett" />
+      <SplitMenuButton fx:id="treatmentMenu" layoutX="124.0" layoutY="173.0" mnemonicParsing="false" onAction="#treatmentChosen" prefHeight="27.0" prefWidth="273.0" text="Behandling" />
+      <Label layoutX="125.0" layoutY="265.0" text="Estimert pris:" />
+      <Label fx:id="priceLabel" layoutX="219.0" layoutY="265.0" prefHeight="17.0" prefWidth="46.0" text="-   kr" />
+      <Button fx:id="bestillButton" layoutX="126.0" layoutY="306.0" mnemonicParsing="false" onAction="#bestillButtonPushed" style="-fx-background-color: FFC0BC;" text="Bestill time" />
+      <Label fx:id="feedbackLabel" layoutX="300.0" layoutY="311.0" prefHeight="17.0" prefWidth="253.0" text=" " />
+      <Button fx:id="cancelButton" layoutX="236.0" layoutY="306.0" mnemonicParsing="false" onAction="#cancelButtonPushed" style="-fx-background-color: FFC0BC FFC0BC;" text="Avbryt" />
+      <SplitMenuButton fx:id="hairdresserMenu" layoutX="124.0" layoutY="214.0" mnemonicParsing="false" onAction="#hairdresserChosen" prefHeight="27.0" prefWidth="273.0" text="Velg frisør" />
    </children>
 </AnchorPane>
