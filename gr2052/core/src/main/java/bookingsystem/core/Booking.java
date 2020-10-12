@@ -1,6 +1,8 @@
 package bookingsystem.core;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.util.regex.Pattern;
 
 public class Booking {
 
@@ -44,6 +46,7 @@ public class Booking {
         this.hairdresser = hairdresser;
     }
 
+
     /**
      * @param treatment the treatment to set
      */
@@ -57,7 +60,6 @@ public class Booking {
     public User getCustomer() {
         return customer;
     }
-
 
     /**
      * @return the hairdresser
@@ -84,7 +86,21 @@ public class Booking {
      * @param date to set for the treatment
      */
     public void setDate(LocalDate date) {
-        this.date = date;
+        if (date.equals(null)){
+            throw new IllegalArgumentException("Vennligst velg en dato");
+        }
+        if(date.isBefore(LocalDate.now())){
+            throw new IllegalArgumentException("Dato må være i fremtid");
+        }
+        if(date.isAfter(LocalDate.now().plusDays(60))){
+            throw new IllegalArgumentException("Kan ikke booke mer enn 60 dager i forveien");
+        }
+        if(date.getDayOfWeek().equals(DayOfWeek.SATURDAY)||date.getDayOfWeek().equals(DayOfWeek.SUNDAY)){
+            throw new IllegalArgumentException("Vennligst velg en ukedag");
+        }
+        else{
+            this.date = date;
+        }
     }
 
     /**
@@ -97,8 +113,13 @@ public class Booking {
     /**
      * @param time for treatment
      */
-    public void setTime(String time) {
-        this.time = time;
+    public void setTime(String time) {    
+        if (Pattern.matches("[0-9][0-9]:[0-9][0-9]",time)) {
+                this.time=time;
+            }
+        else{
+            throw new IllegalArgumentException("Vennligst velg et tidspunkt");
+        }
     }
     
 }
