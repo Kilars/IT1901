@@ -8,6 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.VBox?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookingsystem.ui.BookingController">
    <children>
@@ -22,6 +23,7 @@
          </font>
       </Label>
       <DatePicker fx:id="datePicker" layoutX="125.0" layoutY="130.0" prefHeight="27.0" prefWidth="150.0" promptText="Dato" />
+      <VBox fx:id="dynamicVBox"></VBox>
       <SplitMenuButton fx:id="hourMenu" layoutX="287.0" layoutY="130.0" mnemonicParsing="false" text="Klokkesett" />
       <SplitMenuButton fx:id="treatmentMenu" layoutX="124.0" layoutY="173.0" mnemonicParsing="false" onAction="#treatmentChosen" prefHeight="27.0" prefWidth="273.0" text="Behandling" />
       <Label layoutX="125.0" layoutY="265.0" text="Estimert pris:" />

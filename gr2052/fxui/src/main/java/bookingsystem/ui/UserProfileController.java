@@ -89,11 +89,6 @@ public class UserProfileController {
     
         public static void main(String[] args) {
             UserProfileController c = new UserProfileController();
-            User u = c.getUser();
-            Booking b = new Booking();
-            // ...
-            u.addBooking(b);
-            Users us = c.getUsers();
-            us.saveToJson();
+
         }
 }

@@ -2,7 +2,6 @@ package bookingsystem.ui;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 import bookingsystem.core.Booking;
@@ -11,6 +10,7 @@ import bookingsystem.core.Salon;
 import bookingsystem.core.Treatment;
 import bookingsystem.core.User;
 import bookingsystem.core.Users;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,11 +18,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitMenuButton;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 public class BookingController {
     @FXML
@@ -33,6 +36,8 @@ public class BookingController {
     Label priceLabel,feedbackLabel;
     @FXML
     Button bestillButton, cancelButton;
+    @FXML
+    VBox dynamicVBox;
 
     private Boolean checkScene = false;
     private Salon salon = new Salon();
@@ -44,17 +49,75 @@ public class BookingController {
     private Treatment treatment;
     private HairDresser hairdresser;
 
+    ChoiceBox<HairDresser> hairdressersChoiceBox = new ChoiceBox<>();
+    ChoiceBox<Treatment> treatmentsChoiceBox = new ChoiceBox<>();
+
     /**
      * Initialize SplitMenuButtons when the fxml-file is opened/showed to user
      */
     public void initialize() {
-        updateTreatmentMenu();
+        addDynamicContent();
+      /*  updateTreatmentMenu();
         updateHourMenu();
-        updateHairdresserMenu();
+        updateHairdresserMenu();*/
     }
 
     public Users init_data(Users users){
         return this.users = users;
+    }
+
+    public void addDynamicContent() {
+        // Fill elements
+        hairdressersChoiceBox.setItems(FXCollections.observableList(this.salon.getHairdresserList()));
+        treatmentsChoiceBox.setItems(FXCollections.observableList(this.salon.getTreatmentList()));
+
+        // Setting string converters to be able to view strings that are connected to an object
+        hairdressersChoiceBox.setConverter(new StringConverter<HairDresser>() {
+            @Override
+            public String toString(HairDresser hairdresser) {
+                if (hairdresser == null) {
+                    return null;
+                } else {
+                    return hairdresser.getName();
+                }
+            }
+            @Override
+            public HairDresser fromString(String string) {
+                return hairdressersChoiceBox.getItems().stream().filter(h -> h.getName().equals(string)).findFirst().orElse(null);
+            }
+        });
+
+        treatmentsChoiceBox.setConverter(new StringConverter<Treatment>() {
+            @Override
+            public String toString(Treatment treatment) {
+                if (treatment == null) {
+                    return null;
+                } else {
+                    return treatment.getTreatment();
+                }
+            }
+            @Override
+            public Treatment fromString(String string) {
+                return treatmentsChoiceBox.getItems().stream().filter(h -> h.getTreatment().equals(string)).findFirst().orElse(null);
+            }
+        });
+
+        // EventHandlers
+        hairdressersChoiceBox.valueProperty().addListener((obs, old, current) -> {
+            if (current != null) {
+                // Do something updateCurrFromLabel
+            }
+        });
+
+        treatmentsChoiceBox.valueProperty().addListener((obs, old, current) -> {
+            if (current != null) {
+                // Do something update CurrToLabels
+            }
+        });
+
+        // Add to UI
+        dynamicVBox.getChildren().add(treatmentsChoiceBox);
+        dynamicVBox.getChildren().add(hairdressersChoiceBox);
     }
 
     /**
@@ -69,6 +132,7 @@ public class BookingController {
             i++;
         }
     }
+
 
     /**
      * Preliminary solution for adding aviable hours-MenuItems to SplitMenuButton
@@ -182,6 +246,8 @@ public class BookingController {
             }
         }
     }
+
+
 
     /**
      * Save booking and add to the User object. 

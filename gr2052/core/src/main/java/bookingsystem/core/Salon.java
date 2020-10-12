@@ -21,7 +21,6 @@ public void initialize(){
     addTreatment("Styling", 599);
     addHairdresser("Sofie Blond");
     addHairdresser("Marie Brunette");
-
 }
 
 private void addTreatment(String nameTreatment, double price) {
