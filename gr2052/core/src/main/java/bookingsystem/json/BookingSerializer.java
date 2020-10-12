@@ -15,6 +15,12 @@ class BookingSerializer extends JsonSerializer<Booking> {
      * "password" : "..." }
      */
 
+     /**
+      * Writes a Json string to the JsonGenerator jGen
+      *@param Booking
+      *@param JsonGenerator
+      *@param SerializerProvider
+      */
     @Override
     public void serialize(Booking booking, JsonGenerator jGen, SerializerProvider serializerProvider) throws IOException {
         jGen.writeStartObject();

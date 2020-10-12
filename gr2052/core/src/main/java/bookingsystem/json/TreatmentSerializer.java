@@ -15,6 +15,12 @@ class TreatmentSerializer extends JsonSerializer<Treatment> {
      * "password" : "..." }
      */
 
+     /**
+      * Writes a Json string to the JsonGenerator jGen
+      *@param Treatment
+      *@param JsonGenerator
+      *@param SerializerProvider
+      */
     @Override
     public void serialize(Treatment treatment, JsonGenerator jGen, SerializerProvider serializerProvider) throws IOException {
         jGen.writeStartObject();
