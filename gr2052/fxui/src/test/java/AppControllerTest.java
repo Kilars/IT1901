@@ -26,15 +26,6 @@ public class AppControllerTest extends ApplicationTest {
         stage.show();
     }
 
-    /**
-     * Check if a new scene is opened when clicking Register-Button in FxApp.fxml
-     */
-
-    @Test
-    public void testRegisterButton(){
-        clickOn("#registerButton");
-        assertTrue(controller.getCheckscene());
-    }
     
 }
 
