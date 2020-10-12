@@ -45,7 +45,7 @@ class BookingDeserializer extends JsonDeserializer<Booking> {
             }
         
             JsonNode dateNode = objectNode.get("date");
-            if (dateNode instanceof TextNode) {
+            if (dateNode instanceof TextNode && !dateNode.asText().equals("")) {
                 booking.setDate(LocalDate.parse(dateNode.asText()));
             }
 

@@ -20,7 +20,7 @@
         "treatment" : "Herreklipp",
         "price" : 0.0
       },
-      "date" : "2020-10-11",
+      "date" : "2020-11-20",
       "time" : "10:20"
     } ]
   }, {
@@ -50,6 +50,13 @@
     "email" : "magnus.hola@gmail.com",
     "phone" : "48052730",
     "password" : "HeiHei123",
+    "bookings" : [ ]
+  }, {
+    "firstName" : "Karen",
+    "surname" : "Hompland",
+    "email" : "karenerkul@gmail.com",
+    "phone" : "12345678",
+    "password" : "karenerkul",
     "bookings" : [ ]
   } ]
 }

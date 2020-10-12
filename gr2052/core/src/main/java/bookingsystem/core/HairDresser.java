@@ -11,7 +11,6 @@ public class HairDresser {
     }
 
     public HairDresser() {
-
     }
     
     public String getName() {

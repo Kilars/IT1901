@@ -114,7 +114,7 @@ public class Booking {
      * @param time for treatment
      */
     public void setTime(String time) {    
-        if (Pattern.matches("[0-9]{1,2}[:]{3}[0-9]{4,5}",time)) {
+        if (Pattern.matches("[0-9][0-9]:[0-9][0-9]",time)) {
                 this.time=time;
             }
         else{

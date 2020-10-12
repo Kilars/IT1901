@@ -29,8 +29,8 @@ public class BookingTest {
         treatment1 = new Treatment("Klipp", 199);
         treatment2 = new Treatment("Striping", 299);
         booking = new Booking();
-        date = LocalDate.of(2020, 12, 15);
-        time = "10:30";
+        date = LocalDate.of(2020, 11, 12);
+        time = "12:32";
     }
     @Test
     public void testBooking(){

@@ -58,10 +58,8 @@ public class UserProfileController {
         Scene bookingScene = new Scene(bookingParent);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
-        
-        UserProfileController controller = fxmlLoader.getController();
+        BookingController controller = fxmlLoader.getController();
         controller.init_data(this.user, this.users);
-        
 
         window.setScene(bookingScene);
         window.show();
