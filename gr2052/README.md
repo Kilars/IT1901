@@ -1,6 +1,6 @@
 # Booking System
 Denne appen er laget for at kunder enkelt skal kunne booke tilgjengelige tider i en frisørsalong. Brukeren skal kunne velge frisør, behandling, se et prisanslag, og avbestille bestillingen frem til et gitt tidspunkt før timen starter. Appen skal huske brukerinfo og historikk. <br />
-Appen skal vise en oversikt over tilgjengelige behandlinger hvor brukeren kan krysse av for hva som ønskes. Deretter vises en oversikt over frisørene som tilbyr denne behandlingen (evt. disse behandlingene). Når frisør er valgt får man opp en oversikt over tilgjengelige datoer og klokkeslett. Brukeren må deretter bekrefte timen. Brukerhistorikken tar vare på tidigere og kommende avtaler hvor det også er mulig å avbestille.<br /> 
+Ved booking av ny time skal man kunne velge dato, kl.slett, behandling og frisør. Brukeren må deretter bekrefte timen. Brukerhistorikken tar vare på tidigere og kommende avtaler hvor det også er mulig å avbestille.<br />
 
 Eventuelle ekstrafunksjoner: rate frisør, klippekort/lojalitetsprogram, kunne legge inn fast bestilling med ønsket tidsrom, endre bestillingen uten å avbestille.<br />
 
@@ -56,7 +56,7 @@ Issues: #23, #24, #26, #49, #52<br />
 ### Booking-funksjonen, innlogging og brukerprofil (uke 41)
 **Booking-funksjon - brukerhistorie 2, 6, 7, 8**<br />
 På bookingsiden kan brukeren velge dato, tid og type behandling, og får opp prisanslag for dette, for så å få valget mellom å booke timen eller avbryte. Begge knapper tar brukeren tilbake til brukerprofilsiden, så sant det var en eventuell vellykket booking. <br />
-Issues: #33, #34, #35, #36<br />
+Issues: #33, #34, #35, #36, <br />
 **Innlogging - brukerhistorie 1, 8, 9**<br />
 Når bruker er registrert blir hen tatt til innloggingsside som sjekker mail opp mot registrerte brukere og at passord stemmer. Kan også velge å gå rett til innlogging fra startsiden. <br /> 
 Issues: #30, #31, #32, #57, #58  <br />
