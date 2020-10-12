@@ -76,7 +76,7 @@ public class UserProfileController {
     }
 
     /**
-     * The return button lets you go back to the welcome-view
+     * The return button lets you go back to the logIn-view
      * @param event
      * @throws IOException
      */
