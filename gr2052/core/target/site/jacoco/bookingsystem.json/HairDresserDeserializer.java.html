@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HairDresserDeserializer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">core</a> &gt; <a href="index.source.html" class="el_package">bookingsystem.json</a> &gt; <span class="el_source">HairDresserDeserializer.java</span></div><h1>HairDresserDeserializer.java</h1><pre class="source lang-java linenums">package bookingsystem.json;
+
+import java.io.IOException;
+
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.node.TextNode;
+
+import bookingsystem.core.HairDresser;
+
+
+<span class="fc" id="L16">class HairDresserDeserializer extends JsonDeserializer&lt;HairDresser&gt; {</span>
+
+    /**
+     * Used in deserialize, takes in a JsonParser and calls on deserialize
+     * @param JsonParser
+     * @param DeserializationContext
+     */
+    @Override
+    public HairDresser deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+<span class="nc" id="L25">        final JsonNode node = p.getCodec().readTree(p);</span>
+<span class="nc" id="L26">        return deserialize(node);</span>
+    }
+
+
+     /**
+     * Takes in a JsonNode, converts it and returns a HairDresser object
+     * Returns null if JsonNode is not an instance of HairDresser
+     * @param JsonNode
+     * @return hairDresser
+     */
+    HairDresser deserialize(JsonNode node) {
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">        if (node instanceof ObjectNode) {</span>
+<span class="fc" id="L38">            ObjectNode objectNode = (ObjectNode) node;</span>
+<span class="fc" id="L39">            HairDresser hairDresser = new HairDresser();</span>
+<span class="fc" id="L40">            JsonNode nameNode = objectNode.get(&quot;name&quot;);</span>
+<span class="pc bpc" id="L41" title="1 of 2 branches missed.">            if (nameNode instanceof TextNode) {</span>
+<span class="fc" id="L42">                hairDresser.setName(nameNode.asText());</span>
+            }
+<span class="fc" id="L44">            return hairDresser;</span>
+        }
+<span class="nc" id="L46">        return null;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
