@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AppController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fxui</a> &gt; <a href="index.source.html" class="el_package">bookingsystem.ui</a> &gt; <span class="el_source">AppController.java</span></div><h1>AppController.java</h1><pre class="source lang-java linenums">package bookingsystem.ui;
+
+import java.io.IOException;
+import bookingsystem.core.Users;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
+
+/**
+ * Controller connected to FxApp.fxml
+ */
+
+<span class="nc" id="L18">public class AppController {</span>
+	
+	@FXML
+    Button registerButton, logInButton;
+
+<span class="nc" id="L23">    private boolean checkScene = false;</span>
+<span class="nc" id="L24">    private String jsonFile = &quot;users.json&quot;;</span>
+<span class="nc" id="L25">    private Users users = new Users(jsonFile);</span>
+
+   
+    /**
+     * Changes the scene in the App from welcome-view to the register-user-view
+     * @param event
+     * @throws IOException
+     */
+    public void registerButtonPushed(ActionEvent event) throws IOException{
+<span class="nc" id="L34">        this.checkScene = true;</span>
+
+<span class="nc" id="L36">        FXMLLoader fxmlLoader = new FXMLLoader();</span>
+<span class="nc" id="L37">        fxmlLoader.setLocation(getClass().getResource(&quot;RegisterUser.fxml&quot;));</span>
+<span class="nc" id="L38">        Parent registerUserParent = fxmlLoader.load();</span>
+
+<span class="nc" id="L40">        RegisterUserController controller = fxmlLoader.getController();</span>
+<span class="nc" id="L41">        controller.init_data(this.getUsers());</span>
+        
+<span class="nc" id="L43">        Scene registerUserScene = new Scene(registerUserParent);</span>
+<span class="nc" id="L44">        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();</span>
+
+<span class="nc" id="L46">        window.setScene(registerUserScene);</span>
+<span class="nc" id="L47">        window.show();</span>
+
+<span class="nc" id="L49">    }</span>
+
+    /**
+     * Changes the scene from Welcome-view to Log-in-view
+     * @param event
+     * @throws IOException
+     */
+    public void logInButtonPushed(ActionEvent event) throws IOException{
+<span class="nc" id="L57">        this.checkScene = true;</span>
+<span class="nc" id="L58">        FXMLLoader fxmlLoader = new FXMLLoader();</span>
+<span class="nc" id="L59">        fxmlLoader.setLocation(getClass().getResource(&quot;LogIn.fxml&quot;));</span>
+<span class="nc" id="L60">        Parent logInParent = fxmlLoader.load();</span>
+
+<span class="nc" id="L62">        LogInController controller = fxmlLoader.getController();</span>
+<span class="nc" id="L63">        controller.init_data(this.getUsers());</span>
+        
+        
+<span class="nc" id="L66">        Scene logInScene = new Scene(logInParent);</span>
+<span class="nc" id="L67">        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();</span>
+
+<span class="nc" id="L69">        window.setScene(logInScene);</span>
+<span class="nc" id="L70">        window.show();</span>
+<span class="nc" id="L71">    }</span>
+
+    /**
+     * Help method for testing successfull change of scene
+     * @return boolean which is True if scene change was successfull
+     */
+	public boolean getCheckscene(){
+<span class="nc" id="L78">        return this.checkScene;</span>
+    }
+
+    /**
+     * Method to return this controller's fxml-file
+     * @return String name of fxml-file
+     */
+    public String returnFxmlFile(){
+<span class="nc" id="L86">        return &quot;FxApp.fxml&quot;;</span>
+    }
+
+    /**
+     * Method to return Users
+     * @return users
+     */
+    public Users getUsers(){
+<span class="nc" id="L94">        return this.users;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Booking.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">core</a> &gt; <a href="index.source.html" class="el_package">bookingsystem.core</a> &gt; <span class="el_source">Booking.java</span></div><h1>Booking.java</h1><pre class="source lang-java linenums">package bookingsystem.core;
+
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.util.regex.Pattern;
+
+/**
+ * Booking class
+ * Each booking has a customer, hairdresser, treatment, date, and time
+ */
+public class Booking {
+
+    private User customer;
+    private HairDresser hairdresser;
+    private Treatment treatment;
+    private LocalDate date;
+    private String time;
+   
+    /**
+     * Constructor using parameters customer, hairdresser, treatment, date, and time
+     * @param customer      User object
+     * @param hairdresser   hairdresser object
+     * @param treatment     treatment object
+     * @param date          LocalDate object
+     * @param time          String time
+     */
+<span class="fc" id="L27">    public Booking(User customer, HairDresser hairdresser, Treatment treatment, LocalDate date, String time) {</span>
+<span class="fc" id="L28">        setHairdresser(hairdresser);</span>
+<span class="fc" id="L29">        setTreatment(treatment);</span>
+<span class="fc" id="L30">        setCustomer(customer);</span>
+<span class="fc" id="L31">        setDate(date);</span>
+<span class="fc" id="L32">        setTime(time);</span>
+<span class="fc" id="L33">    }</span>
+
+    /**
+     * Constructor with no parameters. 
+     * All parameters are set to null
+     */
+<span class="fc" id="L39">    public Booking() {</span>
+<span class="fc" id="L40">    }</span>
+
+    /**
+     * Method to set Customer
+     * @param customer the customer to set
+     */
+    public void setCustomer(User customer) {
+<span class="fc bfc" id="L47" title="All 2 branches covered.">        if (this.customer != null) {</span>
+<span class="fc" id="L48">            this.customer.removeBooking(this);</span>
+        }
+
+<span class="fc" id="L51">        this.customer = customer;</span>
+        
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        if (customer != null) {</span>
+<span class="fc" id="L54">            this.customer.addBooking(this);</span>
+        }
+<span class="fc" id="L56">    }</span>
+
+    /**
+     * Method to set hairdresser
+     * @param hairdresser the hairdresser to set
+     */
+    public void setHairdresser(HairDresser hairdresser) {
+<span class="fc" id="L63">        this.hairdresser = hairdresser;</span>
+<span class="fc" id="L64">    }</span>
+
+
+    /**
+     * Method to set treatment
+     * @param treatment the treatment to set
+     */
+    public void setTreatment(Treatment treatment) {
+<span class="fc" id="L72">        this.treatment = treatment;</span>
+<span class="fc" id="L73">    }</span>
+
+    /**
+     * Method to return customer
+     * @return the customer
+     */
+    public User getCustomer() {
+<span class="fc" id="L80">        return customer;</span>
+    }
+
+    /**
+     * Method to return hairdresser
+     * @return the hairdresser
+     */
+    public HairDresser getHairdresser() {
+<span class="fc" id="L88">        return hairdresser;</span>
+    }
+
+    /**
+     * Method to return treatment
+     * @return the treatment
+     */
+    public Treatment getTreatment() {
+<span class="fc" id="L96">        return treatment;</span>
+    }
+
+    /**
+     * Method to return date
+     * @return date of treatment
+     */
+    public LocalDate getDate() {
+<span class="fc" id="L104">        return date;</span>
+    }
+
+    /**
+     * Method to set date
+     * @param date to set for the treatment
+     */
+    public void setDate(LocalDate date) {
+<span class="pc bpc" id="L112" title="1 of 2 branches missed.">        if (date.equals(null)){</span>
+<span class="nc" id="L113">            throw new IllegalArgumentException(&quot;Vennligst velg en dato&quot;);</span>
+        }
+<span class="pc bpc" id="L115" title="1 of 2 branches missed.">        if(date.isBefore(LocalDate.now())){</span>
+<span class="nc" id="L116">            throw new IllegalArgumentException(&quot;Dato må være i fremtid&quot;);</span>
+        }
+<span class="pc bpc" id="L118" title="1 of 2 branches missed.">        if(date.isAfter(LocalDate.now().plusDays(60))){</span>
+<span class="nc" id="L119">            throw new IllegalArgumentException(&quot;Kan ikke booke mer enn 60 dager i forveien&quot;);</span>
+        }
+<span class="pc bpc" id="L121" title="2 of 4 branches missed.">        if(date.getDayOfWeek().equals(DayOfWeek.SATURDAY)||date.getDayOfWeek().equals(DayOfWeek.SUNDAY)){</span>
+<span class="nc" id="L122">            throw new IllegalArgumentException(&quot;Vennligst velg en ukedag&quot;);</span>
+        }
+        else{
+<span class="fc" id="L125">            this.date = date;</span>
+        }
+<span class="fc" id="L127">    }</span>
+
+    /**
+     * Method to return time of treatment.
+     * @return time of the treatment
+     */
+    public String getTime() {
+<span class="fc" id="L134">        return time;</span>
+    }
+
+    /**
+     * Method to set time for treatment.
+     * @param time for treatment
+     */
+    public void setTime(String time) {    
+<span class="pc bpc" id="L142" title="1 of 2 branches missed.">        if (Pattern.matches(&quot;[0-9][0-9]:[0-9][0-9]&quot;,time)) {</span>
+<span class="fc" id="L143">                this.time=time;</span>
+<span class="fc" id="L144">            }</span>
+        else{
+<span class="nc" id="L146">            throw new IllegalArgumentException(&quot;Vennligst velg et tidspunkt&quot;);</span>
+        }
+<span class="fc" id="L148">    }</span>
+
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
