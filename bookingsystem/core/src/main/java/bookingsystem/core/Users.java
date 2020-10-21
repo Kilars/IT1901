@@ -152,7 +152,7 @@ public class Users implements Iterable<User> {
             // try to read file from home folder first
         if (jsonFile != null) {
             try {
-                reader = new FileReader(new File("/workspace/gr2052/gr2052/core/src/main/resources/bookingsystem/core/" + getJsonFilename()));
+                reader = new FileReader(new File("/workspace/gr2052/bookingsystem/core/src/main/resources/bookingsystem/core/" + getJsonFilename()));
             } catch (IOException ioex) {
                 System.err.println("Fant ingen " + jsonFile + " på hjemmeområdet");
             }
@@ -196,7 +196,7 @@ public class Users implements Iterable<User> {
     
     public void saveToJson() {
         try {            
-            Writer writer = new PrintWriter(new File("/workspace/gr2052/gr2052/core/src/main/resources/bookingsystem/core/" + getJsonFilename()));
+            Writer writer = new PrintWriter(new File("/workspace/gr2052/bookingsystem/core/src/main/resources/bookingsystem/core/" + getJsonFilename()));
             usersPersistence.writeUsers(this, writer);
         } catch (Exception e) {
             System.err.println("Couldn't write to " + getJsonFilename());
