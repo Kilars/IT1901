@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TreatmentDeserializer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">core</a> &gt; <a href="index.source.html" class="el_package">bookingsystem.json</a> &gt; <span class="el_source">TreatmentDeserializer.java</span></div><h1>TreatmentDeserializer.java</h1><pre class="source lang-java linenums">package bookingsystem.json;
+
+import java.io.IOException;
+
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.node.TextNode;
+
+import bookingsystem.core.Treatment;
+
+
+<span class="fc" id="L16">class TreatmentDeserializer extends JsonDeserializer&lt;Treatment&gt; {</span>
+
+    /**
+     * Takes in a JsonParser and calls on deserialize
+     * @param JsonParser
+     * @param DeserializationContext
+     */
+    @Override
+    public Treatment deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+<span class="nc" id="L25">        final JsonNode node = p.getCodec().readTree(p);</span>
+<span class="nc" id="L26">        return deserialize(node);</span>
+    }
+
+    /**
+     * Takes in a JsonNode, converts it and returns a treatment object
+     * Returns null if JsonNode is not an instance of treatment
+     * @param JsonNode
+     * @return Treatment
+     */
+    Treatment deserialize(JsonNode node) {
+<span class="pc bpc" id="L36" title="1 of 2 branches missed.">        if (node instanceof ObjectNode) {</span>
+<span class="fc" id="L37">            ObjectNode objectNode = (ObjectNode) node;</span>
+<span class="fc" id="L38">            Treatment treatment = new Treatment();</span>
+<span class="fc" id="L39">            JsonNode treatmentNode = objectNode.get(&quot;treatment&quot;);</span>
+<span class="pc bpc" id="L40" title="1 of 2 branches missed.">            if (treatmentNode instanceof TextNode) {</span>
+<span class="fc" id="L41">                treatment.setTreatment(treatmentNode.asText());</span>
+            }
+<span class="fc" id="L43">            JsonNode priceNode = objectNode.get(&quot;price&quot;);</span>
+<span class="pc bpc" id="L44" title="1 of 2 branches missed.">            if (priceNode instanceof TextNode) {</span>
+<span class="nc" id="L45">                treatment.setPrice(priceNode.asDouble());</span>
+            }
+<span class="fc" id="L47">            return treatment;</span>
+        }
+<span class="nc" id="L49">        return null;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

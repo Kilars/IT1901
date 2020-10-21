@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookingsystem.ui.LogInController">
+   <children>
+      <BorderPane layoutX="-1.0" layoutY="1.0" prefHeight="386.0" prefWidth="600.0">
+         <top>
+            <Pane prefHeight="88.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="TOP_RIGHT" layoutX="503.0" prefHeight="65.0" prefWidth="97.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="30.0">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="MINUS" size="1.3em" />
+                           </graphic>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="30.0">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="CLOSE" size="1.3em" wrappingWidth="12.257143020629883" />
+                           </graphic>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label />
+                  <FontAwesomeIconView glyphName="BACKWARD" layoutX="10.0" layoutY="20.0" size="1.3em" />
+                  <ImageView fitHeight="137.0" fitWidth="185.0" layoutX="208.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Downloads/Logo_ITP.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </top>
+         <center>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="143.0" layoutY="98.0">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="USER" size="1.8em" wrappingWidth="23.028547286987305" />
+                     </graphic>
+                  </Label>
+                  <TextField fx:id="emailField" layoutX="211.0" layoutY="96.0" prefHeight="25.0" prefWidth="179.0" promptText="email" />
+                  <Label layoutX="141.0" layoutY="158.0">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="KEY" size="1.8em" />
+                     </graphic>
+                  </Label>
+                  <TextField fx:id="passwordField" layoutX="211.0" layoutY="156.0" prefHeight="25.0" prefWidth="179.0" promptText="passord" />
+                  <Button fx:id="logInButton" onAction="#logInButtonPushed" layoutX="338.0" layoutY="232.0" mnemonicParsing="false" text="Logg inn" />
+                  <Label fx:id="feedbackLabel" layoutX="111.0" layoutY="262.0" />
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
