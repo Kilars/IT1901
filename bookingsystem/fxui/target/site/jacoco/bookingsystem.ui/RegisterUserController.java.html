@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RegisterUserController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fxui</a> &gt; <a href="index.source.html" class="el_package">bookingsystem.ui</a> &gt; <span class="el_source">RegisterUserController.java</span></div><h1>RegisterUserController.java</h1><pre class="source lang-java linenums">package bookingsystem.ui;
+
+import java.io.IOException;
+
+import bookingsystem.core.User;
+import bookingsystem.core.Users;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+/**
+ * Controller connected to RegisterUser.fxml
+ */
+
+<span class="fc" id="L23">public class RegisterUserController {</span>
+
+    private Users users;
+
+    @FXML
+    TextField nameField, surnameField, emailField, phoneNumberField;
+
+    @FXML
+    PasswordField passwordField, confirmPasswordField;
+
+    @FXML
+    Button registerUserButton, saveUserButton, returnButton;
+
+    @FXML
+    Label feedbackLabel;
+
+    /**
+     * Creates and saves a user object if the information provided by the users
+     * input is valid Throws exception with descriptive message if the input is
+     * invalid
+     * 
+     * @param event
+     * @throws IOException
+     */
+    @FXML
+    public void handleSaveUserButton(ActionEvent event) throws IOException {
+        try{
+<span class="fc" id="L50">            User user = new User();</span>
+<span class="fc" id="L51">            user.setFirstName(nameField.getText());</span>
+<span class="fc" id="L52">            user.setSurname(surnameField.getText());</span>
+<span class="fc" id="L53">            user.setEmail(emailField.getText());</span>
+<span class="fc" id="L54">            user.setPhone(phoneNumberField.getText());</span>
+<span class="fc" id="L55">            checkPassword();</span>
+<span class="fc" id="L56">            user.setPassword(passwordField.getText());</span>
+<span class="fc" id="L57">            this.users.addUser(user);</span>
+<span class="fc" id="L58">            this.users.fireUsersChange();</span>
+<span class="fc" id="L59">            feedbackLabel.setText(&quot;&quot;);</span>
+<span class="fc" id="L60">            feedbackLabel.setText(&quot;Vellykket registrering av bruker&quot;);</span>
+            
+<span class="fc" id="L62">            changeScene(event);</span>
+<span class="fc" id="L63">        } catch (IllegalArgumentException e){</span>
+<span class="fc" id="L64">            feedbackLabel.setText(e.getMessage());</span>
+        }
+        
+        
+<span class="fc" id="L68">    }</span>
+
+    /**
+     * Changes the scene to Log In, used in handleSaveUserButton
+     * @param event
+     * @throws IOException
+     */
+    private void changeScene(ActionEvent event) throws IOException{
+<span class="fc" id="L76">        FXMLLoader fxmlLoader = new FXMLLoader();</span>
+<span class="fc" id="L77">        fxmlLoader.setLocation(getClass().getResource(&quot;LogIn.fxml&quot;));</span>
+<span class="fc" id="L78">        Parent logInParent = fxmlLoader.load();</span>
+
+<span class="fc" id="L80">        LogInController controller = fxmlLoader.getController();</span>
+<span class="fc" id="L81">        controller.init_data(this.getUsers());</span>
+        
+        
+<span class="fc" id="L84">        Scene logInScene = new Scene(logInParent);</span>
+<span class="fc" id="L85">        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();</span>
+
+<span class="fc" id="L87">        window.setScene(logInScene);</span>
+<span class="fc" id="L88">        window.show();</span>
+<span class="fc" id="L89">    }</span>
+
+    /**
+     * The return button lets you go back to the welcome-view
+     * @param event
+     * @throws IOException
+     */
+    @FXML
+    public void handleReturnButton(ActionEvent event) throws IOException{
+<span class="nc" id="L98">        FXMLLoader fxmlLoader = new FXMLLoader();</span>
+<span class="nc" id="L99">        fxmlLoader.setLocation(getClass().getResource(&quot;FxApp.fxml&quot;));</span>
+<span class="nc" id="L100">        Parent Parent = fxmlLoader.load();</span>
+
+<span class="nc" id="L102">        Scene Scene = new Scene(Parent);</span>
+<span class="nc" id="L103">        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();</span>
+
+<span class="nc" id="L105">        window.setScene(Scene);</span>
+<span class="nc" id="L106">        window.show();</span>
+
+<span class="nc" id="L108">    }</span>
+    /**
+     * Checks if the string from passwordField and confirmPasswordField are the same
+     * Throws exception if they do not match
+     * @throws IllegalArgumentException
+     * @return True if they match
+     */
+    public boolean checkPassword(){
+<span class="fc bfc" id="L116" title="All 2 branches covered.">        if (passwordField.getText().equals(confirmPasswordField.getText())){</span>
+<span class="fc" id="L117">            return true;</span>
+        }
+        else {
+<span class="fc" id="L120">            throw new IllegalArgumentException(&quot;The passwords does not match&quot;);</span>
+        }
+    }
+
+    /**
+     * @return the list of already registered users in the app
+     */
+    public Users getUsers() {
+<span class="fc" id="L128">        return this.users;</span>
+    }
+
+    /**
+     * @return text from feedback label
+     */
+    public String getFeedbackLabelText() {
+<span class="fc" id="L135">        return feedbackLabel.getText();</span>
+    }
+
+
+    /**
+     * Help method for the methods changing scenes. Setting Users in the new scene's controller.
+     * @param users
+     */
+    public void init_data(Users users){
+<span class="fc" id="L144">        this.users = users;</span>
+<span class="fc" id="L145">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
