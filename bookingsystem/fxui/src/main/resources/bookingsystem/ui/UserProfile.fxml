@@ -99,20 +99,27 @@
                   <GridPane layoutY="55.0" prefHeight="91.0" prefWidth="188.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="173.20001220703125" minWidth="10.0" prefWidth="53.2000244140625" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="99.19997558593751" minWidth="10.0" prefWidth="74.7999755859375" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="99.19997558593751" minWidth="10.0" prefWidth="90.99997558593752" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="99.19997558593751" minWidth="10.0" prefWidth="50.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="10.0" prefWidth="112.0" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="31.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Dato" />
-                        <Label text="Dato" GridPane.rowIndex="1" />
-                        <Label text="Dato" GridPane.rowIndex="2" />
-                        <Label text="Behandling" GridPane.columnIndex="2" />
-                        <Label text="Klokkeslett" GridPane.columnIndex="1" />
+                        <Label fx:id="dato1" text="Dato" />
+                        <Label fx:id="dato2" text="Dato" GridPane.rowIndex="1" />
+                        <Label fx:id="dato3" text="Dato" GridPane.rowIndex="2" />
+                        <Label fx:id="behandling1" text="Behandling" GridPane.columnIndex="2" />
+                        <Label fx:id="klokke1" text="Klokkeslett" GridPane.columnIndex="1" />
+                        <Label fx:id="klokke2" text="Klokkeslett" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="klokke3" text="Klokkeslett" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="behandling2" text="Behandling" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Label fx:id="behandling3" text="Behandling" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Rectangle fx:id="booking1" disable="true" accessibleRole="BUTTON" arcHeight="5.0" arcWidth="5.0" fill="#c7c8c9" height="34.0" opacity="0.11" stroke="BLACK" strokeType="INSIDE" width="217.0" />
+                        <Rectangle fx:id="booking2" disable="true" accessibleRole="BUTTON" arcHeight="5.0" arcWidth="5.0" fill="#c7c8c9" height="34.0" opacity="0.11" stroke="BLACK" strokeType="INSIDE" width="217.0" GridPane.rowIndex="1" />
+                        <Rectangle fx:id="booking3" disable="true" accessibleRole="BUTTON" arcHeight="5.0" arcWidth="5.0" fill="#c7c8c9" height="34.0" opacity="0.11" stroke="BLACK" strokeType="INSIDE" width="217.0" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </children>
@@ -121,15 +128,9 @@
          <right>
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="34.0" layoutY="14.0" text="Timebestilling">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <graphic>
-                        <FontAwesomeIconView glyphName="CHECK" />
-                     </graphic>
-                  </Label>
-                  <Button fx:id="bookingButton" layoutX="42.0" layoutY="121.0" mnemonicParsing="false" onAction="#handleBookingButton" text="Gå til timebestiling" />
+                  <Button fx:id="bookingButton" layoutX="28.0" layoutY="123.0" mnemonicParsing="false" onAction="#handleBookingButton" prefHeight="27.0" prefWidth="145.0" style="-fx-background-color: FFC0BC;" text="Bestill ny time" />
+                  <Button fx:id="endreTimeButton" disable="true" layoutX="28.0" layoutY="86.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="145.0" text="Endre valgt time" />
+                  <Button fx:id="avbestilleButton" disable="true" layoutX="28.0" layoutY="49.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="145.0" text="Avbestill valgt time" />
                </children>
             </Pane>
          </right>
