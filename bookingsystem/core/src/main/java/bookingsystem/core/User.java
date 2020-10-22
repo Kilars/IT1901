@@ -201,22 +201,22 @@ public class User {
     }
 
     
-    public void removeBooking(Booking booking) {
-        this.bookings.remove(booking);
-    }
-    
-    public void addBooking(Booking... bookings) {
-        for (Booking booking : bookings) {
-            this.bookings.add(booking);
+        public void removeBooking(Booking booking) {
+            this.bookings.remove(booking);
         }
-    }
     
-    public List<Booking> getBookings() {
-        return this.bookings;
-    }
+        public void addBooking(Booking... bookings) {
+            for (Booking booking : bookings) {
+                this.bookings.add(booking);
+            }
+        }
+    
+        public List<Booking> getBookings() {
+            return this.bookings;
+        }
     
 
-    public Iterator<Booking> iterator() {
-        return this.bookings.iterator();
-    }
+        public Iterator<Booking> iterator() {
+            return this.bookings.iterator();
+        }
 }

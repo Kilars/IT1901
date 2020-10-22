@@ -1,12 +1,8 @@
 package bookingsystem.ui;
 
-import bookingsystem.core.Booking;
 import bookingsystem.core.User;
 import bookingsystem.core.Users;
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.List;
-
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
@@ -20,20 +16,25 @@ import javafx.scene.control.Button;
 /* Controller connected to UserProfile.fxml */
 public class UserProfileController {
     
-    private User user=new User();
+    private User user;
     private Users users;
 
     @FXML
-    Button logInButton, bookingButton, avbestilleButton, endreTimeButton;
+    Button logInButton;
 
     @FXML
-    Button booking1, booking2, booking3;
+    Label firstName;
 
     @FXML
-    Label firstName, surname, email, phone;
+    Label surname;
 
     @FXML
-    Label dato1, dato2, dato3, klokke1, klokke2, klokke3, behandling1, behandling2, behandling3;
+    Label email;
+    @FXML
+    Label phone;
+
+    @FXML
+    Button bookingButton;
 
     /**
      * Method for when bookingButton is hit ("Gå til timebestilling"), for changing scene to Booking.fxml
@@ -88,34 +89,11 @@ public class UserProfileController {
     /**
      * Set the user information to the labels in the ui. The information is collected from the currently logged in User object.
      */
-    @FXML
     private void setUIvalues() {
         firstName.setText(user.getFirstName());
         surname.setText(user.getSurname());
         email.setText(user.getEmail());
         phone.setText(user.getPhone());
-    }
-
-    /**
-     * Show the User's bookings in the labels in ui. The information is collected from the currently logged in User object.
-     */
-    @FXML
-    private void setBookings(){
-      try{
-        dato1.setText(User.getBookings().get(0).getDate().toString());
-        klokke1.setText(User.getBookings().get(0).getTime());
-        behandling1.setText(User.getBookings().get(0).getTreatment().toString());
-        booking1.setDisable(false);
-        dato2.setText(User.getBookings().get(1).getDate().toString());
-        klokke2.setText(User.getBookings().get(1).getTime());
-        behandling2.setText(User.getBookings().get(1).getTreatment().toString());
-        booking2.setDisable(false);
-        dato3.setText(User.getBookings().get(2).getDate().toString());
-        klokke3.setText(User.getBookings().get(2).getTime());
-        behandling3.setText(User.getBookings().get(2).getTreatment().toString());
-        booking3.setDisable(false);
-      }
-      catch(NullPointerException e){}
     }
 
     /**
@@ -143,7 +121,6 @@ public class UserProfileController {
         this.users = users;
         this.user = user;
         setUIvalues();
-        setBookings();
         return this.user;
     }
 }
