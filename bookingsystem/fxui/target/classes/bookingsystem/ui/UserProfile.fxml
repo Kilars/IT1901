@@ -26,11 +26,6 @@
                         <Image url="@../../../Downloads/Logo_ITP.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="returnButton" mnemonicParsing="false" onAction="#handleReturnButton">
-                     <graphic>
-                        <FontAwesomeIconView glyphName="BACKWARD" size="1.3em" />
-                     </graphic>
-                  </Button>
                </children>
             </Pane>
          </top>
