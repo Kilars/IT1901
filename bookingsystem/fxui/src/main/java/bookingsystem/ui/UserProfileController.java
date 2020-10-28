@@ -1,14 +1,15 @@
 package bookingsystem.ui;
 
-import bookingsystem.core.Booking;
 import bookingsystem.core.User;
 import bookingsystem.core.Users;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
+import bookingsystem.core.Booking;
+import java.util.Iterator;
 
-import javax.swing.text.html.ListView;
 
+import javafx.scene.control.ListView;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
@@ -18,22 +19,24 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
+import javafx.collections.ObservableList;
 
 /* Controller connected to UserProfile.fxml. */
 public class UserProfileController {
     
     private User user;
     private Users users;
-    private int choosedBooking;
+    private ObservableList<String> bookingView;
+    private int choosedBookingIndex;
 
     @FXML
     Button logInButton, bookingButton, avbestilleButton, endreTimeButton, logOutButton;
 
     @FXML
-    ListView bookingList;
+    ListView<String> bookingList;
 
     @FXML
-    Label firstName, surname, email, phone;
+    Label name, email, phone;
 
     /**
      * Method for when bookingButton is hit ("Gå til timebestilling"), for changing scene to Booking.fxml.
@@ -72,7 +75,7 @@ public class UserProfileController {
      * @throws IOException
      */
     @FXML
-    public void handleReturnButton(ActionEvent event) throws IOException{
+    public void handleLogOutButton(ActionEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("LogIn.fxml"));
         Parent Parent = fxmlLoader.load();
@@ -88,10 +91,8 @@ public class UserProfileController {
     /**
      * Set the user information to the labels in the ui. The information is collected from the currently logged in User object.
      */
-    @FXML
     private void setUIvalues() {
-        firstName.setText(this.user.getFirstName());
-        surname.setText(this.user.getSurname());
+        name.setText(this.user.getFirstName()+" "+this.user.getSurname());
         email.setText(this.user.getEmail());
         phone.setText(this.user.getPhone());
     }
@@ -103,9 +104,8 @@ public class UserProfileController {
     @FXML
     private void setBookings(){
       try{
-        List<Booking> UserBookingList = this.user.getBookings();
-        for (Booking booking : UserBookingList){
-          this.bookingList.getItems().add(booking.toString());
+        for (Booking booking : user.getBookings()){
+          bookingList.getItems().addAll(booking.toString());
         }
       }
       catch(NullPointerException e){}
@@ -118,7 +118,8 @@ public class UserProfileController {
      */
     @FXML
     private void handleChoosedBooking(ActionEvent event){
-      this.choosedBooking = this.bookingList.getSelectionModel().getSelectedIndex();
+      bookingView = this.bookingList.getSelectionModel().getSelectedItems();
+      //this.choosedBookingIndex = this.bookingList.getSelectionModel().getSelectedIndex();
       avbestilleButton.setDisable(false);
     }
 
