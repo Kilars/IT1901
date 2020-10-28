@@ -25,7 +25,7 @@ import bookingsystem.json.UsersPersistence;
  */
 public class Users implements Iterable<User> {
     private List<User> users = new ArrayList<>();
-    private String jsonFile = "sers.json";
+    private String jsonFile = "users.json";
     private UsersPersistence usersPersistence = new UsersPersistence();
 
 
