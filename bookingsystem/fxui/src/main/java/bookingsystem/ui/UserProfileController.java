@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.swing.text.html.ListView;
+
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
@@ -17,26 +19,24 @@ import javafx.scene.Scene;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 
-/* Controller connected to UserProfile.fxml */
+/* Controller connected to UserProfile.fxml. */
 public class UserProfileController {
     
-    private User user=new User();
+    private User user;
     private Users users;
+    private int choosedBooking;
 
     @FXML
-    Button logInButton, bookingButton, avbestilleButton, endreTimeButton;
+    Button logInButton, bookingButton, avbestilleButton, endreTimeButton, logOutButton;
 
     @FXML
-    Button booking1, booking2, booking3;
+    ListView bookingList;
 
     @FXML
     Label firstName, surname, email, phone;
 
-    @FXML
-    Label dato1, dato2, dato3, klokke1, klokke2, klokke3, behandling1, behandling2, behandling3;
-
     /**
-     * Method for when bookingButton is hit ("Gå til timebestilling"), for changing scene to Booking.fxml
+     * Method for when bookingButton is hit ("Gå til timebestilling"), for changing scene to Booking.fxml.
      */
     public void handleBookingButton(ActionEvent event) throws IOException {
         try{
@@ -47,7 +47,7 @@ public class UserProfileController {
     }
 
     /**
-     * Changes the scene to Log In, used in handleBookingButton
+     * Changes the scene to Log In, used in handleBookingButton.
      * @param event
      * @throws IOException
      */
@@ -67,7 +67,7 @@ public class UserProfileController {
     }
 
     /**
-     * The return button lets you go back to the logIn-view
+     * The return button lets you go back to the logIn-view.
      * @param event
      * @throws IOException
      */
@@ -90,33 +90,39 @@ public class UserProfileController {
      */
     @FXML
     private void setUIvalues() {
-        firstName.setText(user.getFirstName());
-        surname.setText(user.getSurname());
-        email.setText(user.getEmail());
-        phone.setText(user.getPhone());
+        firstName.setText(this.user.getFirstName());
+        surname.setText(this.user.getSurname());
+        email.setText(this.user.getEmail());
+        phone.setText(this.user.getPhone());
     }
 
     /**
-     * Show the User's bookings in the labels in ui. The information is collected from the currently logged in User object.
+     * Iterates through the currently logged in User object's bookings and adds each to the ListView under "Mine avtaler:" in the ui.
+     * Catches NullPointerException.
      */
     @FXML
     private void setBookings(){
       try{
-        dato1.setText(User.getBookings().get(0).getDate().toString());
-        klokke1.setText(User.getBookings().get(0).getTime());
-        behandling1.setText(User.getBookings().get(0).getTreatment().toString());
-        booking1.setDisable(false);
-        dato2.setText(User.getBookings().get(1).getDate().toString());
-        klokke2.setText(User.getBookings().get(1).getTime());
-        behandling2.setText(User.getBookings().get(1).getTreatment().toString());
-        booking2.setDisable(false);
-        dato3.setText(User.getBookings().get(2).getDate().toString());
-        klokke3.setText(User.getBookings().get(2).getTime());
-        behandling3.setText(User.getBookings().get(2).getTreatment().toString());
-        booking3.setDisable(false);
+        List<Booking> UserBookingList = this.user.getBookings();
+        for (Booking booking : UserBookingList){
+          this.bookingList.getItems().add(booking.toString());
+        }
       }
       catch(NullPointerException e){}
     }
+
+    /**
+     * If a booking in ListView in ui is clicked on, the "Avbestille time"-button will become available, and the currently choosed 
+     * booking's index in the list is saved in choosedBooking, for further use.
+     * @param event
+     */
+    @FXML
+    private void handleChoosedBooking(ActionEvent event){
+      this.choosedBooking = this.bookingList.getSelectionModel().getSelectedIndex();
+      avbestilleButton.setDisable(false);
+    }
+
+
 
     /**
      * @return the currently logged in User object
