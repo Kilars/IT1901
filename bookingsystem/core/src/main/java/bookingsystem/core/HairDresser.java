@@ -2,7 +2,6 @@ package bookingsystem.core;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -13,7 +12,7 @@ import java.util.List;
 public class HairDresser {
     public String name;
     public HashMap<LocalDate, List<Integer>> timetable = new HashMap<>();
-    public ArrayList<Integer> defaultTime  = new ArrayList<Integer>(Collections.nCopies(8, 0));
+    public ArrayList<Integer> defaultTime  = new ArrayList<Integer>();
     
 
     /**

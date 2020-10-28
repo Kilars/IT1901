@@ -3,6 +3,13 @@ package bookingsystem.ui;
 import bookingsystem.core.User;
 import bookingsystem.core.Users;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
+import bookingsystem.core.Booking;
+import java.util.Iterator;
+
+
+import javafx.scene.control.ListView;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
@@ -12,32 +19,27 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
+import javafx.collections.ObservableList;
 
-/* Controller connected to UserProfile.fxml */
+/* Controller connected to UserProfile.fxml. */
 public class UserProfileController {
     
     private User user;
     private Users users;
+    private ObservableList<String> bookingView;
+    private int choosedBookingIndex;
 
     @FXML
-    Button logInButton;
+    Button logInButton, bookingButton, avbestilleButton, endreTimeButton, logOutButton;
 
     @FXML
-    Label firstName;
+    ListView<String> bookingList;
 
     @FXML
-    Label surname;
-
-    @FXML
-    Label email;
-    @FXML
-    Label phone;
-
-    @FXML
-    Button bookingButton;
+    Label name, email, phone;
 
     /**
-     * Method for when bookingButton is hit ("Gå til timebestilling"), for changing scene to Booking.fxml
+     * Method for when bookingButton is hit ("Gå til timebestilling"), for changing scene to Booking.fxml.
      */
     public void handleBookingButton(ActionEvent event) throws IOException {
         try{
@@ -48,7 +50,7 @@ public class UserProfileController {
     }
 
     /**
-     * Changes the scene to Log In, used in handleBookingButton
+     * Changes the scene to Log In, used in handleBookingButton.
      * @param event
      * @throws IOException
      */
@@ -68,12 +70,12 @@ public class UserProfileController {
     }
 
     /**
-     * The return button lets you go back to the logIn-view
+     * The return button lets you go back to the logIn-view.
      * @param event
      * @throws IOException
      */
     @FXML
-    public void handleReturnButton(ActionEvent event) throws IOException{
+    public void handleLogOutButton(ActionEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("LogIn.fxml"));
         Parent Parent = fxmlLoader.load();
@@ -90,11 +92,38 @@ public class UserProfileController {
      * Set the user information to the labels in the ui. The information is collected from the currently logged in User object.
      */
     private void setUIvalues() {
-        firstName.setText(user.getFirstName());
-        surname.setText(user.getSurname());
-        email.setText(user.getEmail());
-        phone.setText(user.getPhone());
+        name.setText(this.user.getFirstName()+" "+this.user.getSurname());
+        email.setText(this.user.getEmail());
+        phone.setText(this.user.getPhone());
     }
+
+    /**
+     * Iterates through the currently logged in User object's bookings and adds each to the ListView under "Mine avtaler:" in the ui.
+     * Catches NullPointerException.
+     */
+    @FXML
+    private void setBookings(){
+      try{
+        for (Booking booking : user.getBookings()){
+          bookingList.getItems().addAll(booking.toString());
+        }
+      }
+      catch(NullPointerException e){}
+    }
+
+    /**
+     * If a booking in ListView in ui is clicked on, the "Avbestille time"-button will become available, and the currently choosed 
+     * booking's index in the list is saved in choosedBooking, for further use.
+     * @param event
+     */
+    @FXML
+    private void handleChoosedBooking(ActionEvent event){
+      bookingView = this.bookingList.getSelectionModel().getSelectedItems();
+      //this.choosedBookingIndex = this.bookingList.getSelectionModel().getSelectedIndex();
+      avbestilleButton.setDisable(false);
+    }
+
+
 
     /**
      * @return the currently logged in User object
@@ -121,6 +150,7 @@ public class UserProfileController {
         this.users = users;
         this.user = user;
         setUIvalues();
+        setBookings();
         return this.user;
     }
 }
