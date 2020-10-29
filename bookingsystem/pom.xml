@@ -175,8 +175,5 @@
         <module>core</module>
         <module>fxui</module>
         <module>api</module>
-        <module>restapi</module>
-        <module>restserver</module>
-        <module>integrationtest</module>
     </modules>
 </project>
