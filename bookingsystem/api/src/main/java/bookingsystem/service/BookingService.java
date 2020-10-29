@@ -1,14 +1,16 @@
 package bookingsystem.service;
 
-import bookingsystem.core.users;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import bookingsystem.core.User;
+import bookingsystem.core.Users;
 
 @Service
 public class BookingService {
   
-  public Users users;
-
-  public static void main(String[] args) {
-    System.out.println("hei");
+  public User getUser() {
+    return new User("Magnus", "Holta", "magnus.holta@sdødlsfhjsafdljhsadfølkjasdfølkstud.ntnu.no", "48052730", "aaaaaaaa");
   }
-}
+}  
