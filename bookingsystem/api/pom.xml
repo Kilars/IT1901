@@ -9,26 +9,16 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>core</artifactId>
+    <artifactId>api</artifactId>
     <packaging>jar</packaging>
     <url>http://maven.apache.org</url>
 
     <dependencies>
-
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>2.11.2</version>
+            <dependency>
+            <groupId>it1901.gr2052</groupId>
+            <artifactId>core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.11.2</version>
-        </dependency>
-
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -45,10 +35,11 @@
             <version>3.5.10</version>
         </dependency>
 
+        <!-- Spring boot for rest -->
 
         <dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
 		<dependency>
@@ -62,6 +53,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
     </dependencies>
 
 
@@ -94,6 +86,10 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
         </plugins>
     </build>
 </project>
